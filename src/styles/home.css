@@ -10,6 +10,7 @@
     --black: #0b0b0b;
     --muted: #666666;
     --border: #e6e6e6;
+    --yeellow:#ffdd55ff;
 }
 
 /* Reset */
@@ -39,6 +40,7 @@ body{
 .button button:hover{
     background: var(--primary-dark);
 }
+
 
 /* ================= HEADER ================= */
 .container-header{

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import '../styles/home.css'
+import logo from '../../public/logo-navbar-desktop.svg'
 
 function Header() {
     const [count, setCount] = useState(0)
@@ -8,8 +9,7 @@ function Header() {
         <>
             <div className="container-header">
                 <div className="container-logo">
-                    <h2>Gusta</h2>
-                    <h5>Websites</h5>
+                    <img src={logo} alt="Logo GustaWebsites" className='logo'/>
                 </div>
                 <div className="container-nav">
                     <nav>
