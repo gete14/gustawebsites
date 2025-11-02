@@ -1,5 +1,6 @@
 {
     "name": "gustawebsites",
+    "homepage": "https://gete14.github.io/gustawebsites",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -9,7 +10,7 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "predeploy": "npm run build",
-        "deploy": "gh-pages -d dist"
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "react": "^19.1.1",
