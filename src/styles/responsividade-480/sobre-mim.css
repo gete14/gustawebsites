@@ -1,0 +1,54 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+@media (max-width: 480px) {
+  .container-sobremim {
+    padding: 40px 20px;
+    margin: 0 auto;
+  }
+
+  .titulo-sobremim {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .sobremim-card {
+    padding: 22px 18px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    background: var(--Fundo-Claro, #ffffff);
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .sobremim-card p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--Black);
+  }
+
+  .sobremim-card strong,
+  .sobremim-card a {
+    color: var(--Primaria, #3B82F6);
+    font-weight: 600;
+  }
+
+  /* animação suave */
+  .container-sobremim.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s ease;
+  }
+
+  /* leve efeito de profundidade */
+  .sobremim-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  /* aumenta um pouco o espaço entre linhas para texto respirado */
+  .sobremim-card p + p {
+    margin-top: 12px;
+  }
+}

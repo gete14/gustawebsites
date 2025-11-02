@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import '../styles/home.css'
-import leptop from '../img/leptop.png'
+import '../styles/pages-acima-1024/section1.css'
+import '../styles/responsividade-481-1024/section1.css'
+import '../styles/responsividade-480/section1.css'
+import eu from '../img/eu.jpeg'
 
 function Section1() {
 
@@ -9,17 +10,17 @@ function Section1() {
             <div className="section1">
                 <div className="container-text">
                     <div className="text">
-                        <h1>
-                            Transforme sua ideia em um site profissional
-                        </h1>
-                        <p>Eu crio sites modernos, rapidos e responsivos para o seu negocio se destacar online.</p>
+                        <h2 className='Título-principal'>
+                            Não importa o nicho do seu <h1 className='Título-principal negocio'>NEGÓCIO</h1>
+                        </h2>
+                        <p className='Subtítulos'>Eu crio sites modernos, rapidos e responsivos para o seu negocio se destacar online.</p>
                     </div>
                     <div className="button">
                         <button>Solicitar Orçamento</button>
                     </div>
                 </div>
                 <div className="container-img">
-                    <img src={leptop} alt="leptop" />
+                    <img src={eu} alt="leptop" />
                 </div>
             </div>
 

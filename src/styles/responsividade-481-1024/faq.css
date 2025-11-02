@@ -1,0 +1,9 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+@media (min-width: 481px) and (max-width: 1024px) {
+  .container-faq {
+    width: 90%;
+  }
+
+}
+  

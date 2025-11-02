@@ -1,0 +1,15 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+@media (max-width: 480px) {
+  .container-faq {
+    margin: 0;
+  }
+
+  .container-faq {
+    padding: 10px;
+  }
+
+  .faq-item {
+    padding: 10px;
+  }
+}

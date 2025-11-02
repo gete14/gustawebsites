@@ -1,0 +1,17 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+/* ================= FOOTER ================= */
+
+.footer {
+    background: var(--);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.footer-inner a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+}

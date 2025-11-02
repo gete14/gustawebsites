@@ -1,0 +1,160 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+
+/* ================= ETAPAS ================= */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 3rem auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Fundo-Claro);
+    filter: drop-shadow(0px 6px 18px);
+    padding: var(--border-radius-lg) 40px;
+    border-radius: 12px;
+    scroll-margin-top: 3rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+}
+
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.bloco {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Fundo-Claro);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: var(--border-radius-lg);
+    border-radius: 12px;
+    box-sizing: border-box;
+}
+.tituloEtapa{
+    font-size: 1rem;
+}
+
+/* Garante que o conteúdo se adapte ao texto longo */
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.Texto-normaL {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.7;
+}
+
+/* Números */
+.numeros {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-xs);
+}
+
+.num {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--Azul-Escuro);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 1;
+}
+
+/* Hover padrão */
+.num:hover {
+    background: var(--Primária-ClaraHover);
+    transform: scale(1.1);
+}
+
+/* Ativo */
+.num.active {
+    background: var(--Primária-ClaraHover);
+    transform: scale(1.1);
+}
+
+/* Hover sobre ativo */
+.num.active:hover {
+    filter: brightness(1.15);
+}
+
+/* 🔵 Anel circular de loading */
+.num.animar::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-color: 100% var(--Azul-Escuro);
+    animation: girar 4000ms linear infinite;
+    z-index: 0;
+    box-sizing: border-box;
+}
+
+/* Animação do loading */
+@keyframes girar {
+    0% {
+        transform: rotate(0deg);
+        border-color: var(--Azul-Escuro);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        border-color: transparent;
+    }
+}
+
+/* Transição suave no texto */
+.fadeIn {
+    opacity: 0;
+    animation: fadeInText 0.5s ease forwards;
+    padding-top: 20px;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.texto {
+    flex: 1;
+    transition: opacity 0.4s ease;
+}
+
+.texto.fade {
+    opacity: 0;
+}
+

@@ -1,0 +1,76 @@
+/* Titulos */
+.Título-principal {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 120%;
+    color: var(--Azul-Escuro);
+}
+.Títulos-de-seção {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 130%;
+}
+.negocio {
+    color: var(--Primaria);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+}
+.Subtítulos {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 150%;
+    color: var(--Black);
+}
+.Texto-normaL{
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 170%;
+}
+.Texto-pequeno{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 160%;
+}
+
+/* BUTTONS */
+
+.button button {
+    background: var(--Primaria);
+    color: var(--Fundo-Claro);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease;
+}
+
+.button button:hover {
+  transform: scale(1.05);
+  background-color: var(--Primária-ClaraHover);
+}
+
+/* ICONS */
+.icon-instagram{
+    text-decoration: none;
+    color: var(--black);
+    outline: none;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    border-radius: 15px;
+}
+.icon-instagram:hover{
+    scale: 1.05;
+    cursor: pointer;
+    transition: 500ms;
+    background-color: var(--Primária-ClaraHover);
+}
+

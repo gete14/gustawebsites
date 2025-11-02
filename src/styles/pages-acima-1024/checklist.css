@@ -1,0 +1,80 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+/* ================= CHECKLISST ================= */
+.checklist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: 40px auto;
+}
+
+.checklist-box {
+  background: var(--alto-100);
+  padding: 20px;
+  border: 1px solid #dbe1f1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 2px 6px var(--Black);
+}
+
+/* ======== CHECK PERSONALIZADO ======== */
+.custom-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  font-size: 0.95rem;
+  color: var(--Black);
+  cursor: pointer;
+  user-select: none;
+  padding-left: 25px;
+  transition: color 0.2s ease;
+  padding: 5px 5px 5px 25px;
+  
+}
+
+.custom-check:hover {
+    color: var(--Azul-Escuro);
+  
+}
+
+.custom-check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Bolinha */
+.custom-check .checkmark {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 16px;
+  width: 16px;
+  background-color: transparent;
+  border: 2px solid var(--Azul-Escuro);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+/* Estado marcado */
+.custom-check input:checked ~ .checkmark {
+  background-color: var(--Azul-Escuro);
+  box-shadow: 0px 0px 10px 5px var(--Primária-ClaraHover);
+}
+
+/* Animação suave no clique */
+.custom-check .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-check input:checked ~ .checkmark::after {
+  display: block;
+}

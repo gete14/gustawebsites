@@ -1,0 +1,22 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+@media (max-width: 480px) {
+  .section1 {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .container-text {
+    text-align: center;
+    margin-bottom: 35px;
+  }
+
+  .negocio {
+    font-size: 32px;
+  }
+
+  .container-img img {
+    width: 220px;
+  }
+}

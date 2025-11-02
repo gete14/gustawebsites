@@ -1,0 +1,70 @@
+@import url("../../styles/main.css");
+@import url("../../styles/text-buttons.css");
+/* ================= FAQ ================= */
+.container-faq {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 20px;
+}
+
+.container-faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.faqs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+.faq-item {
+  background: var(--faq-bg, #f9f9f9);
+  border-radius: 10px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 2px 6px var(--Black);
+}
+
+.faq-item:hover {
+  transform: translateY(-2px);
+}
+
+.faq-question {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--faq-question-color, #222);
+  position: relative;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-question::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+.faq-answer p {
+  margin-top: 10px;
+  color: var(--faq-answer-color, #555);
+  line-height: 1.6;
+}
