@@ -1,5 +1,5 @@
-@import url("../../styles/main.css");
-@import url("../../styles/text-buttons.css");
+@import url("../styles/main.css");
+@import url("../styles/text-buttons.css");
 /* ================= CHECKLISST ================= */
 .checklist-container {
   display: flex;

@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react'
-import '../styles/pages-acima-1024/header.css'
-import '../styles/responsividade-481-1024/header.css'
-import '../styles/responsividade-480/header.css'
+import '../styles/header.css'
 import logo from '../../public/icon-gustawebsites.svg'
 import { BsWhatsapp } from "react-icons/bs"
 import { HiOutlineMenu, HiX } from "react-icons/hi"
@@ -72,12 +70,8 @@ function Header() {
         <div className="container-nav">
           <nav>
             <ul>
-              <li><a href="#Solucoes">Soluções</a></li>
-              <li><a href="#Portifolio">Portifólio</a></li>
-              <li><a href="#Etapas">Etapas</a></li>
-              <li><a href="#Investimento">Investimento</a></li>
-              <li><a href="#Sobre-mim">Sobre mim</a></li>
-              <li><a href="#FAQ">FAQ</a></li>
+              <li><a href="#Etapas">Processo de Criação</a></li>
+              <li><a href="#Investimento">Descubra seu Orçamento</a></li>
             </ul>
           </nav>
         </div>

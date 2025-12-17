@@ -7,25 +7,30 @@ import Footer from './footer'
 import Sobremim from './sobre-mim'
 import Etapas from './etapas'
 import Checklist from './checklist'
+import WhatsAppButton from './wpp'
+
+import "../styles/body.css";
+
+
 function Body() {
 
     return (
         <>
-            <body>
-                <StrictMode>
-                    <Header />
-                    <Section1 />
+            <StrictMode>
+                <Header />
+                <Section1 />
                     <Etapas />
                     <Planos />
-                    <Checklist />
-                    <Faq />
-                    <Sobremim />
-                    <Footer />
-                </StrictMode>
-            </body>
+                    <WhatsAppButton />
+                {/* <Checklist /> */}
+                {/* <Faq /> */}
+                {/* <Sobremim /> */}
+                <Footer />
+            </StrictMode>
         </>
     )
 }
+
 
 export default Body
 

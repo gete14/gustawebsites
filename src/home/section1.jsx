@@ -1,7 +1,6 @@
-import '../styles/pages-acima-1024/section1.css'
-import '../styles/responsividade-481-1024/section1.css'
-import '../styles/responsividade-480/section1.css'
-import eu from '../img/eu.jpeg'
+import '../styles/section1.css'
+
+import eu from '../img/eu3.png'
 
 function Section1() {
 
@@ -10,13 +9,13 @@ function Section1() {
             <div className="section1">
                 <div className="container-text">
                     <div className="text">
-                        <h2 className='Título-principal'>
-                            Não importa o nicho do seu <h1 className='Título-principal negocio'>NEGÓCIO</h1>
-                        </h2>
-                        <p className='Subtítulos'>Eu crio sites modernos, rapidos e responsivos para o seu negocio se destacar online.</p>
+                        <h1 className='Título-principal-section1'>
+                            NÃO IMPORTA O NICHO DO SEU <p className='Título-principal negocio'>NEGÓCIO</p>
+                        </h1>
+                        <p className='Subtítulos-section1'>Eu crio sites modernos, rapidos e responsivos para o seu negocio se destacar online.</p>
                     </div>
-                    <div className="button">
-                        <button>Solicitar Orçamento</button>
+                    <div className="button-section1">
+                        <button >Solicitar Orçamento</button>
                     </div>
                 </div>
                 <div className="container-img">

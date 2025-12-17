@@ -1,15 +1,13 @@
-@import url("../../styles/main.css");
-@import url("../../styles/text-buttons.css");
+@import url("../styles/main.css");
+@import url("../styles/text-buttons.css");
 /* ================= FOOTER ================= */
 
 .footer {
-    background: var(--);
-    color: var(--white);
+    background: var(--Azul-Escuro);
+    color: #FFF;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    padding: 90px;
 }
-
 .footer-inner a {
     color: var(--white);
     text-decoration: none;

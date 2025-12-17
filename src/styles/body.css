@@ -1,0 +1,7 @@
+@import url("../styles/main.css");
+@import url("../styles/text-buttons.css");
+
+.home-body {
+    display: flex;
+    flex-direction: row;
+}

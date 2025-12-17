@@ -1,0 +1,170 @@
+@import url("../styles/main.css");
+@import url("../styles/text-buttons.css");
+
+/* ================= SECTION 1 ================= */
+.section1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+    padding: 9rem 10%;
+    background: url('../img/fundo-section.png') center/cover no-repeat ;
+    overflow: hidden;
+}
+
+/* Overlay escuro */
+.section1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.85),
+        rgba(0, 0, 0, 0.55)
+    );
+    z-index: 0;
+}
+
+/* Conteúdo acima do overlay */
+.section1 > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---- Texto ---- */
+.container-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    max-width: 600px;
+    text-align: left;
+}
+
+.text{
+    text-align: center;
+}
+.Título-principal-section1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    line-height: 120%;
+    color: #ffffff;
+}
+
+.negocio {
+    color: var(--Azul-Claro);
+    display: block;
+}
+
+.Subtítulos-section1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 160%;
+    color: #e5e7eb;
+    max-width: 520px;
+}
+
+/* ---- Botão ---- */
+.button-section1{
+    justify-content: center;
+    display: flex;
+}
+.button-section1 button {
+    background: var(--Primaria);
+    color: #fff;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+}
+
+.button-section1 button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+    cursor: pointer;
+}
+
+
+/* ---- Imagem ---- */
+.container-img {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideRight 0.8s ease forwards;
+}
+
+.container-img img {
+    width: min(580px, 90%);
+    height: auto;
+    border-radius: 20px;
+    
+    transition: transform 0.4s ease;
+}
+
+
+.container-img img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* ---- Animações ---- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+@media (max-width: 900px) {
+    .section1 {
+        flex-direction: column;
+        text-align: center;
+        padding: 10rem 6%;
+    }
+
+    .container-text {
+        align-items: center;
+        text-align: center;
+    }
+
+    .Subtítulos-section1 {
+        margin: 0 auto;
+    }
+
+    .container-img {
+        margin-top: 3rem;
+    }
+}

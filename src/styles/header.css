@@ -1,5 +1,5 @@
-@import url("../../styles/main.css");
-@import url("../../styles/text-buttons.css");
+@import url("../styles/main.css");
+@import url("../styles/text-buttons.css");
 
 /* ================= HEADER (DESKTOP) ================= */
 .container-header {
@@ -9,9 +9,12 @@
   transform: translateX(-50%); /* 🔹 centraliza horizontalmente */
   width: 95%; /* ocupa quase toda a tela */
   max-width: 1200px;
-  background: var(--Fundo-Claro);
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.199);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.188);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,7 +54,7 @@
 
 .container-nav li a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--Fundo-Claro);
   font-weight: 500;
   transition: 0.3s ease;
 }

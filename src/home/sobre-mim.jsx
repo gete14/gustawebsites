@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import '../styles/pages-acima-1024/sobre-mim.css'
-import '../styles/responsividade-481-1024/sobre-mim.css'
-import '../styles/responsividade-480/sobre-mim.css'
+import '../styles/sobre-mim.css'
+
 
 function Sobremim() {
     const [isVisible, setIsVisible] = useState(false)

@@ -1,0 +1,219 @@
+@import url("../styles/main.css");
+@import url("../styles/text-buttons.css");
+
+/* ================= SECTION ================= */
+
+.etapas-section {
+  position: relative;
+  width: 100%;
+  padding: 6rem 5%;
+  background:
+    radial-gradient(circle at bottom center,
+      rgba(0, 120, 255, 0.45),
+      rgba(2, 6, 23, 0.95) 60%),
+    linear-gradient(to right,
+      rgba(0, 80, 180, 0.15),
+      transparent,
+      rgba(0, 80, 180, 0.15));
+  background-color: #020617;
+  filter: drop-shadow(0px 6px 18px);
+  box-sizing: border-box;
+}
+
+.etapas-section::before {
+  content: "";
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: radial-gradient(ellipse at center,
+      #020617 0%,
+      transparent 70%);
+}
+
+/* ================= HEADER ================= */
+
+.etapas-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.Titulo-principal-etapas {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  line-height: 120%;
+  color: #ffffff;
+}
+
+.Subtitulos-etapas {
+  max-width: 520px;
+  margin: 16px auto 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 160%;
+  color: #e5e7eb;
+}
+
+/* ================= INDICADORES ================= */
+
+.etapas-indicadores {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: center;
+}
+
+.etapa-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--Azul-Escuro);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.etapa-btn:hover {
+  background: var(--Primária-ClaraHover);
+  transform: scale(1.1);
+}
+
+.etapa-btn.ativo {
+  background: var(--Primária-ClaraHover);
+  transform: scale(1.2);
+  translate: 16px 0;
+}
+
+/* ================= CARD FLEX ================= */
+
+.etapa-card-flex {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  padding: 40px;
+  border-radius: 20px;
+  min-height: 340px;
+}
+
+/* ================= TEXTO CENTRAL ================= */
+
+.etapa-centro {
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.etapa-titulo {
+  font-size: 2.5rem;
+  color: #ffffff;
+}
+
+.etapa-textos {
+  line-height: 1.7;
+}
+
+.etapa-textos p {
+  font-size: 1.2rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+/* ================= ÍCONE DIREITA ================= */
+
+.etapa-icon-direita {
+  font-size: 84px;
+  color: var(--Primária-ClaraHover);
+  opacity: 0.9;
+  flex-shrink: 0;
+  transition: transform .4s ease, opacity .4s ease;
+}
+
+.etapa-card-flex:hover .etapa-icon-direita {
+  transform: scale(1.12);
+  opacity: 1;
+}
+
+/* ================= NAVEGAÇÃO ================= */
+
+.etapa-navegacao {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.etapa-seta {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  font-size: 2.4rem;
+  color: #ffffff;
+  transition: transform .2s ease, color .2s ease;
+}
+
+.etapa-seta:hover .arrow-icon {
+  transform: scale(1.2);
+  color: var(--Primária-ClaraHover);
+}
+
+/* ================= ANIMAÇÃO ================= */
+
+.fade {
+  animation: fadeInText .5s ease forwards;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 768px) {
+
+  .etapas-conteudo {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .etapas-indicadores {
+    flex-direction: row;
+  }
+
+  .etapa-btn.ativo {
+    background: var(--Primária-ClaraHover);
+    transform: scale(1.2);
+    translate: 0px -16px;
+  }
+
+  .etapa-card-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .etapa-icon-direita {
+    font-size: 60px;
+  }
+
+  .etapa-navegacao {
+    justify-content: center;
+  }
+}
