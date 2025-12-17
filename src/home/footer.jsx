@@ -1,6 +1,5 @@
-import '../styles/pages-acima-1024/footer.css'
-import '../styles/responsividade-481-1024/etapas.css'
-import '../styles/responsividade-480/etapas.css'
+import '../styles/footer.css'
+
 
 function Footer() {
 

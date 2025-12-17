@@ -1,7 +1,5 @@
 import '../styles/home.css'
-import '../styles/pages-acima-1024/checklist.css'
-import '../styles/responsividade-481-1024/checklist.css'
-import '../styles/responsividade-480/checklist.css'
+import '../styles/checklist.css'
 import React, { useState } from "react";
 
 export default function Checklist() {

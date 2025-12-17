@@ -1,139 +1,130 @@
-import '../styles/pages-acima-1024/planos.css';
-import '../styles/responsividade-481-1024/planos.css';
-import '../styles/responsividade-480/planos.css';
-import React, { useState } from "react";
-import celularImg from "../img/celular.png";
+import { useState } from "react";
+import "../styles/planos.css";
 
-// Import dos ícones
-import { FaGlobe, FaCalendarAlt, FaCogs, FaUsers, FaBullseye, FaShoppingCart } from "react-icons/fa";
+export default function Planos() {
+  const numeroDestino = "5511915079401";
 
-function Planos() {
-  const planos = [
-    {
-      nome: "Site Institucional",
-      preco: "R$ 300,00",
-      descricao: "Ideal para apresentar sua empresa e serviços de forma profissional. Um site institucional sólido transmite credibilidade e fortalece sua presença online.",
-      beneficios: [
-        "Design moderno e elegante",
-        "Página inicial + até 3 internas",
-        "Formulário de contato funcional",
-        "Otimização para Google (SEO básico)",
-        "Totalmente responsivo",
-      ],
-      icon: <FaGlobe />,
-    },
-    {
-      nome: "Agenda Online",
-      preco: "R$ 450,00",
-      descricao: "Perfeito para profissionais que desejam agendar consultas, serviços ou reuniões online. Totalmente automatizado para economizar seu tempo.",
-      beneficios: [
-        "Agendamento integrado com calendário",
-        "Painel de controle simples",
-        "Notificações automáticas por e-mail",
-        "Design personalizado",
-        "Responsivo e seguro",
-      ],
-      icon: <FaCalendarAlt />,
-    },
-    {
-      nome: "Sistemas Internos",
-      preco: "R$ 950,00",
-      descricao: "Desenvolvimento de sistemas internos sob medida para controle, relatórios e automação de processos da sua empresa.",
-      beneficios: [
-        "Sistema personalizado",
-        "Banco de dados seguro",
-        "Painel administrativo completo",
-        "Escalável para crescimento",
-        "Treinamento incluso",
-      ],
-      icon: <FaCogs />,
-    },
-    {
-      nome: "Área de Membros",
-      preco: "R$ 600,00",
-      descricao: "Crie um espaço exclusivo para alunos ou clientes com login e conteúdo restrito. Ideal para cursos e mentorias online.",
-      beneficios: [
-        "Login e autenticação segura",
-        "Painel do aluno personalizado",
-        "Controle de acesso por planos",
-        "Área de vídeos e materiais",
-        "Suporte completo",
-      ],
-      icon: <FaUsers />,
-    },
-    {
-      nome: "Landing Page",
-      preco: "R$ 250,00",
-      descricao: "Uma página única e altamente otimizada para conversão. Ideal para campanhas, produtos ou captação de leads.",
-      beneficios: [
-        "Design estratégico e objetivo",
-        "Foco em conversão",
-        "Integração com WhatsApp e e-mail",
-        "Rápida e leve",
-        "Otimizada para SEO",
-      ],
-      icon: <FaBullseye />,
-    },
-    {
-      nome: "Lojas Virtuais",
-      preco: "R$ 700,00",
-      descricao: "Venda seus produtos online com uma loja completa, segura e personalizada. Gerencie pedidos, estoque e pagamentos em um só lugar.",
-      beneficios: [
-        "Catálogo de produtos completo",
-        "Carrinho e checkout integrados",
-        "Pagamentos com Pix e Cartão",
-        "Gerenciamento de pedidos",
-        "Layout moderno e responsivo",
-      ],
-      icon: <FaShoppingCart />,
-    },
-  ];
+  const [dados, setDados] = useState({
+    tipoServico: "Manutenção de Site",
+    tipoSite: "Landing Page",
+    manutencao: [],
+    nome: "",
+    whatsapp: "",
+  });
 
-  const [categoriaAtiva, setCategoriaAtiva] = useState(planos[0]);
+  
 
-  return (
-    <div className="investimento container" id="Investimento">
-      <h2 className="Título-principal">Investimento</h2>
+  const atualizarCampo = (campo, valor) => {
+    setDados((prev) => ({ ...prev, [campo]: valor }));
+  };
 
-      {/* Carrossel / Botões de categoria */}
-      <div className="categorias Títulos-de-seção">
-        {planos.map((plano) => (
-          <button
-            key={plano.nome}
-            onClick={() => setCategoriaAtiva(plano)}
-            className={categoriaAtiva.nome === plano.nome ? "active" : ""}
-          >
-            <span className="icon">{plano.icon}</span>
-            <div className="texto-btn">
-              <span>{plano.nome}</span>
-              <small>{plano.preco}</small>
-            </div>
-          </button>
-        ))}
-      </div>
+  const alternarManutencao = (item) => {
+    setDados((prev) => ({
+      ...prev,
+      manutencao: prev.manutencao.includes(item)
+        ? prev.manutencao.filter((i) => i !== item)
+        : [...prev.manutencao, item],
+    }));
+  };
 
-      {/* Conteúdo principal */}
-      <div className="investimento-conteudo">
-        <img src={celularImg} alt="Exemplo de site" className="investimento-imagem" />
+  const enviarWhatsApp = () => {
+    const mensagem = `
+Olá! Gostaria de um orçamento 👇
 
-        <div className="investimento-texto">
-          <h3 className="Títulos-de-seção">{categoriaAtiva.nome}</h3>
-          <p className="Texto-normaL container-preco">
-            A partir de: <span className="Títulos-de-seção">{categoriaAtiva.preco}</span>
-          </p>
-          <p className="Texto-normaL descricao">{categoriaAtiva.descricao}</p>
-          <ul>
-            {categoriaAtiva.beneficios.map((item, i) => (
-              <li key={i} className="Texto-pequeno">{item}</li>
-            ))}
-          </ul>
-          <div className="button">
-            <button className="btn-orcamento">Quero um Orçamento</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+Meu Nome é ${dados.nome}
+Meu contato do WhatsApp: ${dados.whatsapp}
+
+Serviço:
+- ${dados.tipoServico}
+
+Tipo de Página:
+- ${dados.tipoSite}
+
+Manutenção:
+${
+  dados.manutencao.length
+    ? dados.manutencao.map((i) => `- ${i}`).join("\n")
+    : "- Não definido"
 }
 
-export default Planos;
+Aguardo retorno
+    `;
+
+    const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(
+      mensagem
+    )}`;
+
+    window.open(url, "_blank");
+  };
+
+  return (
+    <section className="investimento-section" id="Investimento">
+      <header className="investimento-header">
+        <h2 className="titulo">PREENCHA O FORMULARIO:</h2>
+        <p className="subtitulo">
+          Escolha abaixo o que você precisa e receba um orçamento direto no
+          WhatsApp.
+        </p>
+      </header>
+
+      <div className="formulario" role="group" aria-label="Solicitação de orçamento">
+        <div className="grupo">
+          <label>O que você precisa?</label>
+          <select
+            value={dados.tipoServico}
+            onChange={(e) =>
+              atualizarCampo("tipoServico", e.target.value)
+            }
+          >
+            <option>Criação de Site</option>
+            <option>Manutenção de Site</option>
+            <option>Atualização de Página Existente</option>
+          </select>
+        </div>
+
+        <div className="grupo">
+          <label>Tipo de página</label>
+          <select
+            value={dados.tipoSite}
+            onChange={(e) => atualizarCampo("tipoSite", e.target.value)}
+          >
+            <option>Portfólio Profissional</option>
+            <option>Landing Page</option>
+            <option>Site Institucional</option>
+            <option>Página Única</option>
+            <option>Loja</option>
+            <option>Sistema Empresarial</option>
+          </select>
+        </div>
+
+        <div className="grupo">
+          <label>Seu nome</label>
+          <input
+            type="text"
+            placeholder="Digite seu nome"
+            value={dados.nome}
+            onChange={(e) => atualizarCampo("nome", e.target.value)}
+          />
+        </div>
+
+        <div className="grupo">
+          <label>Seu WhatsApp</label>
+          <input
+            type="tel"
+            placeholder="(11) 99999-9999"
+            value={dados.whatsapp}
+            onChange={(e) => atualizarCampo("whatsapp", e.target.value)}
+          />
+        </div>
+
+        <button
+          type="button"
+          className="btn-enviar"
+          onClick={enviarWhatsApp}
+        >
+          Solicitar orçamento no WhatsApp
+        </button>
+      </div>
+    </section>
+  );
+}

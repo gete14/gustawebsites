@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import '../styles/pages-acima-1024/faq.css'
-import '../styles/responsividade-481-1024/faq.css'
-import '../styles/responsividade-480/faq.css'
+import '../styles/faq.css'
 
 function Faq() {
   const [activeIndex, setActiveIndex] = useState(null);

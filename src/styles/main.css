@@ -9,7 +9,7 @@
 }
 body {
   
-  background-color: var(--alto-100);
+  background-color: var(--Black);
 }
 
 :root {
@@ -76,3 +76,12 @@ body {
 a{
     text-decoration: none;
 }
+
+html, body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
