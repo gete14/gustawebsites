@@ -1,70 +1,115 @@
 @import url("../styles/main.css");
-@import url("../styles/text-buttons.css");
-/* ================= FAQ ================= */
-.container-faq {
-  max-width: 700px;
-  margin: 80px auto;
-  padding: 20px;
+
+/* ================== SECTION ================== */
+.faq {
+  padding: 6rem 8%;
+  color: var(--9);
 }
 
-.container-faq h2 {
+/* ================== HEADER ================== */
+.faq-header {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 }
 
-.faqs {
+.faq-header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--9);
+}
+
+.faq-header p {
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+  color: var(--5);
+}
+
+/* ================== CONTAINER ================== */
+.faq-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  
+  gap: 1.8rem;
 }
 
+/* ================== ITEM ================== */
 .faq-item {
-  background: var(--faq-bg, #f9f9f9);
-  border-radius: 10px;
-  padding: 18px 20px;
+  background: var(--2);
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
   overflow: hidden;
-  box-shadow: 0 2px 6px var(--Black);
+  transition: all 0.35s ease;
 }
 
+/* hover */
 .faq-item:hover {
-  transform: translateY(-2px);
+  filter: brightness(1.05);
 }
 
-.faq-question {
-  font-size: 1.1rem;
+/* ativo */
+.faq-item.ativo {
+  background: linear-gradient(90deg, var(--2), var(--3));
+}
+
+/* ================== PERGUNTA ================== */
+.faq-pergunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 2rem;
+}
+
+.faq-pergunta span:first-child {
+  font-size: 1.2rem;
   font-weight: 600;
-  color: var(--faq-question-color, #222);
-  position: relative;
+  color: var(--6);
 }
 
-.faq-item.active .faq-question::after {
-  transform: rotate(45deg);
+/* ================== SETA ================== */
+.seta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--6);
+  transition: transform 0.35s ease;
 }
 
-.faq-question::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-weight: bold;
-  transition: transform 0.3s ease;
+.faq-item.ativo .seta {
+  transform: rotate(180deg);
 }
 
-.faq-item.active .faq-question::after {
-  transform: rotate(45deg);
+
+/* ================== RESPOSTA ================== */
+.faq-resposta {
+  background: var(--8);
+  padding: 1.5rem 2rem;
+  animation: abrir 0.4s ease;
 }
 
-.faq-answer {
-  transition: all 0.4s ease;
-  overflow: hidden;
-}
-
-.faq-answer p {
-  margin-top: 10px;
-  color: var(--faq-answer-color, #555);
+.faq-resposta p {
+  color: var(--9);
   line-height: 1.6;
+  font-weight: 600;
+}
+
+/* ================== ANIMAÇÃO ================== */
+@keyframes abrir {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================== RESPONSIVO ================== */
+@media (max-width: 768px) {
+  .faq-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .faq-pergunta span:first-child {
+    font-size: 1.05rem;
+  }
 }

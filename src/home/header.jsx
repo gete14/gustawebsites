@@ -1,94 +1,74 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import '../styles/header.css'
 import logo from '../../public/icon-gustawebsites.svg'
-import { BsWhatsapp } from "react-icons/bs"
-import { HiOutlineMenu, HiX } from "react-icons/hi"
+import { HiOutlineMenu, HiX } from 'react-icons/hi'
+import ThemeToggle from './ThemeToggle'
 
 function Header() {
   const [showHeader, setShowHeader] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [lastScrollY, setLastScrollY] = useState(0)
 
-  const controlHeader = () => {
-    if (window.scrollY > lastScrollY) {
+  const handleScroll = useCallback(() => {
+    const currentScroll = window.scrollY
+
+    if (currentScroll > lastScrollY && currentScroll > 80) {
       setShowHeader(false)
     } else {
       setShowHeader(true)
     }
-    setLastScrollY(window.scrollY)
-  }
 
-  useEffect(() => {
-    window.addEventListener('scroll', controlHeader)
-    return () => window.removeEventListener('scroll', controlHeader)
+    setLastScrollY(currentScroll)
   }, [lastScrollY])
 
-  const handleLinkClick = () => setMenuOpen(false)
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
+
+  const toggleMenu = () => setMenuOpen(prev => !prev)
+  const closeMenu = () => setMenuOpen(false)
 
   return (
-    <>
-      {/* Overlay com blur ao abrir o menu */}
-      {menuOpen && (
-        <div
-          className="menu-overlay active"
-          onClick={() => setMenuOpen(false)}
-        ></div>
-      )}
+    <header className={`header ${showHeader ? 'show' : 'hide'}`}>
+      <div className="header-container">
+        
+        {/* LOGO */}
+        <div className="logo">
+          <img src={logo} alt="Gusta Websites" />
+        </div>
+        <ThemeToggle />
 
-      {/* Botão do menu hamburguer */}
-      <div
-        className={`menu-mobile ${menuOpen ? 'open' : ''}`}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        {menuOpen ? (
-          <HiX className="icon-menu" />
-        ) : (
-          <HiOutlineMenu className="icon-menu" />
-        )}
+        {/* MENU DESKTOP */}
+        <nav className="nav-desktop">
+          <a href="#servicos">Serviços</a>
+          <a href="#portfolio">Portfólio</a>
+          <a href="#planos">Planos</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contato">Contato</a>
+          <a href="#contato" className="btn-orcamento">
+            Orçamento
+          </a>
+        </nav>
+
+        {/* MENU MOBILE ICON */}
+        <div className="menu-icon" onClick={toggleMenu}>
+          {menuOpen ? <HiX /> : <HiOutlineMenu />}
+        </div>
       </div>
 
-      {/* Menu lateral mobile */}
-      {menuOpen && (
-        <div className="menu-open">
-          <ul>
-            <li><a href="#Solucoes" onClick={handleLinkClick}>Soluções</a></li>
-            <li><a href="#Portifolio" onClick={handleLinkClick}>Portifólio</a></li>
-            <li><a href="#Etapas" onClick={handleLinkClick}>Etapas</a></li>
-            <li><a href="#Investimento" onClick={handleLinkClick}>Investimento</a></li>
-            <li><a href="#Sobre-mim" onClick={handleLinkClick}>Sobre mim</a></li>
-            <li><a href="#FAQ" onClick={handleLinkClick}>FAQ</a></li>
-          </ul>
-        </div>
-      )}
-
-      {/* Header desktop */}
-      <header className={`container-header ${showHeader ? 'show' : 'hide'}`}>
-        <div className="container-logo">
-          <img src={logo} alt="Logo GustaWebsites" className='logo' />
-        </div>
-
-        <div className="container-nav">
-          <nav>
-            <ul>
-              <li><a href="#Etapas">Processo de Criação</a></li>
-              <li><a href="#Investimento">Descubra seu Orçamento</a></li>
-            </ul>
-          </nav>
-        </div>
-
-        {/* Ícone de WhatsApp opcional */}
-        {/* 
-        <a
-          href="https://wa.me/5599999999999"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="whatsapp-icon"
-        >
-          <BsWhatsapp />
-        </a> 
-        */}
-      </header>
-    </>
+      {/* MENU MOBILE */}
+      <nav className={`nav-mobile ${menuOpen ? 'open' : ''}`}>
+        <a href="#servicos" onClick={closeMenu}>Serviços</a>
+        <a href="#portfolio" onClick={closeMenu}>Portfólio</a>
+        <a href="#planos" onClick={closeMenu}>Planos</a>
+        <a href="#faq" onClick={closeMenu}>FAQ</a>
+        <a href="#contato" onClick={closeMenu}>Contato</a>
+        <a href="#contato" className="btn-orcamento" onClick={closeMenu}>
+          Orçamento
+        </a>
+      </nav>
+    </header>
   )
 }
 

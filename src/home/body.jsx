@@ -4,9 +4,9 @@ import Header from './header'
 import Planos from './planos'
 import Faq from './faq'
 import Footer from './footer'
-import Sobremim from './sobre-mim'
-import Etapas from './etapas'
-import Checklist from './checklist'
+import Servicos from './servicos'
+import Portfolio from './portfolio'
+import Contato from './contato'
 import WhatsAppButton from './wpp'
 
 import "../styles/body.css";
@@ -17,14 +17,16 @@ function Body() {
     return (
         <>
             <StrictMode>
-                <Header />
-                <Section1 />
-                    <Etapas />
+                <div className="layout">
+                    <Header />
+                    <Section1 />
+                    <Servicos />
+                    <Portfolio />
                     <Planos />
+                    <Faq />
+                    <Contato />
                     <WhatsAppButton />
-                {/* <Checklist /> */}
-                {/* <Faq /> */}
-                {/* <Sobremim /> */}
+                </div>
                 <Footer />
             </StrictMode>
         </>

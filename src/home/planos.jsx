@@ -1,130 +1,81 @@
-import { useState } from "react";
-import "../styles/planos.css";
+import '../styles/planos.css'
+import { MdCheckBox } from "react-icons/md";
 
-export default function Planos() {
-  const numeroDestino = "5511915079401";
+function Planos() {
 
-  const [dados, setDados] = useState({
-    tipoServico: "Manutenção de Site",
-    tipoSite: "Landing Page",
-    manutencao: [],
-    nome: "",
-    whatsapp: "",
-  });
+    const planos = [
+        {
+            nome: 'Essencial',
+            destaque: false,
+            itens: [
+                'Até 5 atualizações por mês',
+                'Suporte técnico',
+                'Correções pontuais pós-entrega',
+                'Ajustes simples de conteúdo',
+                '1 reunião mensal de alinhamento',
+                'Suporte básico'
+            ]
+        },
+        {
+            nome: 'Profissional',
+            destaque: true,
+            itens: [
+                'Até 10 atualizações por mês',
+                'Suporte técnico',
+                'Ajustes contínuos no site',
+                'Pequenas melhorias visuais',
+                '1 reunião mensal de alinhamento',
+                'Suporte prioritário'
+            ]
+        },
+        {
+            nome: 'Premium',
+            destaque: false,
+            itens: [
+                'Até 20 atualizações por mês',
+                'Suporte técnico',
+                'Melhorias constantes',
+                'Implementações simples sob demanda',
+                '2 reuniões mensais de alinhamento',
+                'Suporte avançado'
+            ]
+        }
+    ]
 
-  
+    return (
+        <section className="planos">
+            <div className="tittle-section">
+                <h1>Planos de Suporte</h1>
+                <span className='linha'></span>
+                <p>
+                    Escolha o pacote que melhor atende às necessidades do seu negócio.
+                </p>
+            </div>
 
-  const atualizarCampo = (campo, valor) => {
-    setDados((prev) => ({ ...prev, [campo]: valor }));
-  };
+            <div className="planos-container">
+                {planos.map((plano, index) => (
+                    <div
+                        key={index}
+                        className={`plano-card ${plano.destaque ? 'destaque' : ''}`}
+                    >
+                        {plano.destaque && (
+                            <span className="badge">Mais recomendável</span>
+                        )}
 
-  const alternarManutencao = (item) => {
-    setDados((prev) => ({
-      ...prev,
-      manutencao: prev.manutencao.includes(item)
-        ? prev.manutencao.filter((i) => i !== item)
-        : [...prev.manutencao, item],
-    }));
-  };
+                        <h2>{plano.nome}</h2>
 
-  const enviarWhatsApp = () => {
-    const mensagem = `
-Olá! Gostaria de um orçamento 👇
+                        <ul>
+                            {plano.itens.map((item, i) => (
+                                <li key={i}><MdCheckBox size={22} color="#22c55e"/> {item}</li>
+                            ))}
+                        </ul>
 
-Meu Nome é ${dados.nome}
-Meu contato do WhatsApp: ${dados.whatsapp}
-
-Serviço:
-- ${dados.tipoServico}
-
-Tipo de Página:
-- ${dados.tipoSite}
-
-Manutenção:
-${
-  dados.manutencao.length
-    ? dados.manutencao.map((i) => `- ${i}`).join("\n")
-    : "- Não definido"
+                        <button>Solicitar Orçamento</button>
+                    </div>
+                ))}
+            </div>
+        </section>
+    )
 }
 
-Aguardo retorno
-    `;
-
-    const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(
-      mensagem
-    )}`;
-
-    window.open(url, "_blank");
-  };
-
-  return (
-    <section className="investimento-section" id="Investimento">
-      <header className="investimento-header">
-        <h2 className="titulo">PREENCHA O FORMULARIO:</h2>
-        <p className="subtitulo">
-          Escolha abaixo o que você precisa e receba um orçamento direto no
-          WhatsApp.
-        </p>
-      </header>
-
-      <div className="formulario" role="group" aria-label="Solicitação de orçamento">
-        <div className="grupo">
-          <label>O que você precisa?</label>
-          <select
-            value={dados.tipoServico}
-            onChange={(e) =>
-              atualizarCampo("tipoServico", e.target.value)
-            }
-          >
-            <option>Criação de Site</option>
-            <option>Manutenção de Site</option>
-            <option>Atualização de Página Existente</option>
-          </select>
-        </div>
-
-        <div className="grupo">
-          <label>Tipo de página</label>
-          <select
-            value={dados.tipoSite}
-            onChange={(e) => atualizarCampo("tipoSite", e.target.value)}
-          >
-            <option>Portfólio Profissional</option>
-            <option>Landing Page</option>
-            <option>Site Institucional</option>
-            <option>Página Única</option>
-            <option>Loja</option>
-            <option>Sistema Empresarial</option>
-          </select>
-        </div>
-
-        <div className="grupo">
-          <label>Seu nome</label>
-          <input
-            type="text"
-            placeholder="Digite seu nome"
-            value={dados.nome}
-            onChange={(e) => atualizarCampo("nome", e.target.value)}
-          />
-        </div>
-
-        <div className="grupo">
-          <label>Seu WhatsApp</label>
-          <input
-            type="tel"
-            placeholder="(11) 99999-9999"
-            value={dados.whatsapp}
-            onChange={(e) => atualizarCampo("whatsapp", e.target.value)}
-          />
-        </div>
-
-        <button
-          type="button"
-          className="btn-enviar"
-          onClick={enviarWhatsApp}
-        >
-          Solicitar orçamento no WhatsApp
-        </button>
-      </div>
-    </section>
-  );
-}
+export default Planos

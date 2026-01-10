@@ -1,80 +1,92 @@
 @import url("../styles/main.css");
-@import url("../styles/text-buttons.css");
 
-/* ================= HEADER (DESKTOP) ================= */
-.container-header {
+
+.header {
   position: fixed;
-  top: 16px; /* deixa um respiro do topo */
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%); /* 🔹 centraliza horizontalmente */
-  width: 95%; /* ocupa quase toda a tela */
+  transform: translateX(-50%);
+  width: calc(100% - 80px);
   max-width: 1200px;
-  background: rgba(255, 255, 255, 0.199);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.188);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 24px;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 2px solid #e6ecf5;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 1000;
-  transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-.container-header.hide {
-  transform: translate(-50%, -100%); /* mantém centralização ao esconder */
+.header.hide {
+  transform: translate(-50%, -150%);
   opacity: 0;
 }
 
-.container-header.show {
-  transform: translate(-50%, 0);
+.header.show {
   opacity: 1;
 }
 
-.container-logo img {
-  width: 55px;
-  height: auto;
-  transition: 0.3s ease;
-}
-
-.container-logo img:hover {
-  scale: 1.05;
-}
-
-.container-nav nav ul {
+.header-container {
   display: flex;
-  flex-direction: row;
-  list-style: none;
-  gap: 24px;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
 }
 
-.container-nav li a {
+.logo img {
+  height: 42px;
+}
+
+/* ===== DESKTOP ===== */
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-desktop a {
   text-decoration: none;
-  color: var(--Fundo-Claro);
+  color: #0f172a;
   font-weight: 500;
-  transition: 0.3s ease;
 }
 
-.container-nav li a:hover {
-  color: var(--Primária-ClaraHover);
+.btn-orcamento {
+  background: linear-gradient(135deg, #4f8cff, #2563eb);
+  color: #fff !important;
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-weight: 600;
 }
 
-/* Ícone do WhatsApp (desktop e tablet) */
-.whatsapp-icon {
-  font-size: 1.5rem;
-  color: var(--Azul-Escuro);
-  transition: 0.3s ease;
-}
-
-.whatsapp-icon:hover {
-  color: var(--Primária-ClaraHover);
-}
-
-/* Esconde o menu hamburguer no desktop */
-.menu-mobile {
+/* ===== MOBILE ===== */
+.menu-icon {
   display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 28px 28px;
+}
+
+.nav-mobile a {
+  text-decoration: none;
+  color: #0f172a;
+  font-size: 18px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-mobile.open {
+    display: flex;
+  }
 }

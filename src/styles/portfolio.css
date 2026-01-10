@@ -1,0 +1,181 @@
+@import url("../styles/main.css");
+/* ================== PORTFOLIO ================== */
+.portfolio {
+    padding: 4rem 2rem;
+    color: var(--9);
+}
+
+/* ---------- HEADER ---------- */
+.portfolio-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.tittle-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.tittle-section span {
+    display: block;
+    width: 80px;
+    height: 3px;
+    margin: 1rem auto;
+    background: linear-gradient(90deg, var(--2), var(--3));
+}
+
+.tittle-section p {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--5);
+}
+
+/* ---------- FILTROS ---------- */
+.portfolio-filtros {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.portfolio-filtros button {
+    padding: 0.6rem 1.5rem;
+    border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--1);
+    color: var(--9);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: large;
+    font-weight: 500;
+}
+
+.portfolio-filtros button:hover {
+    background: var(--2);
+    color: var(--6);
+    transition: 300ms;
+}
+
+.portfolio-filtros button.ativo {
+    background: linear-gradient(45deg, var(--2), var(--3));
+    color: var(--6);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.4);
+}
+
+/* ---------- GRID ---------- */
+.portfolio-cards {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+
+    /* animação ao trocar filtro */
+    animation: fadeUp 0.5s ease;
+}
+
+/* ---------- CARD ---------- */
+.portfolio-card {
+    position: relative;
+    border-radius: 24px;
+    padding: 2rem;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    width: 280px;
+    transform: translateY(0);
+    transition: all 0.4s ease;
+}
+
+/* Hover sobe levemente */
+.portfolio-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- CATEGORIAS (cores) ---------- */
+.portfolio-card.odontologia {
+background: linear-gradient(178.93deg, #FF7BB5 39.46%, #ffffff00 82.95%, #FF7BB5 115.43%);
+
+}
+
+.portfolio-card.barbearia {
+    background: linear-gradient(178.93deg, #fde047 39.46%, #ffffff00 82.95%, #fde047 115.43%);
+}
+
+.portfolio-card.design {
+    background: linear-gradient(180deg, #2563eb, #7dd3fc);
+    background: linear-gradient(178.93deg, #2563eb 39.46%, #ffffff00 82.95%, #2563eb 115.43%);
+}
+
+/* ---------- CONTEÚDO ---------- */
+.portfolio-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    z-index: 2;
+    position: relative;
+}
+
+.portfolio-card img {
+    width: 100%;
+    max-width: 240px;
+    margin: 0 auto;
+    display: block;
+    transition: transform 0.4s ease;
+    z-index: 2;
+    position: relative;
+}
+
+/* imagem dá um leve zoom */
+.portfolio-card:hover img {
+    transform: scale(1.05);
+}
+
+/* ---------- DETALHES NO HOVER ---------- */
+.portfolio-card button {
+    margin-top: 2rem;
+    padding: 0.6rem 1.8rem;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(90deg, var(--2), var(--3));
+    color: var(--6);
+    font-size: large;
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 1; /* ----------FAZZ SUMIR---------- */
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+
+}
+
+/* botão aparece no hover */
+.portfolio-card:hover button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------- OVERLAY SUAVE ---------- */
+.portfolio-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover::after {
+    opacity: 1;
+}
+
+/* ---------- ANIMAÇÃO FILTRO ---------- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

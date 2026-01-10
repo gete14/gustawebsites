@@ -1,6 +1,6 @@
 import '../styles/section1.css'
 
-import eu from '../img/eu3.png'
+import eu from '../img/eu-v3.png'
 
 function Section1() {
 
@@ -14,12 +14,22 @@ function Section1() {
                         </h1>
                         <p className='Subtítulos-section1'>Eu crio sites modernos, rapidos e responsivos para o seu negocio se destacar online.</p>
                     </div>
-                    <div className="button-section1">
-                        <button >Solicitar Orçamento</button>
+                    <div className="buttons-section1">
+                        <div className="button-1">
+                            <button className='button1'>Ver Portifólio</button>
+                        </div>
+                        <div className="borda-button-2">
+                            <div className="button-2">
+                                <button className='button2'>Fale Comigo</button>
+                            </div>
+                        </div>
+
+
                     </div>
+
                 </div>
                 <div className="container-img">
-                    <img src={eu} alt="leptop" />
+                    <img src={eu} alt="eu" />
                 </div>
             </div>
 

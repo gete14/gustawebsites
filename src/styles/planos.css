@@ -1,133 +1,150 @@
 @import url("../styles/main.css");
 
-/* ================= SECTION ================= */
-
-.investimento-section {
-  width: 100%;
-  padding: 8rem 6%;
-  background: radial-gradient(
-    circle at center,
-    #0b2a55 0%,
-    #050b18 70%
-  );
-  position: relative;
-  overflow: hidden;
+/* ================== SECTION ================== */
+.planos {
+  padding: 6rem 8%;
+  color: var(--6);
 }
 
-/* ================= HEADER ================= */
-
-.investimento-header {
+/* ================== TITLE ================== */
+.planos .tittle-section {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 4rem;
+  margin-bottom: 5rem;
 }
 
-.titulo {
-  font-size: clamp(2rem, 4vw, 2.6rem);
-  font-weight: 800;
-  color: #ffffff;
-}
-
-.subtitulo {
-  margin-top: 12px;
-  color: #cbd5f5;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-
-/* ================= FORM CARD ================= */
-
-.formulario {
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 40px;
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
-
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-/* ================= INPUT GROUP ================= */
-
-.grupo {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.grupo label {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #e5e7eb;
-}
-
-/* ================= INPUTS ================= */
-
-input,
-select {
-  padding: 14px;
-  border-radius: 10px;
-  font-size: 0.95rem;
-
-  background: rgba(15, 23, 42, 0.85);
-  color: #ffffff;
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  outline: none;
-
-  transition: border 0.25s ease, box-shadow 0.25s ease;
-}
-
-input::placeholder {
-  color: #94a3b8;
-}
-
-input:focus,
-select:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.35);
-}
-
-/* ================= BUTTON ================= */
-
-.btn-enviar {
-  margin-top: 10px;
-  padding: 15px;
-
-  font-size: 1.05rem;
+.planos h1 {
+  font-size: 3rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--9);
+}
 
-  background: linear-gradient(
-    135deg,
-    #2563eb,
-    #3b82f6
-  );
+.planos .linha {
+  display: block;
+  width: 90px;
+  height: 3px;
+  margin: 1rem auto;
+  background: linear-gradient(90deg, var(--2), var(--3));
+}
 
+.planos p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--5);
+}
+
+/* ================== CONTAINER ================== */
+.planos-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  gap: 3rem;
+  justify-content: center;
+}
+
+/* ================== CARD ================== */
+.plano-card {
+  position: relative;
+  background: var(--8);
+  border-radius: 24px;
+  padding: 3rem 2.5rem;
+  color: var(--9);
+  transition: all 0.4s ease;
+  width: max-content;
+}
+
+/* ================== HOVER ================== */
+.plano-card:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ================== DESTAQUE ================== */
+.plano-card.destaque {
+  border: 3px solid var(--1);
+  transform: scale(1.05);
+}
+
+.plano-card.destaque:hover {
+  transform: scale(1.05) translateY(-14px);
+  box-shadow: 0 30px 70px rgba(59, 130, 246, 0.35);
+}
+
+/* ================== BADGE ================== */
+.badge {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--1);
+  color: var(--6);
+  padding: 0.4rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+/* ================== TITULO ================== */
+.plano-card h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* ================== LISTA ================== */
+.plano-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem;
+}
+
+.plano-card li {
+  font-size: 0.8rem;
+  color: var(--4);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+   white-space: nowrap;  
+}
+.plano-card li svg {
+  min-width: 22px;          /* largura fixa do ícone */
+  min-height: 22px;
+  flex-shrink: 0;           /* impede o ícone de encolher */
+}
+
+/* ================== BOTÃO ================== */
+.plano-card button {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: 999px;
   border: none;
-  border-radius: 12px;
   cursor: pointer;
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  background: var(--2);
+  color: var(--6);
+  transition: all 0.3s ease;
 }
 
-.btn-enviar:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+/* ================== BOTÃO DESTAQUE ================== */
+.plano-card.destaque button {
+  background: linear-gradient(90deg, var(--2), var(--3));
 }
 
-/* ================= MOBILE ================= */
+/* ================== HOVER BOTÃO ================== */
+.plano-card button:hover {
+  filter: brightness(1.1);
+}
 
-@media (max-width: 600px) {
-  .formulario {
-    padding: 30px 22px;
+/* ================== RESPONSIVO ================== */
+@media (max-width: 768px) {
+  .plano-card.destaque {
+    transform: none;
+  }
+
+  .plano-card.destaque:hover {
+    transform: translateY(-12px);
   }
 }

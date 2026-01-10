@@ -1,83 +1,63 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 
-}
-body {
-  
-  background-color: var(--Black);
 }
 
 :root {
 
-    /* Cores ---------------------- */
-    
-    --Primaria: #3B82F6;
-    --Primária-ClaraHover: #60A5FA;
-    --Azul-Escuro: #1E3A8A;
-    --Fundo-Claro: #F8FAFC;
-    --Texto-Secundário: #E2E8F0;
-    --Feedback: #22C55E;
-    --Erro-AvisoAlertas: #EF4444;
-    --Black: #1F1F1F;
-    --alto-100: #d2d2d2;
+  /* Cores Light---------------------- */
 
-    --hunter-green-100: #182514;
-    --green-kelp-100: #31462a;
-    --deep-cerulean-100: #4C6A42;
-    --azure-radiance-100: #69905C;
-    --olivine-100: #87b877;
-    --periwinkle-100: #A7E293;
-    --feta-100: #ddf8d6;
-    --lime-light-100: #e7ffe0;
-
-    --walnut-100: #6d4217;
-    --paarl-100: #9c6125;
-    --brandy-punch-100: #ce8134;
-    --dairy-cream-100: #fbdac8;
-
-    --clinker-100: #39150b;
-    --metallic-copper-100: #692d1b;
-    --paarl-100: #9d472d;
-    --apricot-100: #ef917d;
-    --mandys-pink-100: #f5c6bf;
-
-    --green-pea-100: #1c5841;
-    --sea-green-100: #2c7e5f;
-    --ocean-green-100: #3ca77e;
-    --shamrock-100: #4ed19f;
-    --aquamarine-100: #77fbc5;
-
-    --mine-shaft-100: #212121;
-    --mine-shaft01-100: #404040;
-    --dove-gray-100: #656565;
-    --gray-100: #868686;
-    --silver-chalice-100: #ababab;
-    
-    --alabaster-100: #f7f7f7;
-    --grayish-white-100: #ebebeb;
-
-    /* Tamanhos ----------------- */
-
-    --spacing-xl: 60px;
-    --spacing-lg: 40px;
-    --spacing-md: 30px;
-    --spacing-sm: 20px;
-    --spacing-xs: 10px;
-    --border-radius-lg: 20px;
-    --border-radius-md: 10px;
-    --border-radius-sm: 5px
+  --1: #3B82F6;   /* borda de plano recomendavel */
+  --2: #60A5FA;   /*  linear comeco*/
+  --3: #1E3A8A;   /* linear final */
+  --4: #1D4157;   /* cards preto */
+  --5: #475569;   /* subtittles */
+  --6: #E2E8F0;   /* branco */
+  --7: #D6F0FF;   /* fundo */
+  --8: #C4E9FF;   /* cards */
+  --9: #0A1922;   /* preto */
 }
 
-a{
-    text-decoration: none;
+/* =========================
+   DARK MODE MUDAAARRR
+========================= */
+body.dark {
+
+  --1: #3B82F6;   /* borda de plano recomendavel */
+  --2: #60A5FA;   /*  linear comeco*/
+  --3: #c1c8db;   /* linear final */
+  --4: #4393c5;   /* cards preto */
+  --5: #8dacd8;   /* subtittles */
+  --6: #0A1922;   /* branco */
+  --7: #0A1922;   /* fundo */
+  --8: #193d53;   /* cards */
+  --9: #E2E8F0;   /* preto */
 }
 
-html, body {
+/* =========================
+   APLICAÇÃO GLOBAL
+========================= */
+body {
+  background-color: var(--7);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.layout{
+  padding-inline: 8vw;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+html,
+body {
   position: relative;
   width: 100%;
   min-height: 100%;
@@ -85,3 +65,56 @@ html, body {
   overflow-y: auto;
 }
 
+/* =========================  TITTLES   ========================= */
+.tittle {}
+
+.subtittle {}
+
+/* =========================  BUTTONS   ========================= */
+.button1 {
+  border: none;
+  padding: 0.5vw 0.8vw ;
+  color: var(--6);
+  font-size: x-large;
+  font-weight: 700;
+
+  outline: none;
+  background: linear-gradient(90deg, #60A5FA 0%, #1E3A8A 100%);
+  border-radius: 9px;
+
+}
+
+/* button fale comigo */
+
+/* Fale Comigo */
+
+
+
+
+.borda-button-2 {
+  width: max-content;
+  padding: 2px;
+  border-radius: 10px;
+
+  background: linear-gradient(90deg, #3B82F6 0%, #1E3A8A 100%);
+  filter: drop-shadow(0 4px 13.5px #60A5FA);
+}
+.button-2{
+  background:var(--7);
+  border-radius: 8px;
+}
+.button2 {
+  border: none;
+  padding: 0.3vw 0.5vw;
+  background-color: transparent; /* INTERIOR TRANSPARENTE */
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: 700;
+  /* TEXTO EM GRADIENTE */
+  background: linear-gradient(90deg, #3B82F6 0%, #1E3A8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Rectangle 1 */
