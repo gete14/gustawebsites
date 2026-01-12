@@ -44,7 +44,7 @@ body.dark {
 ========================= */
 body {
   background-color: var(--7);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.31s ease, color 0.3s ease;
 }
 .layout{
   padding-inline: 8vw;
