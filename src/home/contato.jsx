@@ -65,7 +65,7 @@ function Contato() {
                     <label>Informações Adicionais:</label>
                     <textarea placeholder="Sua Mensagem..."></textarea>
 
-                    <button type="submit">Enviar Mensagem</button>
+                    <button type="submit" className='button1'>Enviar Mensagem</button>
                 </form>
             </div>
         </section>

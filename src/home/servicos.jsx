@@ -24,7 +24,7 @@ function Servicos() {
 
     return (
         <>
-            <div className="tittle-section">
+            <div className="tittle-section" id='servicos'>
                 <h1>Meus Serviços</h1>
                 <span className='linha'></span>
                 <p>

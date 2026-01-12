@@ -1,80 +1,197 @@
 @import url("../styles/main.css");
 
-
 /* ================= SECTION 1 ================= */
+
+/* 🔹 BASE — MOBILE (320px) */
+
 .section1 {
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 5%;
-    padding: 9rem 10%;
+    gap: 2.5rem;
+    padding: 4rem 1.5rem;
+    padding-top: 7rem;
     overflow: hidden;
 }
-/* Overlay escuro */
+
+/* Overlay base */
 .section1::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
 }
-/* Conteúdo acima do overlay */
+
 .section1 > * {
     position: relative;
     z-index: 1;
 }
-/* ---- Texto ---- */
+
+/* ---- TEXTO ---- */
 .container-text {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 1.8rem;
-    max-width: 600px;
-    text-align: left;
-}
-.text{
+    gap: 2rem;
     text-align: center;
-    align-items: center;
+    max-width: 100%;
+}
+
+.text {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    align-items: center;
 }
+
 .Título-principal-section1 {
     font-weight: 700;
-    font-size: clamp(2.4rem, 4vw, 3.5rem);
+    font-size: clamp(1.8rem, 6vw, 2.4rem);
     line-height: 120%;
     color: var(--9);
 }
+
 .negocio {
     color: var(--1);
 }
+
 .Subtítulos-section1 {
     font-family: "Inter", sans-serif;
-    font-weight: 700;
-    font-size: clamp(0.3rem, 1vw, 1.5rem);
+    font-weight: 600;
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
     line-height: 160%;
     color: var(--4);
-    max-width: 520px;
-}
-/* --- Botão ---- */
-.buttons-section1{
-    justify-content: space-evenly;
-    display: flex;
-}
-/* ---- Imagem ---- */
-.container-img {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: slideRight 0.8s ease forwards;
-}
-.container-img img {
-    width: min(580px, 90%);
-    height: auto;
-    border-radius: 20px;
-    transition: transform 0.4s ease;
-}
-.container-img img:hover {
-    transform: scale(1.05) rotate(2deg);
 }
 
+/* ---- BOTÕES ---- */
+.buttons-section1 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* ---- IMAGEM ---- */
+.container-img {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 🔹 Wrapper — tudo gira junto */
+.img-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 16px;
+    transition: transform 0.4s ease;
+}
+
+/* Imagem */
+.img-wrapper img {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+}
+
+/* Texto hover */
+.img-hover {
+    position: absolute;
+    inset: 0;
+    font-size: clamp(0.6rem, 1.3vw, 15rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+
+    padding: 1.5rem;
+    color: var(--9);
+    background: linear-gradient(
+        to top,
+        rgb(214, 240, 255) 4%,
+        rgba(0, 0, 0, 0) 100%
+    );
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.container-img:hover .img-wrapper {
+        transform: scale(1.05) rotate(2deg);
+    }
+
+    .container-img:hover .img-hover {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* ================= BREAKPOINTS ================= */
+
+/* 📱 Tablets (768px) */
+@media (min-width: 768px) {
+    .section1 {
+        padding: 6rem 5%;
+    }
+
+    .container-text {
+        max-width: 600px;
+    }
+
+    .buttons-section1 {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .img-wrapper img {
+        max-width: 420px;
+    }
+    .container-img:hover .img-wrapper {
+        transform: scale(1.05) rotate(2deg);
+    }
+
+    .container-img:hover .img-hover {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+
+/* 💻 Notebooks (1024px) */
+@media (min-width: 1024px) {
+    .section1 {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5%;
+        padding: 8rem 10%;
+    }
+
+    .container-text,
+    .text {
+        text-align: left;
+        align-items: flex-start;
+    }
+
+    .buttons-section1 {
+        justify-content: flex-start;
+    }
+
+    .img-wrapper img {
+        max-width: 580px;
+    }
+
+    /* 🔥 Hover final */
+    .container-img:hover .img-wrapper {
+        transform: scale(1.05) rotate(2deg);
+    }
+
+    .container-img:hover .img-hover {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+}

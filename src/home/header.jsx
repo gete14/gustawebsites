@@ -3,6 +3,8 @@ import '../styles/header.css'
 import logo from '../../public/icon-gustawebsites.svg'
 import { HiOutlineMenu, HiX } from 'react-icons/hi'
 import ThemeToggle from './ThemeToggle'
+import { Link } from 'react-scroll'
+
 
 function Header() {
   const [showHeader, setShowHeader] = useState(true)
@@ -32,7 +34,7 @@ function Header() {
   return (
     <header className={`header ${showHeader ? 'show' : 'hide'}`}>
       <div className="header-container">
-        
+
         {/* LOGO */}
         <div className="logo">
           <img src={logo} alt="Gusta Websites" />
@@ -41,15 +43,46 @@ function Header() {
 
         {/* MENU DESKTOP */}
         <nav className="nav-desktop">
-          <a href="#servicos">Serviços</a>
-          <a href="#portfolio">Portfólio</a>
-          <a href="#planos">Planos</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contato">Contato</a>
-          <a href="#contato" className="btn-orcamento">
-            Orçamento
-          </a>
-        </nav>
+  <ul>
+    <li>
+      <Link to="servicos" smooth duration={500} offset={-90}>
+        Serviços
+      </Link>
+    </li>
+    <li>
+      <Link to="portfolio" smooth duration={500} offset={-90}>
+        Portfólio
+      </Link>
+    </li>
+    <li>
+      <Link to="planos" smooth duration={500} offset={-90}>
+        Planos
+      </Link>
+    </li>
+    <li>
+      <Link to="faq" smooth duration={500} offset={-90}>
+        FAQ
+      </Link>
+    </li>
+    <li>
+      <Link to="contato" smooth duration={500} offset={-90}>
+        Contato
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="contato"
+        smooth
+        duration={500}
+        offset={-90}
+        className="button1"
+      >
+        Orçamento
+      </Link>
+    </li>
+  </ul>
+</nav>
+
 
         {/* MENU MOBILE ICON */}
         <div className="menu-icon" onClick={toggleMenu}>
@@ -59,15 +92,47 @@ function Header() {
 
       {/* MENU MOBILE */}
       <nav className={`nav-mobile ${menuOpen ? 'open' : ''}`}>
-        <a href="#servicos" onClick={closeMenu}>Serviços</a>
-        <a href="#portfolio" onClick={closeMenu}>Portfólio</a>
-        <a href="#planos" onClick={closeMenu}>Planos</a>
-        <a href="#faq" onClick={closeMenu}>FAQ</a>
-        <a href="#contato" onClick={closeMenu}>Contato</a>
-        <a href="#contato" className="btn-orcamento" onClick={closeMenu}>
-          Orçamento
-        </a>
-      </nav>
+  <ul>
+    <li>
+      <Link to="servicos" smooth duration={500} offset={-90} onClick={closeMenu}>
+        Serviços
+      </Link>
+    </li>
+    <li>
+      <Link to="portfolio" smooth duration={500} offset={-90} onClick={closeMenu}>
+        Portfólio
+      </Link>
+    </li>
+    <li>
+      <Link to="planos" smooth duration={500} offset={-90} onClick={closeMenu}>
+        Planos
+      </Link>
+    </li>
+    <li>
+      <Link to="faq" smooth duration={500} offset={-90} onClick={closeMenu}>
+        FAQ
+      </Link>
+    </li>
+    <li>
+      <Link to="contato" smooth duration={500} offset={-90} onClick={closeMenu}>
+        Contato
+      </Link>
+    </li>
+    <li>
+      <Link
+        to="contato"
+        smooth
+        duration={500}
+        offset={-90}
+        className="button1"
+        onClick={closeMenu}
+      >
+        Orçamento
+      </Link>
+    </li>
+  </ul>
+</nav>
+
     </header>
   )
 }

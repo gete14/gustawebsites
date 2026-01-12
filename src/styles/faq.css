@@ -1,46 +1,50 @@
 @import url("../styles/main.css");
 
-/* ================== SECTION ================== */
+/* ================== FAQ ================== */
+
+/* 🔹 BASE — MOBILE (320px) */
+
 .faq {
-  padding: 6rem 8%;
+  padding: 4rem 1.5rem;
   color: var(--9);
 }
 
-/* ================== HEADER ================== */
+/* ---------- HEADER ---------- */
 .faq-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .faq-header h1 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
   font-weight: 700;
   color: var(--9);
 }
 
 .faq-header p {
-  max-width: 700px;
-  margin: 1.5rem auto 0;
+  max-width: 520px;
+  margin: 1.2rem auto 0;
   color: var(--5);
+  line-height: 160%;
 }
 
-/* ================== CONTAINER ================== */
+/* ---------- CONTAINER ---------- */
 .faq-container {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.4rem;
 }
 
-/* ================== ITEM ================== */
+/* ---------- ITEM ---------- */
 .faq-item {
   background: var(--2);
-  border-radius: 20px;
+  border-radius: 16px;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.35s ease;
 }
 
-/* hover */
+/* hover (mobile safe) */
 .faq-item:hover {
   filter: brightness(1.05);
 }
@@ -50,21 +54,23 @@
   background: linear-gradient(90deg, var(--2), var(--3));
 }
 
-/* ================== PERGUNTA ================== */
+/* ---------- PERGUNTA ---------- */
 .faq-pergunta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.6rem 2rem;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
 }
 
 .faq-pergunta span:first-child {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--6);
+  line-height: 140%;
 }
 
-/* ================== SETA ================== */
+/* ---------- SETA ---------- */
 .seta {
   display: flex;
   align-items: center;
@@ -77,25 +83,25 @@
   transform: rotate(180deg);
 }
 
-
-/* ================== RESPOSTA ================== */
+/* ---------- RESPOSTA ---------- */
 .faq-resposta {
   background: var(--8);
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 1.4rem;
   animation: abrir 0.4s ease;
 }
 
 .faq-resposta p {
   color: var(--9);
-  line-height: 1.6;
-  font-weight: 600;
+  line-height: 160%;
+  font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* ================== ANIMAÇÃO ================== */
+/* ---------- ANIMAÇÃO ---------- */
 @keyframes abrir {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
@@ -103,13 +109,48 @@
   }
 }
 
-/* ================== RESPONSIVO ================== */
-@media (max-width: 768px) {
-  .faq-header h1 {
-    font-size: 2.4rem;
+/* ================= BREAKPOINTS ================= */
+
+/* 📱 Tablets (768px) */
+@media (min-width: 768px) {
+  .faq {
+    padding: 5rem 5%;
+  }
+
+  .faq-container {
+    gap: 1.6rem;
+  }
+
+  .faq-pergunta {
+    padding: 1.4rem 2rem;
   }
 
   .faq-pergunta span:first-child {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+  }
+
+  .faq-resposta {
+    padding: 1.4rem 2rem;
+  }
+}
+
+/* 💻 Notebooks (1024px) */
+@media (min-width: 1024px) {
+  .faq {
+    padding: 6rem 10%;
+  }
+
+  .faq-header h1 {
+    font-size: 2.6rem;
+  }
+
+  .faq-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* hover refinado no desktop */
+  .faq-item:hover {
+    transform: translateY(-4px);
   }
 }

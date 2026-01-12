@@ -29,8 +29,22 @@ function Section1() {
 
                 </div>
                 <div className="container-img">
-                    <img src={eu} alt="eu" />
+                    <div className="img-wrapper">
+                        <img src={eu} alt="eu" />
+
+                        <div className="img-hover">
+                            <h4>Sobre Mim</h4>
+                            <p>
+                                Desenvolvedor web especializado em criar soluções digitais
+                                personalizadas que impulsionam negócios e marcas.
+                                Combinando design criativo e tecnologia de ponta para
+                                resultados excepcionais.
+                            </p>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
 
         </>

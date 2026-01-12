@@ -1,150 +1,181 @@
 @import url("../styles/main.css");
 
-/* ================== SECTION ================== */
+/* ================== PLANOS ================== */
+
+/* 🔹 BASE — MOBILE (320px) */
+
 .planos {
-  padding: 6rem 8%;
+  padding: 4rem 1.5rem;
   color: var(--6);
 }
 
-/* ================== TITLE ================== */
+/* ---------- TITLE ---------- */
 .planos .tittle-section {
   text-align: center;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .planos h1 {
-  font-size: 3rem;
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
   font-weight: 700;
   color: var(--9);
 }
 
 .planos .linha {
   display: block;
-  width: 90px;
+  width: 70px;
   height: 3px;
   margin: 1rem auto;
   background: linear-gradient(90deg, var(--2), var(--3));
 }
 
 .planos p {
-  max-width: 600px;
+  max-width: 520px;
   margin: 0 auto;
   color: var(--5);
+  line-height: 160%;
 }
 
-/* ================== CONTAINER ================== */
+/* ---------- CONTAINER ---------- */
 .planos-container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
-  gap: 3rem;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* ================== CARD ================== */
+/* ---------- CARD ---------- */
 .plano-card {
   position: relative;
   background: var(--8);
-  border-radius: 24px;
-  padding: 3rem 2.5rem;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
   color: var(--9);
   transition: all 0.4s ease;
-  width: max-content;
 }
 
-/* ================== HOVER ================== */
-.plano-card:hover {
-  transform: translateY(-14px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-}
-
-/* ================== DESTAQUE ================== */
+/* ---------- DESTAQUE ---------- */
 .plano-card.destaque {
-  border: 3px solid var(--1);
-  transform: scale(1.05);
+  border: 2px solid var(--1);
 }
 
-.plano-card.destaque:hover {
-  transform: scale(1.05) translateY(-14px);
-  box-shadow: 0 30px 70px rgba(59, 130, 246, 0.35);
-}
-
-/* ================== BADGE ================== */
+/* ---------- BADGE ---------- */
 .badge {
   position: absolute;
-  top: -25px;
+  top: -18px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--1);
   color: var(--6);
-  padding: 0.4rem 1.2rem;
+  padding: 0.35rem 1.1rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
-  text-align: center;
+  letter-spacing: 0.04em;
 }
 
-/* ================== TITULO ================== */
+/* ---------- TITULO ---------- */
 .plano-card h2 {
   text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
-/* ================== LISTA ================== */
+/* ---------- LISTA ---------- */
 .plano-card ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 3rem;
+  margin: 0 0 2.5rem;
 }
 
 .plano-card li {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--4);
-  margin-bottom: 1rem;
+  margin-bottom: 0.9rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.6rem;
-   white-space: nowrap;  
-}
-.plano-card li svg {
-  min-width: 22px;          /* largura fixa do ícone */
-  min-height: 22px;
-  flex-shrink: 0;           /* impede o ícone de encolher */
+  line-height: 150%;
 }
 
-/* ================== BOTÃO ================== */
+.plano-card li svg {
+  min-width: 22px;
+  min-height: 22px;
+  flex-shrink: 0;
+}
+
+/* ---------- BOTÃO ---------- */
 .plano-card button {
   width: 100%;
-  padding: 0.9rem;
+  padding: 0.85rem;
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   background: var(--2);
   color: var(--6);
   transition: all 0.3s ease;
 }
 
-/* ================== BOTÃO DESTAQUE ================== */
-.plano-card.destaque button {
-  background: linear-gradient(90deg, var(--2), var(--3));
-}
-
-/* ================== HOVER BOTÃO ================== */
 .plano-card button:hover {
   filter: brightness(1.1);
 }
 
-/* ================== RESPONSIVO ================== */
-@media (max-width: 768px) {
+/* ================= BREAKPOINTS ================= */
+
+/* 📱 Tablets (768px) */
+@media (min-width: 768px) {
+  .planos {
+    padding: 5rem 5%;
+  }
+
+  .planos-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+
+  .plano-card {
+    width: 320px;
+  }
+
+  .plano-card h2 {
+    font-size: 1.7rem;
+  }
+}
+
+/* 💻 Notebooks (1024px) */
+@media (min-width: 1024px) {
+  .planos {
+    padding: 6rem 10%;
+  }
+
+  .planos-container {
+    justify-content: space-between;
+  }
+
+  .plano-card {
+    width: 30%;
+    max-width: 360px;
+  }
+
+  /* Hover só no desktop */
+  .plano-card:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+  }
+
   .plano-card.destaque {
-    transform: none;
+    transform: scale(1.05);
   }
 
   .plano-card.destaque:hover {
-    transform: translateY(-12px);
+    transform: scale(1.05) translateY(-14px);
+    box-shadow: 0 30px 70px rgba(59, 130, 246, 0.35);
+  }
+
+  .plano-card.destaque button {
+    background: linear-gradient(90deg, var(--2), var(--3));
   }
 }
