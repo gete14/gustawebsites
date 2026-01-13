@@ -1,6 +1,7 @@
 import '../styles/section1.css'
 
 import eu from '../img/eu-v3.png'
+import { Link } from 'react-scroll'
 
 function Section1() {
 
@@ -15,14 +16,19 @@ function Section1() {
                         <p className='Subtítulos-section1'>Eu crio sites modernos, rapidos e responsivos para o seu negocio se destacar online.</p>
                     </div>
                     <div className="buttons-section1">
-                        <div className="button-1">
-                            <button className='button1'>Ver Portifólio</button>
-                        </div>
-                        <div className="borda-button-2">
-                            <div className="button-2">
-                                <button className='button2'>Fale Comigo</button>
+                        <Link to="portfolio" smooth duration={500} offset={-0}>
+                            <div className="button-1">
+                                <button className='button1'>Ver Portifólio</button>
                             </div>
-                        </div>
+                        </Link>
+
+                        <Link to="contato" smooth duration={500} offset={80}>
+                            <div className="borda-button-2">
+                                <div className="button-2">
+                                    <button className='button2'>Fale Comigo</button>
+                                </div>
+                            </div>
+                        </Link>
 
 
                     </div>

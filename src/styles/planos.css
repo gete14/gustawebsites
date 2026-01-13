@@ -71,6 +71,7 @@
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.04em;
+  text-align: center;
 }
 
 /* ---------- TITULO ---------- */
@@ -112,7 +113,6 @@
   cursor: pointer;
   font-size: 0.95rem;
   font-weight: 600;
-  background: var(--2);
   color: var(--6);
   transition: all 0.3s ease;
 }
@@ -120,6 +120,11 @@
 .plano-card button:hover {
   filter: brightness(1.1);
 }
+
+
+
+
+
 
 /* ================= BREAKPOINTS ================= */
 

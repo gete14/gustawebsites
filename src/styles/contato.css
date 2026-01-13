@@ -65,7 +65,7 @@
   color: var(--9);
 }
 
-.contato-info svg {
+.contato-info ul li svg {
   font-size: 1.2rem;
   color: var(--9);
 }
@@ -74,6 +74,7 @@
 .redes h3 {
   margin-bottom: 0.75rem;
   font-size: 1.05rem;
+  color: var(--9);
 }
 
 .redes .icons {
@@ -92,6 +93,15 @@
   color: var(--9);
   font-size: 1.2rem;
 }
+.contato-info .redes .icons svg {
+    font-size: 28px;          /* maior */
+    color: var(--6);           /* cor diferente */
+    transition: 0.3s ease;
+}
+.contato-info .redes .icons a:hover svg {           /* exemplo: verde WhatsApp */
+    transform: scale(1.1);
+}
+
 
 /* ---------- FORM ---------- */
 .contato-form {

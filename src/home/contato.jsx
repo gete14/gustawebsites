@@ -1,8 +1,41 @@
 import '../styles/contato.css'
 import { FaWhatsapp, FaInstagram, FaClock, FaMapMarkerAlt } from 'react-icons/fa'
-import { MdEmail } from 'react-icons/md'
+import { useState } from "react";
 
 function Contato() {
+    const [status, setStatus] = useState("idle");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setStatus("sending");
+
+        const nome = e.target.nome.value;
+        const email = e.target.email.value;
+        const telefone = e.target.telefone.value;
+        const mensagem = e.target.mensagem.value;
+
+        const texto = `
+Olá! Gusta
+Me chamo *${nome}*
+Com o Email: ${email}
+Meu WhatsApp sendo: ${telefone}
+
+Queria tratar sobre:
+${mensagem}
+`;
+
+        const numeroWhatsApp = "5511915079401";
+        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, "_blank");
+
+        setTimeout(() => {
+            setStatus("sent");
+            e.target.reset();
+        }, 800);
+    };
+
+
     return (
         <section className="contato">
             <div className="contato-header">
@@ -40,10 +73,21 @@ function Contato() {
                     <div className="redes">
                         <h3>Redes Sociais</h3>
                         <div className="icons">
-                            <a href="#" aria-label="Instagram">
+                            <a
+                                href="https://www.instagram.com/gustawebsites"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Instagram"
+                            >
                                 <FaInstagram />
                             </a>
-                            <a href="#" aria-label="WhatsApp">
+
+                            <a
+                                href="https://wa.me/5511915079401?text=Olá!%20Vi%20seu%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20seus%20serviços."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="WhatsApp"
+                            >
                                 <FaWhatsapp />
                             </a>
                         </div>
@@ -51,21 +95,56 @@ function Contato() {
                 </div>
 
                 {/* Lado direito */}
-                <form className="contato-form">
-                    <h1>Formulário</h1>
-                    <label>Digite seu Nome:</label>
-                    <input type="text" placeholder="Seu Nome" />
+                <form className="contato-form" onSubmit={handleSubmit}>
+                    <h1>Formulário de Contato</h1>
 
-                    <label>Digite seu email:</label>
-                    <input type="email" placeholder="Seu Email" />
+                    <label htmlFor="nome">Nome *</label>
+                    <input
+                        id="nome"
+                        name="nome"
+                        type="text"
+                        placeholder="Digite seu nome completo"
+                        required
+                    />
 
-                    <label>Telefone:</label>
-                    <input type="tel" placeholder="Seu Telefone (WhatsApp)" />
+                    <label htmlFor="email">Email *</label>
+                    <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="exemplo@email.com"
+                        required
+                    />
 
-                    <label>Informações Adicionais:</label>
-                    <textarea placeholder="Sua Mensagem..."></textarea>
+                    <label htmlFor="telefone">WhatsApp *</label>
+                    <input
+                        id="telefone"
+                        name="telefone"
+                        type="tel"
+                        placeholder="(11) 99999-9999"
+                        required
+                    />
 
-                    <button type="submit" className='button1'>Enviar Mensagem</button>
+                    <label htmlFor="mensagem">Mensagem</label>
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        placeholder="Descreva sua necessidade..."
+                        rows="4"
+                    ></textarea>
+
+                    <button
+                        type="submit"
+                        className="button1"
+                        disabled={status === "sending"}
+                    >
+                        {status === "idle" && "Enviar mensagem"}
+                        {status === "sending" && "Abrindo WhatsApp..."}
+                        {status === "sent" && "Mensagem enviada ✓"}
+                    </button>
+
+
+                    
                 </form>
             </div>
         </section>

@@ -36,36 +36,39 @@ function Header() {
       <div className="header-container">
 
         {/* LOGO */}
+        <Link to="section1" smooth duration={500} offset={-90}>
         <div className="logo">
           <img src={logo} alt="Gusta Websites" />
         </div>
+        </Link>
+        
         <ThemeToggle />
 
         {/* MENU DESKTOP */}
         <nav className="nav-desktop">
   <ul>
     <li>
-      <Link to="servicos" smooth duration={500} offset={-90}>
+      <Link to="servicos" smooth duration={500} offset={-100}>
         Serviços
       </Link>
     </li>
     <li>
-      <Link to="portfolio" smooth duration={500} offset={-90}>
+      <Link to="portfolio" smooth duration={500} offset={60}>
         Portfólio
       </Link>
     </li>
     <li>
-      <Link to="planos" smooth duration={500} offset={-90}>
+      <Link to="planos" smooth duration={500} offset={70}>
         Planos
       </Link>
     </li>
     <li>
-      <Link to="faq" smooth duration={500} offset={-90}>
+      <Link to="faq" smooth duration={500} offset={70}>
         FAQ
       </Link>
     </li>
     <li>
-      <Link to="contato" smooth duration={500} offset={-90}>
+      <Link to="contato" smooth duration={500} offset={70}>
         Contato
       </Link>
     </li>
@@ -74,7 +77,7 @@ function Header() {
         to="contato"
         smooth
         duration={500}
-        offset={-90}
+        offset={70}
         className="button1"
       >
         Orçamento
@@ -94,27 +97,27 @@ function Header() {
       <nav className={`nav-mobile ${menuOpen ? 'open' : ''}`}>
   <ul>
     <li>
-      <Link to="servicos" smooth duration={500} offset={-90} onClick={closeMenu}>
+      <Link to="servicos" smooth duration={500} offset={-50} onClick={closeMenu}>
         Serviços
       </Link>
     </li>
     <li>
-      <Link to="portfolio" smooth duration={500} offset={-90} onClick={closeMenu}>
+      <Link to="portfolio" smooth duration={500} offset={10} onClick={closeMenu}>
         Portfólio
       </Link>
     </li>
     <li>
-      <Link to="planos" smooth duration={500} offset={-90} onClick={closeMenu}>
+      <Link to="planos" smooth duration={500} offset={20} onClick={closeMenu}>
         Planos
       </Link>
     </li>
     <li>
-      <Link to="faq" smooth duration={500} offset={-90} onClick={closeMenu}>
+      <Link to="faq" smooth duration={500} offset={40} onClick={closeMenu}>
         FAQ
       </Link>
     </li>
     <li>
-      <Link to="contato" smooth duration={500} offset={-90} onClick={closeMenu}>
+      <Link to="contato" smooth duration={500} offset={50} onClick={closeMenu}>
         Contato
       </Link>
     </li>
@@ -123,7 +126,7 @@ function Header() {
         to="contato"
         smooth
         duration={500}
-        offset={-90}
+        offset={50}
         className="button1"
         onClick={closeMenu}
       >
