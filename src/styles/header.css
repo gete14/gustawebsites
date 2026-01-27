@@ -31,7 +31,24 @@
 }
 
 .logo img {
-  height: 42px;
+  height: 5rem;
+  transition: 500ms;
+}
+.logo img:hover{
+  scale: 1.2;
+  cursor: pointer;
+}
+.button-theme{
+  background: transparent;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: var(--9);
+  font-size: 1.2rem;
+  transition: 500ms;
+}
+.button-theme:hover{
+  scale: 1.2;
 }
 
 /* ===== DESKTOP ===== */

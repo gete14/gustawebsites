@@ -1,6 +1,6 @@
 import '../styles/section1.css'
 
-import eu from '../img/eu-v3.png'
+import eu from '../img/eu-v4.png'
 import { Link } from 'react-scroll'
 
 function Section1() {

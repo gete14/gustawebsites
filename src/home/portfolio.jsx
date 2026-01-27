@@ -29,8 +29,8 @@ function Portfolio() {
         },
         {
             id: 2,
-            categoria: 'Médico',
-            titulo: 'Médico',
+            categoria: 'Portfólio',
+            titulo: 'Portfólio',
             imagem: medico,
             sites: [SITEmedico],
             descricao: 'Modelo de site voltado para médicos, com foco em credibilidade, apresentação profissional, informações sobre atendimentos e agendamento de consultas.'
@@ -100,7 +100,7 @@ function Portfolio() {
                     </div>
 
                     <div className="portfolio-filtros">
-                        {['Todos', 'Odontologia', 'Portfólio Pessoal', 'Design'].map(item => (
+                        {['Todos', 'Odontologia', 'Portfólio', 'Design'].map(item => (
                             <button
                                 key={item}
                                 className={filtro === item ? 'ativo' : ''}
@@ -121,7 +121,8 @@ function Portfolio() {
                                 onClick={() => {
                                     setCardSelecionado(card)
                                     setModalAberto(true)
-                                }}>VER DETALHES</button>
+                                }}
+                                className="button1">VER DETALHES</button>
                         </div>
                     ))}
                 </div>

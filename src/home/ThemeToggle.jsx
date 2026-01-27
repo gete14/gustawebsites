@@ -1,5 +1,6 @@
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { useTheme } from '../context/ThemeContext'
+import '../styles/header.css'
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
@@ -8,13 +9,7 @@ function ThemeToggle() {
     <button
       onClick={toggleTheme}
       aria-label="Alternar tema"
-      style={{
-        background: 'transparent',
-        border: 'none',
-        cursor: 'pointer',
-        color: 'var(--text-color)',
-        fontSize: '1.2rem'
-      }}
+      className='button-theme'
     >
       {theme === 'light' ? <BsMoon /> : <BsSun />}
     </button>
