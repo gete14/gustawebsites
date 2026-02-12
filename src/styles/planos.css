@@ -38,10 +38,10 @@
 
 /* ---------- CONTAINER ---------- */
 .planos-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  gap: 2.5rem;
 }
+
 
 /* ---------- CARD ---------- */
 .plano-card {
@@ -51,6 +51,10 @@
   padding: 2.5rem 2rem;
   color: var(--9);
   transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
 }
 
 /* ---------- DESTAQUE ---------- */
@@ -115,6 +119,8 @@
   font-weight: 600;
   color: var(--6);
   transition: all 0.3s ease;
+  position: relative;
+  margin-top: auto;
 }
 
 .plano-card button:hover {
@@ -157,12 +163,13 @@
   }
 
   .planos-container {
-    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .plano-card {
-    width: 30%;
+    width: 100%;
     max-width: 360px;
+    flex: 1;
   }
 
   /* Hover só no desktop */

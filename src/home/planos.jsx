@@ -11,39 +11,41 @@ function Planos() {
     }
         const planos = [
             {
-                nome: 'Essencial',
+                nome: 'Plano Start',
                 destaque: false,
                 itens: [
-                    'Até 5 atualizações por mês',
-                    'Suporte técnico',
-                    'Correções pontuais pós-entrega',
-                    'Ajustes simples de conteúdo',
-                    '1 reunião mensal de alinhamento',
-                    'Suporte básico'
+                    '1 Página (Landing Page profissional)',
+                    'Design moderno e responsivo',
+                    'Botão WhatsApp integrado',
+                    'Formulário de contato',
+                    'SEO básico',
                 ]
             },
             {
-                nome: 'Profissional',
+                nome: 'Plano Pro',
                 destaque: true,
                 itens: [
-                    'Até 10 atualizações por mês',
-                    'Suporte técnico',
-                    'Ajustes contínuos no site',
-                    'Pequenas melhorias visuais',
-                    '1 reunião mensal de alinhamento',
-                    'Suporte prioritário'
+                    'Até 5 páginas (Home, Sobre, Serviços, Contato…)',
+                    'Design estratégico e personalizado',
+                    'SEO otimizado',
+                    'Integração com redes sociais',
+                    'Formulários inteligentes',
+                    'Área de blog (opcional)',
+                    'Estrutura preparada para tráfego pago'
                 ]
             },
             {
-                nome: 'Premium',
+                nome: 'Plano Elite',
                 destaque: false,
                 itens: [
-                    'Até 20 atualizações por mês',
-                    'Suporte técnico',
-                    'Melhorias constantes',
-                    'Implementações simples sob demanda',
-                    '2 reuniões mensais de alinhamento',
-                    'Suporte avançado'
+                    'Páginas ilimitadas',
+                    'Estrutura completa de conversão',
+                    'Servidor otimizado e personalizado',
+                    'Alta performance e segurança avançada',
+                    'Integração com ferramentas de marketing',
+                    'Sistema para vendas online (caso necessário)',
+                    'Suporte prioritário',
+    
                 ]
             }
         ]
