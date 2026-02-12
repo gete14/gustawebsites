@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import '../styles/header.css'
-import logo from '../../public/icon-gustawebsites.svg'
+import logo from '../../public/LOGO.svg'
 import { HiOutlineMenu, HiX } from 'react-icons/hi'
 import ThemeToggle from './ThemeToggle'
 import { Link } from 'react-scroll'
