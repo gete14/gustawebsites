@@ -55,6 +55,25 @@ a {
   text-decoration: none;
 }
 
+  /* =========================
+   Animação de entrada suave
+========================= */
+
+@keyframes heroReveal {
+  0% {
+    transform: scale(0.75) translateY(40px);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) translateY(-6px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
 
 html,
 body {

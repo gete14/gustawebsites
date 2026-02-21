@@ -1,8 +1,8 @@
 import { useState } from 'react'
-import '../styles/faq.css'
+import '../../styles/faq.css'
 import { FiChevronDown } from "react-icons/fi";
 
-function Faq() {
+function Section1() {
 
     const [ativo, setAtivo] = useState(null)
 
@@ -75,4 +75,4 @@ function Faq() {
     )
 }
 
-export default Faq
+export default Section1

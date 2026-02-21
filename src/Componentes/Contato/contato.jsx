@@ -1,8 +1,8 @@
-import '../styles/contato.css'
+import '../../styles/contato.css'
 import { FaWhatsapp, FaInstagram, FaClock, FaMapMarkerAlt } from 'react-icons/fa'
 import { useState } from "react";
 
-function Contato() {
+function Section1() {
     const [status, setStatus] = useState("idle");
 
     const handleSubmit = (e) => {
@@ -151,4 +151,4 @@ ${mensagem}
     )
 }
 
-export default Contato
+export default Section1

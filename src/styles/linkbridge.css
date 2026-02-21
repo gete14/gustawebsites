@@ -1,0 +1,266 @@
+@import url("../styles/main.css");
+
+/* =========================
+   LINKBRIDGE CONTAINER
+========================= */
+.linkbridge {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* =========================
+   OVERLAY PREMIUM
+========================= */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(5, 15, 35, 0.85) 0%,
+    rgba(5, 15, 35, 0.55) 45%,
+    rgba(5, 15, 35, 0.15) 75%,
+    rgba(5, 15, 35, 0.05) 100%
+  );
+  backdrop-filter: blur(2px);
+}
+
+/* =========================
+   CONTENT LAYOUT
+========================= */
+.content {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 60px 80px;
+  gap: 40px;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+.left-side {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  animation: heroReveal 3.3s cubic-bezier(.22,.61,.36,1) forwards;
+
+  transition: transform 0.45s ease, filter 0.45s ease;  
+}
+
+/* =========================
+   HEADER TEXT (PREMIUM)
+========================= */
+.header-text h1 {
+  font-size: clamp(36px, 4vw, 56px);
+  font-weight: 800;
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.header-text h2 {
+  font-size: clamp(22px, 2.5vw, 30px);
+  font-weight: 500;
+  opacity: 0.95;
+  margin-top: 6px;
+}
+
+.header-text p {
+  font-size: clamp(15px, 1.4vw, 18px);
+  opacity: 0.85;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* =========================
+   MAIN LINKS CONTAINER
+========================= */
+.main-links {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+/* =========================
+   BOTÕES SaaS PREMIUM
+========================= */
+.link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* hover premium */
+.link-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(58, 166, 255, 0.6);
+  box-shadow:
+    0 10px 30px rgba(58, 166, 255, 0.25),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+/* =========================
+   BOTÃO WHATSAPP (DESTAQUE)
+========================= */
+.link-btn.whatsapp {
+  background: linear-gradient(135deg, #25d366, #1ebe5d);
+  border: none;
+  font-weight: 600;
+}
+
+.link-btn.whatsapp:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow:
+    0 12px 35px rgba(37, 211, 102, 0.45);
+}
+
+/* =========================
+   SOCIAL LINKS
+========================= */
+.social-links {
+  margin-top: 18px;
+  display: flex;
+  gap: 22px;
+  justify-content: space-around;
+}
+
+.social-links a {
+  font-size: 1.5rem;
+  color: #fff;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.18);
+  opacity: 1;
+  color: #3aa6ff;
+}
+
+/* =========================
+   RIGHT SIDE (FOTO)
+========================= */
+.right-side {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* 🔥 GLOW PROFISSIONAL */
+
+.right-side img {
+  max-height: 82vh;
+  width: auto;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+border-radius: 5%;
+  filter:
+    drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6))
+    drop-shadow(0 0 35px rgba(58, 166, 255, 0.35));
+
+ animation: heroReveal 3.3s cubic-bezier(.22,.61,.36,1) forwards;
+
+  transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+.right-side img:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   LOGO FLUTUANTE
+========================= */
+  .logo-container {
+      display: flex;
+      justify-content: center;
+    opacity: 0.9;
+    
+  }
+
+  .logo-container img {
+    width: 140px;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+  }
+
+
+/* =========================
+   📱 MOBILE
+========================= */
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .left-side {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .main-links {
+    width: 100%;
+  }
+
+  .link-btn {
+    width: 100%;
+  }
+
+  .right-side {
+    order: -1;
+    justify-content: center;
+  }
+
+  .right-side img {
+    max-height: 320px;
+    margin-bottom: 10px;
+  }
+
+  .logo-container {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+/* =========================
+   💻 TELAS GRANDES
+========================= */
+@media (min-width: 1600px) {
+  .content {
+    padding: 80px 140px;
+  }
+
+  .right-side img {
+    max-height: 88vh;
+  }
+}

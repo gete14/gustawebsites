@@ -152,7 +152,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,10 +164,13 @@
 .modal {
     background: #fff;
     padding: 2rem;
-    max-width: 900px; /* melhor para site completo */
+    max-width: 900px;
+    /* melhor para site completo */
     width: 90%;
-    max-height: 90vh; /* 👈 limita altura da tela */
-    overflow-y: auto; /* 👈 ativa scroll vertical */
+    max-height: 90vh;
+    /* 👈 limita altura da tela */
+    overflow-y: auto;
+    /* 👈 ativa scroll vertical */
     border-radius: 8px;
     position: relative;
     scroll-behavior: smooth;
@@ -210,7 +213,7 @@
     top: 0px;
     margin-left: auto;
     z-index: 10;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     color: #fff;
     border: none;
     border-radius: 50%;
@@ -247,7 +250,10 @@
 /* 💻 Notebooks (1024px) */
 @media (min-width: 1024px) {
     .portfolio {
-        padding: 5rem 10%;
+        padding-inline: 12rem;
+        padding-top: 10%;
+        animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+        transition: transform 0.45s ease, filter 0.45s ease;
     }
 
     .portfolio-cards {
@@ -280,6 +286,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

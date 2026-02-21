@@ -1,8 +1,8 @@
-import '../styles/servicos.css'
+import '../../styles/servicos.css'
 import { FiMonitor, FiSmartphone, FiDollarSign   } from "react-icons/fi";
 
 
-function Servicos() {
+function Section1() {
 
     const servicos = [
         {
@@ -24,6 +24,7 @@ function Servicos() {
 
     return (
         <>
+        <section className='servicos'>
             <div className="tittle-section" id='servicos'>
                 <h1>Meus Serviços</h1>
                 <span className='linha'></span>
@@ -42,8 +43,9 @@ function Servicos() {
                     </div>
                 ))}
             </div>
+            </section>
         </>
     )
 }
 
-export default Servicos
+export default Section1

@@ -93,13 +93,18 @@
   color: var(--9);
   font-size: 1.2rem;
 }
+
 .contato-info .redes .icons svg {
-    font-size: 28px;          /* maior */
-    color: var(--6);           /* cor diferente */
-    transition: 0.3s ease;
+  font-size: 28px;
+  /* maior */
+  color: var(--6);
+  /* cor diferente */
+  transition: 0.3s ease;
 }
-.contato-info .redes .icons a:hover svg {           /* exemplo: verde WhatsApp */
-    transform: scale(1.1);
+
+.contato-info .redes .icons a:hover svg {
+  /* exemplo: verde WhatsApp */
+  transform: scale(1.1);
 }
 
 
@@ -176,7 +181,10 @@
 /* 💻 Notebooks (1024px) */
 @media (min-width: 1024px) {
   .contato {
-    padding: 6rem 10%;
+    padding-inline: 12rem;
+    padding-top: 10%;
+    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+    transition: transform 0.45s ease, filter 0.45s ease;
   }
 
   .contato-container {
@@ -184,6 +192,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: start;
+
   }
 
   /* Hover refinado só no desktop */

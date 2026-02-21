@@ -1,7 +1,7 @@
-import '../styles/planos.css'
+import '../../styles/planos.css'
 import { MdCheckBox } from "react-icons/md";
 
-function Planos() {
+function Section1() {
     const numeroWhatsApp = '5511915079401';
 
     const enviarWhatsApp = (plano) => {
@@ -86,4 +86,4 @@ function Planos() {
         )
     }
 
-    export default Planos
+    export default Section1

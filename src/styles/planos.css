@@ -159,7 +159,10 @@
 /* 💻 Notebooks (1024px) */
 @media (min-width: 1024px) {
   .planos {
-    padding: 6rem 10%;
+    padding-inline: 12rem;
+    padding-top: 10%;
+    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+    transition: transform 0.45s ease, filter 0.45s ease;
   }
 
   .planos-container {

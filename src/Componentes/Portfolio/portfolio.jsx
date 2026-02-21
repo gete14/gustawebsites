@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import '../styles/portfolio.css'
-import odonto from '../img/card-odonto.png'
-import SITEodonto from '../img/site-complete-odonto.png'
-import medico from '../img/card-medico.png'
-import SITEmedico from '../img/site-complete-medico.png'
-import design from '../img/card-design.png'
-import SITEdesign1 from '../img/site-complete-design1.png'
-import SITEdesign2 from '../img/site-complete-design2.png'
-import SITEdesign3 from '../img/site-complete-design3.png'
-import SITEdesign4 from '../img/site-complete-design4.png'
+import '../../styles/portfolio.css'
+import odonto from '../../img/card-odonto.png'
+import SITEodonto from '../../img/site-complete-odonto.png'
+import medico from '../../img/card-medico.png'
+import SITEmedico from '../../img/site-complete-medico.png'
+import design from '../../img/card-design.png'
+import SITEdesign1 from '../../img/site-complete-design1.png'
+import SITEdesign2 from '../../img/site-complete-design2.png'
+import SITEdesign3 from '../../img/site-complete-design3.png'
+import SITEdesign4 from '../../img/site-complete-design4.png'
 
 
-function Portfolio() {
+function Section1() {
 
     const [modalAberto, setModalAberto] = useState(false)
     const [cardSelecionado, setCardSelecionado] = useState(null)
@@ -131,4 +131,4 @@ function Portfolio() {
     )
 }
 
-export default Portfolio
+export default Section1
