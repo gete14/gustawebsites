@@ -36,6 +36,89 @@ ${mensagem}
     };
 
 
+    const [modal, setModal] = useState(false);
+    const [step, setStep] = useState(0);
+
+    const [formData, setFormData] = useState({
+        nome: "",
+        email: "",
+        telefone: "",
+        mensagem: ""
+    });
+
+
+    const perguntas = [
+        {
+            label: "Qual é o seu nome?",
+            name: "nome",
+            type: "text",
+            placeholder: "Digite seu nome completo"
+        },
+        {
+            label: "Qual é o seu email?",
+            name: "email",
+            type: "email",
+            placeholder: "exemplo@email.com"
+        },
+        {
+            label: "Qual é o seu WhatsApp?",
+            name: "telefone",
+            type: "tel",
+            placeholder: "(11) 99999-9999"
+        },
+        {
+            label: "Descreva sua necessidade",
+            name: "mensagem",
+            type: "textarea",
+            placeholder: "Fale um pouco sobre seu projeto"
+        }
+    ];
+
+
+
+    const handleNext = () => {
+        if (step < perguntas.length - 1) {
+            setStep(step + 1);
+        } else {
+            enviarWhatsApp();
+        }
+    };
+
+    const handleBack = () => {
+        if (step > 0) {
+            setStep(step - 1);
+        }
+    };
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+
+    const enviarWhatsApp = () => {
+
+        const texto = `
+Olá! Gusta
+Me chamo *${formData.nome}*
+Com o Email: ${formData.email}
+Meu WhatsApp sendo: ${formData.telefone}
+
+Queria tratar sobre:
+${formData.mensagem}
+`;
+
+        const numeroWhatsApp = "5511915079401";
+        const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+
+        window.open(url, "_blank");
+
+        setModal(false);
+        setStep(0);
+    };
+
     return (
         <section className="contato">
             <div className="contato-header">
@@ -93,60 +176,59 @@ ${mensagem}
                         </div>
                     </div>
                 </div>
-
-                {/* Lado direito */}
-                <form className="contato-form" onSubmit={handleSubmit}>
-                    <h1>Formulário de Contato</h1>
-
-                    <label htmlFor="nome">Nome *</label>
-                    <input
-                        id="nome"
-                        name="nome"
-                        type="text"
-                        placeholder="Digite seu nome completo"
-                        required
-                    />
-
-                    <label htmlFor="email">Email *</label>
-                    <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="exemplo@email.com"
-                        required
-                    />
-
-                    <label htmlFor="telefone">WhatsApp *</label>
-                    <input
-                        id="telefone"
-                        name="telefone"
-                        type="tel"
-                        placeholder="(11) 99999-9999"
-                        required
-                    />
-
-                    <label htmlFor="mensagem">Mensagem</label>
-                    <textarea
-                        id="mensagem"
-                        name="mensagem"
-                        placeholder="Descreva sua necessidade..."
-                        rows="4"
-                    ></textarea>
-
-                    <button
-                        type="submit"
-                        className="button1"
-                        disabled={status === "sending"}
-                    >
-                        {status === "idle" && "Enviar mensagem"}
-                        {status === "sending" && "Abrindo WhatsApp..."}
-                        {status === "sent" && "Mensagem enviada ✓"}
+                <div>
+                    <h2>CLIQUE AQUI PARA REALIZAR SEU ORÇAMENTO</h2>
+                    <button className="abrir-modal" onClick={() => setModal(true)}>
+                        Solicitar Orçamento
                     </button>
+                </div>
 
 
-                    
-                </form>
+
             </div>
+            {modal && (
+                <div className="modal-overlay" role="dialog" aria-modal="true">
+                    <div className="modal-box">
+
+                        <button
+                            className="fechar"
+                            onClick={() => setModal(false)}
+                            aria-label="Fechar"
+                        >
+                            ✕
+                        </button>
+
+                        <h2>{perguntas[step].label}</h2>
+
+                        {perguntas[step].type === "textarea" ? (
+                            <textarea
+                                name={perguntas[step].name}
+                                placeholder={perguntas[step].placeholder}
+                                value={formData[perguntas[step].name]}
+                                onChange={handleChange}
+                            />
+                        ) : (
+                            <input
+                                type={perguntas[step].type}
+                                name={perguntas[step].name}
+                                placeholder={perguntas[step].placeholder}
+                                value={formData[perguntas[step].name]}
+                                onChange={handleChange}
+                            />
+                        )}
+
+                        <div className="modal-buttons">
+                            {step > 0 && (
+                                <button onClick={handleBack}>Voltar</button>
+                            )}
+
+                            <button onClick={handleNext}>
+                                {step === perguntas.length - 1 ? "Enviar" : "Próximo"}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     )
 }

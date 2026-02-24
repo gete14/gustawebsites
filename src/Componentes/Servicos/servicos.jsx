@@ -1,5 +1,14 @@
 import '../../styles/servicos.css'
-import { FiMonitor, FiSmartphone, FiDollarSign   } from "react-icons/fi";
+import { 
+    FiMonitor, 
+    FiSmartphone, 
+    FiDollarSign,
+    FiShoppingCart,
+    FiTool,
+    FiServer,
+    FiTrendingUp,
+    FiLayers
+} from "react-icons/fi";
 
 
 function Section1() {
@@ -16,9 +25,29 @@ function Section1() {
             descricao: "Interfaces intuitivas e atraentes que melhoram a experiência do usuário e aumentam conversões."
         },
         {
-            icon: <FiDollarSign size={30}/>,
+            icon: <FiTrendingUp size={30}/>,
             titulo: "Otimização e SEO",
             descricao: "Melhoria de desempenho e visibilidade nos buscadores para atrair mais clientes."
+        },
+        {
+            icon: <FiLayers size={30}/>,
+            titulo: "Landing Pages Estratégicas",
+            descricao: "Páginas focadas em conversão, ideais para campanhas e lançamentos, com estrutura pensada para gerar mais leads e vendas."
+        },
+        {
+            icon: <FiShoppingCart size={30}/>,
+            titulo: "E-commerce",
+            descricao: "Criação de lojas virtuais completas, seguras e otimizadas para proporcionar a melhor experiência de compra."
+        },
+        {
+            icon: <FiTool size={30}/>,
+            titulo: "Manutenção e Suporte",
+            descricao: "Atualizações, correções e melhorias contínuas para manter seu site sempre seguro, rápido e funcionando perfeitamente."
+        },
+        {
+            icon: <FiServer size={30}/>,
+            titulo: "Integração de Sistemas",
+            descricao: "Integração com APIs, meios de pagamento e ferramentas externas para automatizar processos e aumentar a eficiência."
         }
     ]
 
@@ -43,7 +72,7 @@ function Section1() {
                     </div>
                 ))}
             </div>
-            </section>
+        </section>
         </>
     )
 }
