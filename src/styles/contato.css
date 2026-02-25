@@ -211,6 +211,248 @@
     cursor: pointer;
 }
 
+
+/* ================= MODAL ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  z-index: 9999;
+}
+.modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: #0f172a;
+  border-radius: 18px;
+  padding: 28px 22px 24px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  animation: modalIn 0.35s ease;
+}
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.fechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.fechar:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.modal-box h2 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.4;
+}
+.modal-box input,
+.modal-box textarea,
+.modal-box select {
+  width: 100%;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 14px 14px;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.25s;
+  margin-bottom: 18px;
+}
+
+.modal-box textarea {
+  min-height: 110px;
+  resize: none;
+}
+
+/* foco bonito */
+.modal-box input:focus,
+.modal-box textarea:focus,
+.modal-box select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+}
+
+/* placeholder */
+.modal-box input::placeholder,
+.modal-box textarea::placeholder {
+  color: #64748b;
+}
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* botão voltar */
+.modal-buttons button:first-child {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+.modal-buttons button:first-child:hover {
+  background: #334155;
+}
+
+/* botão principal */
+.modal-buttons button:last-child {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+}
+
+.modal-buttons button:last-child:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* botão desabilitado */
+.modal-buttons button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ============================= */
+/* POPUP SUCESSO */
+/* ============================= */
+.popup-sucesso {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 16px;
+}
+
+.popup-box {
+  background: #0f172a;
+  padding: 28px 24px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+  animation: popupIn 0.3s ease;
+}
+
+.popup-box h3 {
+  color: #22c55e;
+  margin-bottom: 10px;
+}
+
+.popup-box p {
+  color: #cbd5e1;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.popup-box button {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.popup-box button:hover {
+  transform: translateY(-1px);
+}
+
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* ============================= */
+/* 📱 MOBILE PEQUENO */
+/* ============================= */
+@media (max-width: 360px) {
+  .modal-box {
+    padding: 22px 16px 20px;
+  }
+
+  .modal-box h2 {
+    font-size: 1.1rem;
+  }
+}
+
+/* ============================= */
+/* 💻 TABLET */
+/* ============================= */
+@media (min-width: 768px) {
+  .modal-box {
+    max-width: 480px;
+    padding: 32px 28px 26px;
+  }
+
+  .modal-box h2 {
+    font-size: 1.35rem;
+  }
+
+  .modal-box input,
+  .modal-box textarea,
+  .modal-box select {
+    font-size: 1rem;
+    padding: 15px;
+  }
+}
+
+/* ============================= */
+/* 🖥️ DESKTOP GRANDE */
+/* ============================= */
+@media (min-width: 1200px) {
+  .modal-box {
+    max-width: 520px;
+    border-radius: 20px;
+  }
+}
+
+
+
 @keyframes fadeUp {
     from {
         opacity: 0;
