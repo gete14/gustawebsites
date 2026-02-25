@@ -26,7 +26,7 @@ function Section1() {
                         </div>
 
 
-                        <Link to="/contato">
+                        <Link to="/orcamento">
                             <div className="borda-button-2">
                                 <div className="button-2">
                                     <button className='button2'>Fale Comigo</button>

@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'  
-import Section1 from '../Componentes/Contato/contato.jsx'
+import Section1 from '../Componentes/Orcamento/orcamento.jsx'
 
 
-export default function Contato() {
+export default function Orcamento() {
     return (
         <>
             <StrictMode>

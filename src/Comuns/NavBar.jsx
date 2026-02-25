@@ -68,13 +68,8 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to="contato">
-                Contato
-              </Link>
-            </li>
-            <li>
               <Link
-                to="contato"
+                to="orcamento"
                 className="button1"
               >
                 Orçamento
@@ -113,13 +108,8 @@ function Header() {
             </Link>
           </li>
           <li>
-            <Link to="contato" onClick={closeMenu}>
-              Contato
-            </Link>
-          </li>
-          <li>
             <Link
-              to="contato"
+              to="orcamento"
               className="button1"
               onClick={closeMenu}
             >

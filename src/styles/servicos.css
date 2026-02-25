@@ -1,17 +1,16 @@
 @import url("../styles/main.css");
 
-/* ================= SERVIÇOS ================= */
-
-/* 🔹 BASE — MOBILE (320px) */
+/* ============================= */
+/* 🔹 MOBILE FIRST (até 767px)  */
+/* ============================= */
 
 .tittle-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 0 1.5rem 3rem;
+    padding: 9rem 1.5rem 3rem;
     text-align: center;
-
 }
 
 .tittle-section h1 {
@@ -25,27 +24,50 @@
     line-height: 160%;
 }
 
+/* CONTAINER */
 .container-cards {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     padding: 0 1.5rem;
+    padding-bottom: 3rem;
 }
 
-/* ---- CARD ---- */
+/* CARD */
 .card-servico {
     color: var(--9);
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.2rem;
     text-align: center;
     background: var(--8);
-    padding: 2.5rem 2rem;
+    padding: 1.5rem 1rem;
     border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-/* ---- ÍCONE ---- */
+/* Hover só vai impactar desktop depois */
+.card-servico:hover {
+    transform: translateY(-4px);
+}
+
+/* HEADER */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    width: 100%;
+}
+
+.card-header h3 {
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* ÍCONE */
 .icon {
     width: 56px;
     height: 56px;
@@ -55,12 +77,27 @@
     color: var(--6);
     background: linear-gradient(45deg, var(--2) 0%, var(--3));
     border-radius: 50%;
+    padding: 15px;
 }
 
-/* ================= BREAKPOINTS ================= */
+/* DESCRIÇÃO (accordion mobile) */
+.descricao {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, margin 0.3s ease;
+}
 
-/* 📱 Tablets (768px) */
+.card-servico.ativo .descricao {
+    max-height: 200px;
+    margin-top: 10px;
+}
+
+/* ============================= */
+/* 📲 TABLET (768px+)           */
+/* ============================= */
+
 @media (min-width: 768px) {
+
     .container-cards {
         flex-direction: row;
         flex-wrap: wrap;
@@ -70,26 +107,80 @@
 
     .card-servico {
         width: 45%;
-        max-width: 320px;
+        max-width: 360px;
     }
 }
 
-/* 💻 Notebooks (1024px) */
+/* ============================= */
+/* 💻 DESKTOP (1024px+)         */
+/* ============================= */
+
 @media (min-width: 1024px) {
+
     .servicos {
-        padding-inline: 12rem;
-        padding-top: 10%;
-        animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
-        transition: transform 0.45s ease, filter 0.45s ease;
+        padding-inline: 8rem;
+        padding-top: 8rem;
     }
 
     .container-cards {
-        justify-content: space-between;
-        padding: 0 10%;
+        justify-content: center;
     }
 
     .card-servico {
-        width: 30%;
-        max-width: none;
+        width: 300px;
+    }
+
+    /* No desktop mostra descrição sempre */
+    .descricao {
+        max-height: none;
+        overflow: visible;
+        margin-top: 10px;
+    }
+}
+
+/* ============================= */
+/* 🖥️ MONITOR GRANDE (1600px+)  */
+/* ============================= */
+
+@media (min-width: 1600px) {
+
+    .servicos {
+        padding-inline: 14rem;
+    }
+
+    .card-servico {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+
+    .card-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================= */
+/* 🖥️ 2K (2000px+)              */
+/* ============================= */
+
+@media (min-width: 2000px) {
+
+    .servicos {
+        padding-inline: 20rem;
+    }
+
+    .container-cards {
+        gap: 3rem;
+    }
+
+    .card-servico {
+        padding: 2.5rem;
+    }
+
+    .tittle-section h1 {
+        font-size: 3rem;
+    }
+
+    .tittle-section p {
+        font-size: 1.2rem;
     }
 }

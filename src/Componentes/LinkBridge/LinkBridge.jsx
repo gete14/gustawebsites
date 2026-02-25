@@ -53,7 +53,7 @@ export default function LinkBridge() {
               <FaBriefcase /> Portfólio
             </Link>
 
-            <Link to="/contato" className="link-btn">
+            <Link to="/orcamento" className="link-btn">
               <FaWpforms /> Formulário
             </Link>
             <Link to="/planos" className="link-btn">
@@ -83,6 +83,7 @@ export default function LinkBridge() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
+                className="icon-instagram"
               >
                 <FaInstagram />
               </a>
@@ -92,6 +93,7 @@ export default function LinkBridge() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
+                className="icon-whatsapp"
               >
                 <FaWhatsapp />
               </a>

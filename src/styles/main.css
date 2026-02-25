@@ -164,30 +164,66 @@ body {
   position: relative;
   width: max-content;
   padding: 2px;
-  border-radius: 10px;
+  border-radius: 12px;
   background: linear-gradient(90deg, var(--2), var(--3));
   overflow: hidden;
+
+  /* FLUTUANTE */
+  animation: float 3s ease-in-out infinite;
+}
+
+
+/* animação flutuar */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
 }
 
 .button-2 {
   position: relative;
   background: var(--7);
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
+}
+
+/* FLASH DE LUZ PASSANDO */
+.button-2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    var(--6),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: shine 4s infinite;
+  z-index: 3;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  50% { left: 125%; }
+  100% { left: 125%; }
 }
 
 .button2 {
   position: relative;
   z-index: 2;
   border: none;
-  padding: 0.75rem  0.5rem;
+  padding: 0.75rem 1.2rem;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 900;
   background: linear-gradient(90deg, var(--2), var(--3));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* camada do fill */
@@ -201,7 +237,7 @@ body {
   z-index: 1;
 }
 
-/* hover */
+/* HOVER */
 .borda-button-2:hover .button-2::before {
   transform: translateX(0);
 }
@@ -210,6 +246,11 @@ body {
   -webkit-text-fill-color: var(--6);
 }
 
+/* hover mais forte */
+.borda-button-2:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
 @media (min-width: 768px) {
   .button2 {
     padding: 0.85rem 1.6rem;

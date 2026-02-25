@@ -1,6 +1,5 @@
-// App.jsx
 import React from "react";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 
 // Componentes
 import Footer from "./Comuns/Footer";
@@ -12,15 +11,19 @@ import Portfolio from "./Pages/Portfolio";
 import Faq from "./Pages/Faq";
 import LinkBridge from "./Pages/LinkBridge";
 import Home from "./pages/Home";
-import Contato from "./Pages/Contato";
+import Orcamento from "./pages/Orcamento";
 import Planos from "./Pages/Planos";
 import Servicos from "./Pages/Servicos";
+import WhatsAppButton from "./Comuns/wpp";
 
-export default function App() {
+function AppContent() {
+  const location = useLocation();
+
+  const esconderWhats = location.pathname === "/";
+
   return (
-    <HashRouter basename="/">
+    <>
       <ScrollToTop />
-
       <NavBar />
 
       <Routes>
@@ -28,16 +31,22 @@ export default function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/contato" element={<Contato />} />
+        <Route path="/orcamento" element={<Orcamento />} />
         <Route path="/planos" element={<Planos />} />
         <Route path="/servicos" element={<Servicos />} />
-        
-
-        {/* Página 404 */}
         <Route path="*" element={<h1>Página não encontrada</h1>} />
       </Routes>
 
+      {!esconderWhats && <WhatsAppButton />}
       <Footer />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <HashRouter>
+      <AppContent />
     </HashRouter>
   );
 }
