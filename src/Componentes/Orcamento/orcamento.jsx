@@ -1,7 +1,7 @@
 import "../../styles/orcamento.css";
 import { FaWhatsapp, FaInstagram, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import heroImg from "../../img/eu-v7.png";
 
 function Section1() {
@@ -21,6 +21,22 @@ function Section1() {
         mensagem: "",
         prazo: ""
     });
+
+   useEffect(() => {
+    if (modal) {
+        const scrollY = window.scrollY;
+
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${scrollY}px`;
+        document.body.style.width = "100%";
+    } else {
+        const scrollY = document.body.style.top;
+
+        document.body.style.position = "";
+        document.body.style.top = "";
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+    }
+}, [modal]);
 
     // ✅ perguntas objetivas
     const perguntas = [
@@ -197,7 +213,7 @@ function Section1() {
                                     href="https://wa.me/5511915079401"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="info-link"
+                                    className="info-link btn-wpp"
                                 >
                                     <FaWhatsapp className="info-icon whatsapp" />
                                     <div>
@@ -212,7 +228,7 @@ function Section1() {
                                     href="https://www.instagram.com/gustawebsites"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="info-link"
+                                    className="info-link btn-insta"
                                 >
                                     <FaInstagram className="info-icon instagram" />
                                     <div>
@@ -222,7 +238,7 @@ function Section1() {
                                 </a>
                             </li>
 
-                            <li className="info-static">
+                            <li className="info-static btn-normal">
                                 <FaClock className="info-icon" />
                                 <div>
                                     <strong>Horário</strong>
@@ -231,8 +247,8 @@ function Section1() {
                             </li>
 
                             <li className="info-static">
-                                <FaMapMarkerAlt className="info-icon" />
-                                <div>
+                                <FaMapMarkerAlt className="info-icon " />
+                                <div >
                                     <strong>Atendimento</strong>
                                     <span>Todo o Brasil</span>
                                 </div>

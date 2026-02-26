@@ -7,6 +7,7 @@
 .faq {
   padding: 4rem 1.5rem;
   color: var(--9);
+  padding-top: 9rem;
 }
 
 /* ---------- HEADER ---------- */
@@ -115,10 +116,12 @@
 @media (min-width: 768px) {
   .faq {
     padding: 5rem 5%;
+    padding-top: 9rem;
   }
 
   .faq-container {
     gap: 1.6rem;
+    flex-wrap: wrap
   }
 
   .faq-pergunta {
@@ -138,7 +141,7 @@
 @media (min-width: 1024px) {
   .faq {
      padding-inline: 12rem;
-    padding-top: 10%;
+    padding-top: 9rem;
     animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
     transition: transform 0.45s ease, filter 0.45s ease;
   }
@@ -150,6 +153,8 @@
   .faq-container {
     max-width: 900px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto auto;
   }
 
   /* hover refinado no desktop */
