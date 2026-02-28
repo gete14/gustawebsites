@@ -5,7 +5,8 @@
 /* 🔹 BASE — MOBILE (320px) */
 
 .portfolio {
-    padding: 3rem 1.5rem;
+    padding: 0rem 1.5rem;
+    padding-bottom: 2rem;
     color: var(--9);
 }
 
@@ -250,8 +251,8 @@
 /* 💻 Notebooks (1024px) */
 @media (min-width: 1024px) {
     .portfolio {
-        padding-inline: 12rem;
-        padding-top: 10%;
+        padding-inline: 3rem;
+        padding-top: 1rem;
         animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
         transition: transform 0.45s ease, filter 0.45s ease;
     }
@@ -290,5 +291,10 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+@media (min-width: 1600px) {
+    .portfolio-cards{
+       grid-template-columns: repeat(4, 1fr);
     }
 }

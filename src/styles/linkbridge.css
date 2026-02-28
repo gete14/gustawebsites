@@ -38,9 +38,11 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding: 60px 80px;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
   gap: 40px;
+  flex-direction: column-reverse;
 }
 
 /* =========================
@@ -247,13 +249,8 @@ border-radius: 5%;
 /* =========================
    📱 MOBILE
 ========================= */
-@media (max-width: 768px) {
-  .content {
-    flex-direction: column-reverse;
-    justify-content: center;
-    text-align: center;
-    padding: 40px 20px;
-  }
+
+
 
   .left-side {
     max-width: 100%;
@@ -282,15 +279,17 @@ border-radius: 5%;
     position: static;
     margin-top: 20px;
   }
-}
 
 /* =========================
    💻 TELAS INTERMEDIARIAS
 ========================= */
 @media (min-width: 768px) {
   .right-side img {
-    max-height: 280px;
+    max-height: 330px;
     margin-bottom: 10px;
+  }
+  .content{
+    flex-direction: row-reverse;
   }
 }
 /* =========================
@@ -302,7 +301,7 @@ border-radius: 5%;
   }
 
   .right-side img {
-    max-height: 60vh;
+    max-height: 500px;
   }
 }
 

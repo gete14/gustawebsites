@@ -57,23 +57,22 @@ function Header() {
                 Portfólio
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="planos">
                 Planos
               </Link>
-            </li>
+            </li>*/}
             <li>
               <Link to="faq">
                 FAQ
               </Link>
             </li>
             <li>
-              <Link
-                to="orcamento"
-                className="button1"
-              >
-                Orçamento
-              </Link>
+              <div className="button-1">
+                            <Link to="/orcamento">
+                                <button className='button1'>Orçamento</button>
+                            </Link>
+                        </div>
             </li>
           </ul>
         </nav>
@@ -97,11 +96,11 @@ function Header() {
               Portfólio
             </Link>
           </li>
-          <li>
+          {/*<li>
             <Link to="planos" onClick={closeMenu}>
               Planos
             </Link>
-          </li>
+          </li>*/}
           <li>
             <Link to="faq" onClick={closeMenu}>
               FAQ

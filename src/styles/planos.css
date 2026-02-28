@@ -1,196 +1,283 @@
 @import url("../styles/main.css");
 
-/* ================== PLANOS ================== */
-
-/* 🔹 BASE — MOBILE (320px) */
+/* ===================== BASE ===================== */
 
 .planos {
   padding: 4rem 1.5rem;
-  color: var(--6);
 }
 
-/* ---------- TITLE ---------- */
-.planos .tittle-section {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.planos h1 {
-  font-size: clamp(1.8rem, 6vw, 2.4rem);
-  font-weight: 700;
-  color: var(--9);
-}
-
-.planos .linha {
-  display: block;
-  width: 70px;
-  height: 3px;
-  margin: 1rem auto;
-  background: linear-gradient(90deg, var(--2), var(--3));
-}
-
-.planos p {
-  max-width: 520px;
-  margin: 0 auto;
-  color: var(--5);
-  line-height: 160%;
-}
-
-/* ---------- CONTAINER ---------- */
 .planos-container {
   display: grid;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
+/* ===================== CARD ===================== */
 
-/* ---------- CARD ---------- */
 .plano-card {
   position: relative;
   background: var(--8);
-  border-radius: 20px;
-  padding: 2.5rem 2rem;
-  color: var(--9);
-  transition: all 0.4s ease;
+  border-radius: 18px;
+  padding: 1.5rem;
+  transition: all 0.4s cubic-bezier(.22, .61, .36, 1);
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===================== HEADER (clicável no mobile) ===================== */
+
+.plano-header {
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
 }
 
-/* ---------- DESTAQUE ---------- */
-.plano-card.destaque {
-  border: 2px solid var(--1);
-}
-
-/* ---------- BADGE ---------- */
-.badge {
-  position: absolute;
-  top: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--1);
-  color: var(--6);
-  padding: 0.35rem 1.1rem;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-align: center;
-}
-
-/* ---------- TITULO ---------- */
 .plano-card h2 {
-  text-align: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
-/* ---------- LISTA ---------- */
+.toggle {
+  font-size: 1.6rem;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+/* ===================== CONTEÚDO MOBILE (FECHADO) ===================== */
+
+.plano-conteudo {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.4s ease;
+}
+
+/* Quando expandido (APENAS MOBILE) */
+.plano-card.expandido .plano-conteudo {
+  max-height: 800px;
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.plano-card.expandido .toggle {
+  transform: rotate(180deg);
+}
+
+/* ===================== LISTA ===================== */
+
 .plano-card ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 2.5rem;
+  margin-bottom: 2rem;
 }
 
+/* 🔥 ÍCONES PADRONIZADOS */
 .plano-card li {
-  font-size: 0.9rem;
-  color: var(--4);
-  margin-bottom: 0.9rem;
   display: flex;
   align-items: flex-start;
-  gap: 0.6rem;
-  line-height: 150%;
+  gap: 0.8rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--4);
+  line-height: 1.4;
 }
 
+/* Força tamanho fixo do ícone */
 .plano-card li svg {
-  min-width: 22px;
-  min-height: 22px;
+  width: 20px !important;
+  height: 20px !important;
+  min-width: 20px;
+  min-height: 20px;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* ---------- BOTÃO ---------- */
+/* ===================== BOTÃO ===================== */
+
 .plano-card button {
   width: 100%;
-  padding: 0.85rem;
+  padding: 0.9rem;
   border-radius: 999px;
   border: none;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-weight: 600;
+  background: linear-gradient(90deg, var(--2), var(--3));
   color: var(--6);
+  font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
-  position: relative;
-  margin-top: auto;
 }
 
 .plano-card button:hover {
-  filter: brightness(1.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* ===================== BADGE RECOMENDADO ===================== */
+
+.plano-card.destaque {
+  border: 2px solid var(--1);
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
+}
+
+/* 🔥 BADGE PREMIUM */
+.badge {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--2), var(--3));
+  color: #fff;
+  padding: 0.45rem 1.3rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(59, 130, 246, 0.35);
+  z-index: 999;
+  animation: badgeFloat 3s ease-in-out infinite,
+    badgeGlow 3s ease-in-out infinite;
+
+  pointer-events: none;
+  /* não interfere no clique */
+}
+
+/* ✨ Flutuação suave */
+@keyframes badgeFloat {
+  0% {
+    transform: translateX(-50%) translateY(0px);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-6px);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+}
+
+/* ✨ Glow elegante (não substitui sombra principal) */
+@keyframes badgeGlow {
+  0% {
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.35);
+  }
+
+  50% {
+    box-shadow:
+      0 14px 30px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(59, 130, 246, 0.55);
+  }
+
+  100% {
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.35);
+  }
 }
 
 
+/* ✨ ANIMAÇÃO SUAVE EM LOOP */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
 
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.35);
+  }
 
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  }
+}
 
+.plano-card.destaque {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
 
-/* ================= BREAKPOINTS ================= */
+/* ===================== TABLET (768px+) ===================== */
 
-/* 📱 Tablets (768px) */
 @media (min-width: 768px) {
+
   .planos {
-    padding: 5rem 5%;
+    padding: 6rem 5%;
   }
-
-  .planos-container {
-    flex-direction: row;
-    justify-content: center;
-    gap: 2.5rem;
-    flex-wrap: wrap;
+  .plano-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
-
-  .plano-card {
-    width: 320px;
+  .plano-card ul{
+    width: 100%;
   }
 
   .plano-card h2 {
-    font-size: 1.7rem;
-  }
-}
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
 
-/* 💻 Notebooks (1024px) */
-@media (min-width: 1024px) {
-  .planos {
-    padding-inline: 12rem;
-    padding-top: 10%;
-    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
-    transition: transform 0.45s ease, filter 0.45s ease;
+  }
+  .plano-header{
+    justify-content: center;
   }
 
   .planos-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  /* 🔥 DESATIVA EXPANSÃO NO TABLET E DESKTOP */
+  .plano-conteudo {
+    max-height: none !important;
+    opacity: 1 !important;
+    margin-top: 1.5rem;
+  }
+  .badge{
+    top: -30px;
+  }
+  .toggle {
+    display: none;
+  }
+
+}
+
+/* ===================== DESKTOP (1024px+) ===================== */
+
+@media (min-width: 1024px) {
+
+  .planos-container {
     grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
   }
 
   .plano-card {
-    width: 100%;
-    max-width: 360px;
-    flex: 1;
+    padding: 2.5rem 2rem;
   }
 
-  /* Hover só no desktop */
   .plano-card:hover {
-    transform: translateY(-14px);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-  }
-
-  .plano-card.destaque {
-    transform: scale(1.05);
+    transform: translateY(-12px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
   }
 
   .plano-card.destaque:hover {
-    transform: scale(1.05) translateY(-14px);
-    box-shadow: 0 30px 70px rgba(59, 130, 246, 0.35);
+    transform: scale(1.05) translateY(-12px);
   }
 
-  .plano-card.destaque button {
-    background: linear-gradient(90deg, var(--2), var(--3));
+}
+
+/* ===================== DESKTOP GRANDE (1440px+) ===================== */
+
+@media (min-width: 1440px) {
+
+  .planos {
+    padding-inline: 12rem;
   }
+
+  .planos-container {
+    gap: 3rem;
+  }
+
 }

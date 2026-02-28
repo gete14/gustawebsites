@@ -34,9 +34,9 @@ function Footer() {
             <li>
               <Link to="portfolio">Portfólio</Link>
             </li>
-            <li>
+            {/*<li>
               <Link to="planos">Planos</Link>
-            </li>
+            </li>*/}
             <li>
               <Link to="faq">FAQ</Link>
             </li>

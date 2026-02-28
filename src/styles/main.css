@@ -93,47 +93,125 @@ body {
 
 /* =========================  BUTTONS   ========================= */
 /* 🔹 BASE — MOBILE (320px) */
+/* ===============================
+   🚀 BUTTON PREMIUM FLUTUANTE
+================================ */
+
 .button1 {
   position: relative;
   overflow: hidden;
 
+  padding: 0.9rem 1.8rem;
   border: none;
-  padding: 0.75rem 0.5rem;
-  color: var(--6) !important;
-  font-size: 1rem;
+  border-radius: 12px;
+
+  font-size: 0.95rem;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--2) 0%, var(--3) 100%);
-  border-radius: 9px;
+  letter-spacing: 0.05em;
+
+  color: #fff !important;
+
+  background: linear-gradient(135deg, var(--2), var(--3));
+
   cursor: pointer;
   white-space: nowrap;
+
+  transition: 
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.25),
+    0 0 20px rgba(59,130,246,0.25);
+
+  animation: float 2s ease-in-out infinite,
+             glowPulse 4s ease-in-out infinite;
 }
 
-/* faixa de luz INTERNA */
+
+/* ===============================
+   💎 GLOW RESPIRANDO
+================================ */
+
+@keyframes glowPulse {
+  0% {
+    transform: translateY(0px) scale(1);
+    box-shadow:
+      0 10px 25px rgba(0,0,0,0.25),
+      0 0 15px rgba(59,130,246,0.25);
+  }
+
+  40% {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow:
+      0 18px 40px rgba(0,0,0,0.35),
+      0 0 35px rgba(59,130,246,0.45);
+  }
+
+  100% {
+    transform: translateY(0px) scale(1);
+    box-shadow:
+      0 10px 25px rgba(0,0,0,0.25),
+      0 0 15px rgba(59,130,246,0.25);
+  }
+}
+
+/* ===============================
+   ✨ SHINE CINEMATOGRÁFICO
+================================ */
+
 .button1::before {
   content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
 
   background: linear-gradient(
     120deg,
-    transparent 40%,
-    var(--6),
-    transparent 70%
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
   );
 
-  transform: translateX(-70%) skewX(-25deg);
-  opacity: 0;
-
-  transition: transform 600ms ease, opacity 300ms ease;
-  pointer-events: none;
+  transform: skewX(-25deg);
+  transition: left 0.9s cubic-bezier(.22,.61,.36,1);
 }
 
-/* ativa o brilho */
 .button1:hover::before {
-  transform: translateX(70%) skewX(-25deg);
-  opacity: 1;
+  left: 140%;
 }
 
+/* ===============================
+   🔥 HOVER ELEGANTE
+================================ */
+
+.button1:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: brightness(1.07);
+}
+
+/* ===============================
+   👆 CLICK MICRO INTERAÇÃO
+================================ */
+
+.button1:active {
+  transform: scale(0.96);
+  animation: none;
+}
+
+/* ===============================
+   ♿ ACESSIBILIDADE
+================================ */
+
+.button1:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,0.4),
+    0 0 0 6px rgba(59,130,246,0.6);
+}
 
 
 
