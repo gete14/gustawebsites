@@ -47,6 +47,9 @@ function Header() {
         {/* ✅ MENU DESKTOP */}
         <nav className="nav-desktop">
           <ul>
+            <Link to="home">
+                Home
+              </Link>
             <li>
               <Link to="servicos">
                 Serviços

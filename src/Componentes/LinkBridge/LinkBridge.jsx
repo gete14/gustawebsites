@@ -56,9 +56,9 @@ export default function LinkBridge() {
             <Link to="/orcamento" className="link-btn">
               <FaWpforms /> Formulário
             </Link>
-            <Link to="/planos" className="link-btn">
+            {/*<Link to="/planos" className="link-btn">
               <FaLaptopCode /> Planos
-            </Link>
+            </Link>*/}
             <Link to="/faq" className="link-btn">
               <FaQuestion  /> FAQ
             </Link>

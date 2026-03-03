@@ -29,6 +29,9 @@ function Footer() {
           <h4>Navegação</h4>
           <ul>
             <li>
+              <Link to="home">Home</Link>
+            </li>
+            <li>
               <Link to="servicos">Serviços</Link>
             </li>
             <li>

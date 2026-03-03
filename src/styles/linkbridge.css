@@ -153,6 +153,7 @@
   display: flex;
   gap: 22px;
   justify-content: space-around;
+  width: 100%;
 }
 
 .social-links a {
@@ -191,8 +192,14 @@
 .social-links a:hover {
   transform: scale(1.15);
 }
+.icon-whatsapp{
+  border: 2px solid #25d366;
+}
 .icon-whatsapp::before {
   background-color: #25d366;
+}
+.icon-instagram{
+  border: 2px solid #E1306C;
 }
 
 .icon-instagram::before {
@@ -314,7 +321,7 @@ border-radius: 5%;
   }
 
   .right-side img {
-    max-height: 88vh;
+    max-height: 75vh;
   }
 }
 
