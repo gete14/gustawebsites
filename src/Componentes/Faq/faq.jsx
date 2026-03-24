@@ -51,20 +51,21 @@ function Section1() {
 
             <div className="faq-container">
                 {faqs.map((item, index) => (
-                    <div
-                        key={index}
-                        className={`faq-item ${ativo === index ? 'ativo' : ''}`}
-                        onClick={() => toggleFaq(index)}
-                    >
-                        <div className="faq-pergunta">
+                    <div key={index} className="faq-item">
+                        <button
+                            onClick={() => toggleFaq(index)}
+                            aria-expanded={ativo === index}
+                            aria-controls={`faq-resposta-${index}`}
+                            className="faq-pergunta"
+                        >
                             <span>{item.pergunta}</span>
-                            <span className="seta">
+                            <span className="seta" aria-hidden="true">
                                 <FiChevronDown size={22} />
                             </span>
-                        </div>
+                        </button>
 
                         {ativo === index && (
-                            <div className="faq-resposta">
+                            <div id={`faq-resposta-${index}`} className="faq-resposta">
                                 <p>{item.resposta}</p>
                             </div>
                         )}

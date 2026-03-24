@@ -147,7 +147,7 @@
 .btn-sobre {
     position: absolute;
     bottom: 15px;
-    left: 50%;
+    left: 20%;
     transform: translateX(-50%);
     background: linear-gradient(90deg, var(--2) 0%, var(--3) 100%);
     color: var(--6);
@@ -166,6 +166,18 @@
 
 .btn-sobre:hover {
     filter: brightness(1.1);
+}
+
+.button2{
+    display: flex;
+    align-items: center;
+    gap: 15px!important;
+}
+
+.button-2 svg{
+    z-index: 10;
+    font-size: xx-large;
+    color: var(--9);
 }
 
 
@@ -221,6 +233,8 @@
         gap: 5%;
         padding-inline: 8rem;
         padding-top: 8rem;
+        animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+        transition: transform 0.45s ease, filter 0.45s ease;
     }
 
     .container-text,

@@ -43,13 +43,13 @@ function Section1() {
                         <img src={eu} alt="eu" />
 
                         {/* Botão inferior */}
-                        <div
-                            className="btn-sobre"
-                            onClick={() => setAtivo(!ativo)}
-                        >
-                            <span>Sobre mim</span>
-                            {ativo ? <FiChevronDown size={18} /> : <FiChevronUp size={18} />}
-                        </div>
+                        <div className="borda-button-2 btn-sobre">
+                                <div className="button-2 " onClick={() => setAtivo(!ativo)}>
+                                    <button className='button2'
+                                    >Sobre mim {ativo ? <FiChevronDown  /> : <FiChevronUp  />}</button>
+                                </div>
+                            </div>
+                        
 
                         {/* Overlay */}
                         <div className="info-overlay">

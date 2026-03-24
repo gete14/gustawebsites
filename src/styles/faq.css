@@ -40,9 +40,9 @@
 .faq-item {
   background: var(--2);
   border-radius: 16px;
-  cursor: pointer;
   overflow: hidden;
   transition: all 0.35s ease;
+  height: min-content;
 }
 
 /* hover (mobile safe) */
@@ -55,19 +55,34 @@
   background: linear-gradient(90deg, var(--2), var(--3));
 }
 
-/* ---------- PERGUNTA ---------- */
+/* ---------- PERGUNTA (BOTÃO) ---------- */
 .faq-pergunta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 1.2rem 1.4rem;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.35s ease;
 }
 
+/* hover & foco */
+.faq-pergunta:hover,
+.faq-pergunta:focus-visible {
+  outline: 3px solid var(--accent); /* foco acessível */
+  outline-offset: 3px;
+  filter: brightness(1.05);
+}
+
+/* texto da pergunta */
 .faq-pergunta span:first-child {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--6);
+  color: var(--7); /* contraste melhorado */
   line-height: 140%;
 }
 
@@ -88,7 +103,7 @@
 .faq-resposta {
   background: var(--8);
   padding: 1.2rem 1.4rem;
-  animation: abrir 0.4s ease;
+  animation: abrir 0.35s ease;
 }
 
 .faq-resposta p {
@@ -121,7 +136,7 @@
 
   .faq-container {
     gap: 1.6rem;
-    flex-wrap: wrap
+    flex-wrap: wrap;
   }
 
   .faq-pergunta {
@@ -140,7 +155,7 @@
 /* 💻 Notebooks (1024px) */
 @media (min-width: 1024px) {
   .faq {
-     padding-inline: 12rem;
+    padding-inline: 12rem;
     padding-top: 9rem;
     animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
     transition: transform 0.45s ease, filter 0.45s ease;
@@ -155,6 +170,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: auto auto;
+    gap: 1.6rem;
   }
 
   /* hover refinado no desktop */

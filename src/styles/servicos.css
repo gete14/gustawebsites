@@ -123,6 +123,8 @@
 
     .servicos {
         padding-inline: 8rem;
+        animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+        transition: transform 0.45s ease, filter 0.45s ease;
         
     }
 
