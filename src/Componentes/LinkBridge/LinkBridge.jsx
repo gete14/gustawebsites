@@ -2,14 +2,11 @@ import React from "react";
 import {
   FaWhatsapp,
   FaInstagram,
-  FaTiktok,
   FaGlobe,
   FaBriefcase,
   FaWpforms,
   FaEnvelope,
   FaQuestion ,
-  FaLaptopCode,
-  FaFontAwesome,
 } from "react-icons/fa";
 
 
@@ -17,7 +14,7 @@ import { Link } from "react-router-dom";
 import fundo from "../../img/fundo-linkbridge.png";
 import heroImg from "../../img/eu-v6.png";
 import logo from "../../../public/LOGO.svg";
-import CookieConsent from "../../Comuns/CookieConsent.jsx";
+
 
 import "../../styles/linkbridge.css";
 
@@ -107,7 +104,6 @@ export default function LinkBridge() {
           <img src={heroImg} alt="Gustavo desenvolvedor web" />
         </div>
       </div>
-      <CookieConsent />
     </section>
   );
 }

@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 
 // Componentes
@@ -16,31 +15,6 @@ import Orcamento from "./pages/Orcamento";
 import Planos from "./Pages/Planos";
 import Servicos from "./Pages/Servicos";
 
-// =================== SCRIPT CLARITY ===================
-function ClarityScript() {
-  useEffect(() => {
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/w0an01d2wz";
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "w0an01d2wz");
-  }, []);
-
-  return null;
-}
-
-// =================== SPA ROUTE TRACKING ===================
-function ClarityRouter() {
-  const location = useLocation();
-
-  useEffect(() => {
-    if (window.clarity) {
-      window.clarity('set', 'page', location.pathname);
-    }
-  }, [location.pathname]);
-
-  return null;
-}
 
 // =================== APP CONTENT ===================
 function AppContent() {
@@ -49,8 +23,6 @@ function AppContent() {
 
   return (
     <>
-      <ClarityScript />
-      <ClarityRouter />
       <ScrollToTop />
       <NavBar />
 
