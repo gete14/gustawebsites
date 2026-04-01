@@ -60,7 +60,6 @@ function Section1() {
             <section className='servicos'>
                 <div className="tittle-section" id='servicos'>
                     <h1>Meus Serviços</h1>
-                    <span className='linha'></span>
                     <p>
                         Crio experiências digitais únicas, combinando design moderno,
                         performance e visibilidade online que convertem clientes.

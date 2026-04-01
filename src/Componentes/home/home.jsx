@@ -40,7 +40,17 @@ function Section1() {
                 </div>
                 <div className="container-img">
                     <div className={`img-wrapper ${ativo ? "ativo" : ""}`}>
-                        <img src={eu} alt="eu" />
+                        <img src={eu} alt="eu" 
+                        />
+                        <div className="info-overlay">
+                            <p>
+                                Desenvolvedor web especializado em criar soluções digitais
+                                personalizadas que impulsionam negócios e marcas.
+                                Combinando design criativo e tecnologia de ponta para
+                                resultados excepcionais.
+                            </p>
+                        </div>
+                        
 
                         {/* Botão inferior */}
                         <div className="borda-button-2 btn-sobre">
@@ -50,16 +60,6 @@ function Section1() {
                                 </div>
                             </div>
                         
-
-                        {/* Overlay */}
-                        <div className="info-overlay">
-                            <p>
-                                Desenvolvedor web especializado em criar soluções digitais
-                                personalizadas que impulsionam negócios e marcas.
-                                Combinando design criativo e tecnologia de ponta para
-                                resultados excepcionais.
-                            </p>
-                        </div>
                     </div>
                 </div>
 

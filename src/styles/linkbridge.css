@@ -61,18 +61,9 @@
 /* =========================
    HEADER TEXT (PREMIUM)
 ========================= */
-.header-text h1 {
-  font-size: clamp(36px, 4vw, 56px);
-  font-weight: 800;
-  letter-spacing: 2px;
-  line-height: 1;
-}
-
-.header-text h2 {
-  font-size: clamp(22px, 2.5vw, 30px);
-  font-weight: 500;
-  opacity: 0.95;
-  margin-top: 6px;
+.header-text {
+  margin-top: 0px;
+  position: relative; /* 👈 necessário */
 }
 
 .header-text p {
@@ -91,6 +82,36 @@
   gap: 14px;
   margin-top: 10px;
 }
+.main-links {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.main-links.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.main-links.show .link-btn {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.main-links.show .link-btn:nth-child(1) { animation-delay: 0.2s; }
+.main-links.show .link-btn:nth-child(2) { animation-delay: 0.3s; }
+.main-links.show .link-btn:nth-child(3) { animation-delay: 0.4s; }
+.main-links.show .link-btn:nth-child(4) { animation-delay: 0.5s; }
+.main-links.show .link-btn:nth-child(5) { animation-delay: 0.6s; }
+.main-links.show .link-btn:nth-child(6) { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* =========================
    BOTÕES SaaS PREMIUM
@@ -206,51 +227,59 @@
   background-color: #E1306C;
 }
 
-/* =========================
-   RIGHT SIDE (FOTO)
-========================= */
-.right-side {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-}
 
-/* 🔥 GLOW PROFISSIONAL */
-
-.right-side img {
-  max-height: 82vh;
-  width: auto;
-  object-fit: contain;
-  position: relative;
-  z-index: 2;
-border-radius: 5%;
-  filter:
-    drop-shadow(0 25px 60px rgba(0, 0, 0, 0.6))
-    drop-shadow(0 0 35px rgba(58, 166, 255, 0.35));
-
- animation: heroReveal 3.3s cubic-bezier(.22,.61,.36,1) forwards;
-
-  transition: transform 0.45s ease, filter 0.45s ease;
-}
-
-.right-side img:hover {
-  transform: scale(1.03);
-}
 
 /* =========================
-   LOGO FLUTUANTE
+   INTRO LOGO
 ========================= */
-  .logo-container {
-      display: flex;
-      justify-content: center;
-    opacity: 0.9;
-    
+.logo-header {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.6s ease;
+}
+
+.logo-header.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.logo-header.show {
+  transition: all 0.8s cubic-bezier(.22,.61,.36,1);
+}
+
+.logo-header img {
+  width: clamp(120px, 20vw, 170px);
+}
+.logo-intro {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: introAnim 2s ease forwards;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.logo-intro img {
+  width: clamp(280px, 70vw, 500px);
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.7));
+}
+
+@keyframes introAnim {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
   }
 
-  .logo-container img {
-    width: 140px;
-    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+  70% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.3);
   }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.1);
+  }
+}
 
 
 /* =========================
@@ -272,16 +301,6 @@ border-radius: 5%;
     width: 100%;
   }
 
-  .right-side {
-    order: -1;
-    justify-content: center;
-  }
-
-  .right-side img {
-    max-height: 300px;
-    margin-bottom: 10px;
-  }
-
   .logo-container {
     position: static;
     margin-top: 20px;
@@ -291,10 +310,6 @@ border-radius: 5%;
    💻 TELAS INTERMEDIARIAS
 ========================= */
 @media (min-width: 768px) {
-  .right-side img {
-    max-height: 330px;
-    margin-bottom: 10px;
-  }
   .content{
     flex-direction: row-reverse;
   }
@@ -307,9 +322,6 @@ border-radius: 5%;
     padding: 80px 100px;
   }
 
-  .right-side img {
-    max-height: 500px;
-  }
 }
 
 /* =========================
@@ -318,10 +330,6 @@ border-radius: 5%;
 @media (min-width: 1600px) {
   .content {
     padding: 80px 140px;
-  }
-
-  .right-side img {
-    max-height: 75vh;
   }
 }
 
@@ -332,15 +340,9 @@ border-radius: 5%;
   .content {
     padding: 80px 140px;
   }
-  .logo-container img {
-    width: 300px;
-  }
 
   .left-side{
     max-height: 90vh;
-  }
-  .header-text p{
-    font-size: 3.5rem;
   }
   .link-btn{
     font-size: 2rem;
@@ -349,9 +351,5 @@ border-radius: 5%;
     font-size: 3rem;
     width: 60px;
     height: 60px;
-  }
-
-  .right-side img {
-    max-height: 90vh;
   }
 }

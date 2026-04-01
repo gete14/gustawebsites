@@ -1,6 +1,6 @@
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { useTheme } from '../context/ThemeContext'
-import '../styles/header.css'
+import '../styles/navbar.css'
 
 function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()

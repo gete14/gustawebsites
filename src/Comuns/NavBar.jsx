@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import '../styles/header.css'
+import '../styles/navbar.css'
 import logo from '../../public/LOGO.svg'
 import { HiOutlineMenu, HiX } from 'react-icons/hi'
 import ThemeToggle from './ThemeToggle'
@@ -33,6 +33,8 @@ function Header() {
   const location = useLocation()
   if (location.pathname === "/") return null
 
+  const isActive = (path) => location.pathname === path
+
   return (
     <header className={`header ${showHeader ? 'show' : 'hide'}`}>
       <div className="header-container">
@@ -47,35 +49,37 @@ function Header() {
         {/* ✅ MENU DESKTOP */}
         <nav className="nav-desktop">
           <ul>
-            <Link to="home">
-                Home
-              </Link>
-            <li>
-              <Link to="servicos">
-                Serviços
-              </Link>
-            </li>
-            <li>
-              <Link to="portfolio">
-                Portfólio
-              </Link>
-            </li>
-            {/* <li>
-              <Link to="planos">
-                Planos
-              </Link>
-            </li>*/}
-            <li>
-              <Link to="faq">
-                FAQ
-              </Link>
-            </li>
+            <ul>
+              <li>
+                <Link to="/home" className={isActive('/home') ? 'active' : ''}>
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/servicos" className={isActive('/servicos') ? 'active' : ''}>
+                  Serviços
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/portfolio" className={isActive('/portfolio') ? 'active' : ''}>
+                  Portfólio
+                </Link>
+              </li>
+
+              <li>
+                <Link to="/faq" className={isActive('/faq') ? 'active' : ''}>
+                  FAQ
+                </Link>
+              </li>
+            </ul>
             <li>
               <div className="button-1">
-                            <Link to="/orcamento">
-                                <button className='button1'>Orçamento</button>
-                            </Link>
-                        </div>
+                <Link to="/orcamento">
+                  <button className='button1'>Orçamento</button>
+                </Link>
+              </div>
             </li>
           </ul>
         </nav>
@@ -90,12 +94,12 @@ function Header() {
       <nav className={`nav-mobile ${menuOpen ? 'open' : ''}`}>
         <ul>
           <li>
-            <Link to="servicos" onClick={closeMenu}>
+            <Link to="servicos" className={isActive('/servicos') ? 'active' : ''}  onClick={closeMenu}>
               Serviços
             </Link>
           </li>
           <li>
-            <Link to="portfolio" onClick={closeMenu}>
+            <Link to="portfolio" className={isActive('/portfolio') ? 'active' : ''} onClick={closeMenu}>
               Portfólio
             </Link>
           </li>
@@ -105,7 +109,7 @@ function Header() {
             </Link>
           </li>*/}
           <li>
-            <Link to="faq" onClick={closeMenu}>
+            <Link to="faq" className={isActive('/faq') ? 'active' : ''} onClick={closeMenu}>
               FAQ
             </Link>
           </li>

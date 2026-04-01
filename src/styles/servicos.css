@@ -3,7 +3,10 @@
 /* ============================= */
 /* 🔹 MOBILE FIRST (até 767px)  */
 /* ============================= */
-
+.servicos {
+    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
 .tittle-section {
     display: flex;
     flex-direction: column;
@@ -12,6 +15,7 @@
     padding: 0rem 3rem;
     text-align: center;
     padding-top: 9rem;
+    
 }
 
 .tittle-section h1 {
