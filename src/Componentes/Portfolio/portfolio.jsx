@@ -93,7 +93,6 @@ function Section1() {
                 <div className="portfolio-header">
                     <div className="tittle-section">
                         <h1>Meu Portfólio</h1>
-                        <span></span>
                         <p>
                             Explore meus projetos recentes e veja como posso transformar sua visão em realidade digital.
                         </p>

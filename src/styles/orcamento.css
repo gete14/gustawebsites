@@ -7,6 +7,8 @@
 .contato {
   padding: 0rem 1.5rem;
   padding-top: 9rem;
+  animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+    transition: transform 0.45s ease, filter 0.45s ease;
 }
 
 /* ---------- HEADER ---------- */

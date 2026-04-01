@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaWhatsapp,
   FaInstagram,
@@ -6,13 +6,12 @@ import {
   FaBriefcase,
   FaWpforms,
   FaEnvelope,
-  FaQuestion ,
+  FaQuestion,
 } from "react-icons/fa";
 
 
 import { Link } from "react-router-dom";
-import fundo from "../../img/fundo-linkbridge.png";
-import heroImg from "../../img/eu-v6.png";
+import fundo from "../../img/fundo-linkbridge1.png";
 import logo from "../../../public/LOGO.svg";
 
 
@@ -22,7 +21,15 @@ export default function LinkBridge() {
   const phone = "5511915079401";
   const message = "Olá, vim pelo seu site e gostaria de mais informações!";
   const whatsappLink = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  const [introDone, setIntroDone] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIntroDone(true);
+    }, 2000); // tempo total da animação
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <section
       className="linkbridge"
@@ -36,13 +43,27 @@ export default function LinkBridge() {
         <div className="left-side">
 
           <div className="header-text">
-             <div className="logo-container">
-          <img src={logo} alt="Logo" />
-        </div>
-            <p>Soluções verdadeiras para o seu negócio!</p>
+
+            {/* LOGO REAL (fica no layout) */}
+            <div className={`logo-header ${introDone ? "show" : ""}`}>
+              <img src={logo} alt="Logo" />
+              <p>Soluções verdadeiras para o seu negócio!</p>
+            </div>
+
+            {/* LOGO INTRO (animação) */}
+            {!introDone && (
+              <div className="logo-intro">
+                <img src={logo} alt="Logo" />
+              </div>
+            )}
+
+            
           </div>
 
-          <div className="main-links">
+
+
+          <div className={`main-links ${introDone ? "show" : ""}`}>
+
             <Link to="/home" className="link-btn">
               <FaGlobe /> Site
             </Link>
@@ -58,12 +79,12 @@ export default function LinkBridge() {
               <FaLaptopCode /> Planos
             </Link>*/}
             <Link to="/faq" className="link-btn">
-              <FaQuestion  /> FAQ
+              <FaQuestion /> FAQ
             </Link>
             <Link to="/servicos" className="link-btn">
               <FaEnvelope /> Serviços
             </Link>
-            
+
 
             <a
               href={whatsappLink}
@@ -85,7 +106,8 @@ export default function LinkBridge() {
               >
                 <FaInstagram />
               </a>
-
+            </div>
+            <div className="social-links">
               <a
                 href={whatsappLink}
                 target="_blank"
@@ -97,11 +119,6 @@ export default function LinkBridge() {
               </a>
             </div>
           </div>
-        </div>
-
-        {/* 🔥 LADO DIREITO (SUA FOTO) */}
-        <div className="right-side">
-          <img src={heroImg} alt="Gustavo desenvolvedor web" />
         </div>
       </div>
     </section>
