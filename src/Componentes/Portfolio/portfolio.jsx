@@ -1,55 +1,113 @@
 import { useState } from 'react'
 import '../../styles/portfolio.css'
+
 import odonto from '../../img/card-odonto.png'
 import SITEodonto from '../../img/site-complete-odonto.png'
+
 import medico from '../../img/card-medico.png'
 import SITEmedico from '../../img/site-complete-medico.png'
+
 import design from '../../img/card-design.png'
+import embreve from '../../img/card-embreve.png'
 import SITEdesign1 from '../../img/site-complete-design1.png'
 import SITEdesign2 from '../../img/site-complete-design2.png'
 import SITEdesign3 from '../../img/site-complete-design3.png'
 import SITEdesign4 from '../../img/site-complete-design4.png'
 
-
 function Section1() {
 
     const [modalAberto, setModalAberto] = useState(false)
     const [cardSelecionado, setCardSelecionado] = useState(null)
-
     const [filtro, setFiltro] = useState('Todos')
 
     const cards = [
         {
             id: 1,
             categoria: 'Odontologia',
-            titulo: 'Odontologia',
+            titulo: 'Clínica Odontológica',
             imagem: odonto,
             sites: [SITEodonto],
-            descricao: 'Modelo de site voltado para clínicas odontológicas, com foco em conversão e apresentação de serviços.'
+            descricao: 'Site para clínica odontológica com foco em conversão.',
+            status: 'pronto'
         },
         {
             id: 2,
             categoria: 'Portfólio',
-            titulo: 'Portfólio',
+            titulo: 'Site Médico',
             imagem: medico,
             sites: [SITEmedico],
-            descricao: 'Modelo de site voltado para médicos, com foco em credibilidade, apresentação profissional, informações sobre atendimentos e agendamento de consultas.'
+            descricao: 'Site profissional para médicos com agendamento.',
+            status: 'pronto'
         },
         {
             id: 3,
             categoria: 'Design',
-            titulo: 'Design',
+            titulo: 'Projeto Criativo',
             imagem: design,
-            sites: [
-                SITEdesign1,
-                SITEdesign2,
-                SITEdesign3,
-                SITEdesign4
-            ],
-            descricao: 'Projeto focado em design criativo, valorizando tipografia e estética visual.'
+            sites: [SITEdesign1, SITEdesign2, SITEdesign3, SITEdesign4],
+            descricao: 'Design moderno e focado em estética visual.',
+            status: 'pronto'
+        },
+
+        // 🔥 EM DESENVOLVIMENTO
+        {
+            id: 4,
+            categoria: 'Landing Page',
+            titulo: 'Landing Page Negócios',
+            imagem: embreve,
+            sites: [],
+            descricao: 'Landing page para conversão de clientes.',
+            status: 'dev'
+        },
+        {
+            id: 5,
+            categoria: 'Institucional',
+            titulo: 'Empresa Local',
+            imagem: embreve,
+            sites: [],
+            descricao: 'Site institucional profissional.',
+            status: 'dev'
+        },
+        {
+            id: 6,
+            categoria: 'Portfólio',
+            titulo: 'Portfólio Pessoal',
+            imagem: embreve,
+            sites: [],
+            descricao: 'Portfólio moderno para profissionais.',
+            status: 'dev'
+        },
+        {
+            id: 7,
+            categoria: 'Design',
+            titulo: 'UI/UX Avançado',
+            imagem: embreve,
+            sites: [],
+            descricao: 'Projeto focado em experiência do usuário.',
+            status: 'dev'
+        },
+        {
+            id: 8,
+            categoria: 'Landing Page',
+            titulo: 'Produto Digital',
+            imagem: embreve,
+            sites: [],
+            descricao: 'Landing page para infoprodutos.',
+            status: 'dev'
+        },
+        {
+            id: 9,
+            categoria: 'Institucional',
+            titulo: 'Consultoria',
+            imagem: embreve,
+            sites: [],
+            descricao: 'Site para empresas de consultoria.',
+            status: 'dev'
         }
+        
     ]
 
+    const categorias = ['Todos', 'Odontologia', 'Portfólio', 'Design', 'Landing Page', 'Institucional']
 
     const cardsFiltrados =
         filtro === 'Todos'
@@ -58,48 +116,39 @@ function Section1() {
 
     return (
         <>
-
             {modalAberto && cardSelecionado && (
                 <div className="modal-overlay" onClick={() => setModalAberto(false)}>
                     <div className="modal" onClick={(e) => e.stopPropagation()}>
-                        <button
-                            className="modal-close"
-                            onClick={() => setModalAberto(false)}
-                        >
-                            ✕
-                        </button>
-                        <h2>{cardSelecionado.titulo}</h2>
-                        
+                        <button className="modal-close" onClick={() => setModalAberto(false)}>✕</button>
 
+                        <h2>{cardSelecionado.titulo}</h2>
                         <p>{cardSelecionado.descricao}</p>
 
-                        <div className="modal-images">
-                            {cardSelecionado.sites.map((img, index) => (
-                                <img
-                                    key={index}
-                                    src={img}
-                                    alt={`${cardSelecionado.titulo} ${index + 1}`}
-                                />
-                            ))}
-                        </div>
-
-
+                        {cardSelecionado.status === 'dev' ? (
+                            <div className="em-dev">
+                                🚧 Projeto em desenvolvimento
+                            </div>
+                        ) : (
+                            <div className="modal-images">
+                                {cardSelecionado.sites.map((img, index) => (
+                                    <img key={index} src={img} alt="" />
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
-
 
             <section className="portfolio">
                 <div className="portfolio-header">
                     <div className="tittle-section">
                         <h1>Meu Portfólio</h1>
-                        <p>
-                            Explore meus projetos recentes e veja como posso transformar sua visão em realidade digital.
-                        </p>
+                        <p>Explore meus projetos recentes e veja como posso transformar sua visão em realidade digital.</p>
                     </div>
 
+{/* 
                     <div className="portfolio-filtros">
-                        {['Todos', 'Odontologia', 'Portfólio', 'Design'].map(item => (
+                        {categorias.map(item => (
                             <button
                                 key={item}
                                 className={filtro === item ? 'ativo' : ''}
@@ -109,19 +158,29 @@ function Section1() {
                             </button>
                         ))}
                     </div>
+*/}
                 </div>
 
                 <div className="portfolio-cards">
                     {cardsFiltrados.map(card => (
-                        <div className={`portfolio-card ${card.categoria.toLowerCase()}`} key={card.id}>
+                        <div className="portfolio-card" key={card.id}>
+                            
+                            {card.status === 'dev' && (
+                                <span className="badge-dev">Em breve</span>
+                            )}
+
                             <h2>{card.titulo}</h2>
-                            <img src={card.imagem} alt={card.titulo} />
+                            <img src={card.imagem} alt="" />
+
                             <button
                                 onClick={() => {
                                     setCardSelecionado(card)
                                     setModalAberto(true)
                                 }}
-                                className="button1">VER DETALHES</button>
+                                className="button1"
+                            >
+                                VER DETALHES
+                            </button>
                         </div>
                     ))}
                 </div>

@@ -112,7 +112,7 @@ body {
   color: #fff !important;
 
   background: linear-gradient(135deg, #60A5FA, #1E3A8A);
-
+  text-transform: uppercase;
   cursor: pointer;
   white-space: nowrap;
 
@@ -234,26 +234,18 @@ body {
 }
 
 /* button fale comigo */
-
-/* Fale Comigo */
-
-
-
-
 .borda-button-2 {
   position: relative;
-  width: max-content;
+  width: 100%; /* 🔥 TROCA AQUI */
   padding: 2px;
   border-radius: 12px;
   background: linear-gradient(90deg, #1E3A8A, #60A5FA);
   overflow: hidden;
 
-  /* FLUTUANTE */
   animation: float 3s ease-in-out infinite;
 }
 
-
-/* animação flutuar */
+/* animação */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
@@ -262,12 +254,17 @@ body {
 
 .button-2 {
   position: relative;
+  width: 100%; /* 🔥 importante */
   background: #D6F0FF;
   border-radius: 10px;
   overflow: hidden;
 }
 
 .button2 {
+  width: 100%; /* 🔥 importante */
+  display: block; /* 🔥 MUITO importante */
+  text-align: center;
+  text-transform: uppercase;
   position: relative;
   z-index: 2;
   border: none;
@@ -275,7 +272,8 @@ body {
   cursor: pointer;
   font-size: 1rem;
   font-weight: 700;
- background: linear-gradient(90deg, #1E3A8A, #60A5FA);
+
+  background: linear-gradient(90deg, #1E3A8A, #60A5FA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
@@ -292,7 +290,7 @@ body {
   z-index: 1;
 }
 
-/* HOVER */
+/* hover */
 .borda-button-2:hover .button-2::before {
   transform: translateX(0);
 }
@@ -301,11 +299,15 @@ body {
   -webkit-text-fill-color: #E2E8F0;
 }
 
-/* hover mais forte */
 .borda-button-2:hover {
   transform: translateY(-8px) scale(1.05);
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.25);
 }
+a {
+  display: block;
+  /*width: 100%; 🔥 MUITO importante */
+}
+
 @media (min-width: 768px) {
   .button2 {
     padding: 0.85rem 1.6rem;

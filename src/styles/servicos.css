@@ -1,83 +1,83 @@
 @import url("../styles/main.css");
 
 /* ============================= */
-/* 🔹 MOBILE FIRST (até 767px)  */
+/* 💻 BASE — DESKTOP (1024px+)  */
 /* ============================= */
+
 .servicos {
+    padding-inline: 8rem;
     animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
     transition: transform 0.45s ease, filter 0.45s ease;
 }
+
+/* TÍTULO */
+
 .tittle-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    padding: 0rem 3rem;
     text-align: center;
-    padding-top: 9rem;
-    
+    padding-top: 2rem;
 }
 
 .tittle-section h1 {
-    font-size: clamp(1.8rem, 6vw, 2.4rem);
+    font-size: clamp(2.2rem, 3vw, 2.8rem);
     color: var(--9);
-    
 }
 
 .tittle-section p {
-    max-width: 520px;
+    max-width: 600px;
     color: var(--4);
     line-height: 160%;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
 }
 
 /* CONTAINER */
+
 .container-cards {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 0 1.5rem;
-    padding-bottom: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 /* CARD */
+
 .card-servico {
+    width: 300px;
     color: var(--9);
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1.2rem;
-    text-align: center;
     background: var(--8);
-    padding: 1.5rem 1rem;
-    border-radius: 16px;
+    padding: 1.8rem;
+    border-radius: 18px;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-/* Hover só vai impactar desktop depois */
 .card-servico:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
 }
 
 /* HEADER */
+
 .card-header {
     display: flex;
     align-items: center;
-    justify-content: start;
-    gap: 20px;
-    width: 100%;
+    gap: 16px;
 }
 
 .card-header h3 {
-    font-size: 1rem;
-    width: 100%;
+    font-size: 1.1rem;
 }
 
 /* ÍCONE */
+
 .icon {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,63 +87,88 @@
     padding: 15px;
 }
 
-/* DESCRIÇÃO (accordion mobile) */
-.descricao {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, margin 0.3s ease;
-}
+/* DESCRIÇÃO (sempre visível no desktop) */
 
-.card-servico.ativo .descricao {
-    max-height: 200px;
+.descricao {
+    max-height: none;
+    overflow: visible;
     margin-top: 10px;
 }
 
 /* ============================= */
-/* 📲 TABLET (768px+)           */
+/* 📲 TABLET (até 1024px)       */
 /* ============================= */
 
-@media (min-width: 768px) {
+@media (max-width: 1024px) {
 
-   
+    .servicos {
+        padding-inline: 5%;
+    }
+
     .container-cards {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 2rem;
+        gap: 1.8rem;
     }
 
     .card-servico {
         width: 45%;
         max-width: 360px;
     }
+
+    .tittle-section h1 {
+        font-size: clamp(2rem, 4vw, 2.4rem);
+    }
 }
 
 /* ============================= */
-/* 💻 DESKTOP (1024px+)         */
+/* 📱 MOBILE (até 768px)        */
 /* ============================= */
 
-@media (min-width: 1024px) {
+@media (max-width: 768px) {
 
     .servicos {
-        padding-inline: 8rem;
-        animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
-        transition: transform 0.45s ease, filter 0.45s ease;
-        
+        padding-inline: 0;
+    }
+
+    .tittle-section {
+        padding: 0 2rem;
+    }
+
+    .tittle-section h1 {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+
+    .tittle-section p {
+        font-size: 0.95rem;
     }
 
     .container-cards {
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 1.5rem 3rem;
+        gap: 1.5rem;
     }
 
     .card-servico {
-        width: 300px;
+        width: 100%;
+        padding: 1.5rem 1rem;
+        text-align: center;
     }
 
-    /* No desktop mostra descrição sempre */
+    .card-header {
+        justify-content: start;
+        flex-direction: row;
+        gap: auto;
+    }
+
+    /* VOLTA COM ACCORDION NO MOBILE */
     .descricao {
-        max-height: none;
-        overflow: visible;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, margin 0.3s ease;
+    }
+
+    .card-servico.ativo .descricao {
+        max-height: 200px;
         margin-top: 10px;
     }
 }
@@ -159,7 +184,7 @@
     }
 
     .card-servico {
-        padding: 2rem;
+        padding: 2.2rem;
         border-radius: 20px;
     }
 

@@ -4,8 +4,10 @@ import logo from '../../public/LOGO.svg'
 import { HiOutlineMenu, HiX } from 'react-icons/hi'
 import ThemeToggle from './ThemeToggle'
 import { Link, useLocation } from 'react-router-dom'
+import SectionOrcamento from '../Componentes/Orcamento/orcamento.jsx'
 
 function Header() {
+  const [modal, setModal] = useState(false);
   const [showHeader, setShowHeader] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
@@ -36,15 +38,20 @@ function Header() {
   const isActive = (path) => location.pathname === path
 
   return (
+    <>
     <header className={`header ${showHeader ? 'show' : 'hide'}`}>
       <div className="header-container">
         <Link to="home">
           <div className="logo">
             <img src={logo} alt="Gusta Websites" />
+            
           </div>
         </Link>
+        <div className="container-theme">
+          <ThemeToggle />
+        </div>
 
-        <ThemeToggle />
+        
 
         {/* ✅ MENU DESKTOP */}
         <nav className="nav-desktop">
@@ -55,13 +62,6 @@ function Header() {
                   Home
                 </Link>
               </li>
-
-              <li>
-                <Link to="/servicos" className={isActive('/servicos') ? 'active' : ''}>
-                  Serviços
-                </Link>
-              </li>
-
               <li>
                 <Link to="/portfolio" className={isActive('/portfolio') ? 'active' : ''}>
                   Portfólio
@@ -76,9 +76,11 @@ function Header() {
             </ul>
             <li>
               <div className="button-1">
-                <Link to="/orcamento">
-                  <button className='button1'>Orçamento</button>
-                </Link>
+                
+                  <button className='button1' onClick={() => setModal(true)}>
+                    Orçamento
+                  </button>
+                
               </div>
             </li>
           </ul>
@@ -124,7 +126,12 @@ function Header() {
           </li>
         </ul>
       </nav>
+      
     </header>
+    <section>
+      <SectionOrcamento modal={modal} setModal={setModal} />
+    </section>
+    </>
   )
 }
 

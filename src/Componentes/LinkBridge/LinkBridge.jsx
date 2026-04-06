@@ -72,7 +72,7 @@ export default function LinkBridge() {
               <FaBriefcase /> Portfólio
             </Link>
 
-            <Link to="/orcamento" className="link-btn">
+            <Link to="/home" className="link-btn">
               <FaWpforms /> Formulário
             </Link>
             {/*<Link to="/planos" className="link-btn">
@@ -81,7 +81,7 @@ export default function LinkBridge() {
             <Link to="/faq" className="link-btn">
               <FaQuestion /> FAQ
             </Link>
-            <Link to="/servicos" className="link-btn">
+            <Link to="/home" className="link-btn">
               <FaEnvelope /> Serviços
             </Link>
 
@@ -90,7 +90,7 @@ export default function LinkBridge() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-btn whatsapp"
+              className="link-btn whatsapp-linkbridge"
             >
               <FaWhatsapp /> WhatsApp
             </a>

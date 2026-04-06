@@ -11,7 +11,7 @@ import {
 } from "react-icons/fi";
 import { useState } from "react";
 
-function Section1() {
+function SectionServicos() {
 
     const [ativo, setAtivo] = useState(null);
     const toggleCard = (index) => {
@@ -89,4 +89,4 @@ function Section1() {
     )
 }
 
-export default Section1
+export default SectionServicos

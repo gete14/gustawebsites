@@ -14,6 +14,7 @@
     overflow: hidden;
     animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
     transition: transform 0.45s ease, filter 0.45s ease;
+    padding-bottom: 3rem;
 }
 
 .section1::before {
@@ -75,7 +76,10 @@
     gap: 1rem;
     align-items: center;
 }
-
+a {
+  display: block;
+  width: 100%;
+}
 /* ================= IMAGEM ================= */
 
 .container-img {
@@ -84,79 +88,118 @@
     max-width: 450px;
 }
 
+/* IMAGEM */
 .container-img img {
     width: 100%;
     height: auto;
     object-fit: cover;
+    z-index: 1;
     position: relative;
-    z-index: 2;
-    animation: floatTech 6s ease-in-out infinite;
 }
 
-/* ================= ELEMENTOS EXTRAS ================= */
+/* ================= CARDS ================= */
 
-.btn-sobre {
+.card-social {
     position: absolute;
-    bottom: 15px;
-    left: 20%;
-    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    font-family: "Inter", sans-serif;
+    transition: 0.3s ease;
+    z-index: 2;
+    background: var(--7);
+}
+.card-social:hover {
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: 0.3s;
-    z-index: 2;
+    animation-play-state: paused;
 }
 
-.btn-sobre:hover {
-    filter: brightness(1.1);
+.card-social strong {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--9);
 }
 
-.button2 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.card-social span {
+    font-size: 0.8rem;
+    color: #555;
 }
 
-.button-2 svg {
-    font-size: xx-large;
-    color: #1E3A8A;
+/* ÍCONES */
+.card-social i {
+    font-size: 1.5rem;
 }
 
-/* ================= OVERLAY ================= */
+/* ================= POSIÇÕES ================= */
 
-.info-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.92);
-    color: white;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    transform: translateY(100%);
-    transition: transform 0.5s ease;
-    border-radius: 20px;
+/* WHATSAPP */
+.whatsapp {
+    bottom: 25%;
+    left: 5%;
+    backdrop-filter: blur(15px);
+    border: 2px solid #25D366;
+    animation: flutuante 5s ease infinite;
+    transform-origin: center;
 }
 
-.img-wrapper.ativo .info-overlay {
-    transform: translateY(0);
-    bottom: 60px;
+.whatsapp i {
+    color: #25D366;
 }
-
-/* ================= ANIMAÇÕES ================= */
-
-@keyframes floatTech {
-    0% {
-        transform: translateY(0px);
+.whatsapp:hover {
+    background: #25D366;
+    
+    &.whatsapp i {
+        color: #fff;
     }
-    50% {
-        transform: translateY(-12px);
+}
+
+
+/* INSTAGRAM */
+.instagram {
+    bottom: 15%;
+    right: 5%;
+    border: 2px solid #E1306C;
+    animation: flutuante 6s ease infinite;
+    transform-origin: center;
+}
+
+.instagram i {
+    color: #E1306C;
+}
+.instagram:hover {
+    background: #E1306C;
+    backdrop-filter: blur(10px);
+    &.instagram i {
+        color: #fff;
     }
-    100% {
-        transform: translateY(0px);
-    }
+}
+
+/* ================= HOVER ================= */
+
+.card-social:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+@keyframes flutuante {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(20px, -20px) rotate(5deg);
+  }
+  50% {
+    transform: translate(0px, -40px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-20px, -20px) rotate(-5deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
 }
 
 /* ================= TABLET (até 1024px) ================= */
@@ -188,6 +231,12 @@
     .container-img {
         width: 50vw;
     }
+    .whatsapp {
+        left: 50%;
+    }
+    .instagram {
+        right: 60%;
+    }
 }
 
 /* ================= MOBILE (até 768px) ================= */
@@ -210,6 +259,14 @@
 
     .container-img {
         width: 70vw;
+    }
+    .whatsapp {
+        left: 30%;
+        bottom: -10%;
+    }
+    .instagram {
+        right: 20%;
+        bottom: 20%;
     }
 }
 

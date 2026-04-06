@@ -4,14 +4,12 @@ import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import heroImg from "../../img/eu-v7.png";
 
-function Section1() {
-    const [modal, setModal] = useState(false);
+function SectionOrcamento({ modal, setModal }) {
     const [step, setStep] = useState(0);
     const [loading, setLoading] = useState(false);
     const [sucesso, setSucesso] = useState(false);
     const [nomeEnviado, setNomeEnviado] = useState("");
     const [erro, setErro] = useState("");
-
     const [formData, setFormData] = useState({
         nome: "",
         email: "",
@@ -40,60 +38,125 @@ function Section1() {
 
     // ✅ perguntas objetivas
     const perguntas = [
-        {
-            label: "Qual é o seu nome?",
-            name: "nome",
-            type: "text",
-            placeholder: "Digite seu nome"
-        },
-        {
-            label: "Qual é o seu melhor email?",
-            name: "email",
-            type: "email",
-            placeholder: "exemplo@email.com"
-        },
-        {
-            label: "Qual é o seu WhatsApp?",
-            name: "telefone",
-            type: "tel",
-            placeholder: "(11) 99999-9999"
-        },
-        {
-            label: "Que tipo de site você precisa?",
-            name: "tipoSite",
-            type: "select",
-            options: [
-                "Landing Page",
-                "Site Institucional",
-                "Portfólio",
-                "Loja Virtual",
-                "Não sei ainda"
-            ]
-        },
-        {
-            label: "Precisa de Identidade Visual?",
-            name: "identidadeVisual",
-            type: "select",
-            options: ["Sim", "Não", "Ainda não sei"]
-        },
-        {
-            label: "Quando você pretende começar?",
-            name: "prazo",
-            type: "select",
-            options: [
-                "Urgente (até 7 dias)",
-                "Este mês",
-                "Próximos meses",
-                "Só pesquisando"
-            ]
-        },
-        {
-            label: "Descreva brevemente seu projeto",
-            name: "mensagem",
-            type: "textarea",
-            placeholder: "Explique o que você precisa"
-        }
-    ];
+    {
+        label: "Qual é o seu nome?",
+        name: "nome",
+        type: "text",
+        placeholder: "Digite seu nome"
+    },
+    {
+        label: "Qual é o seu melhor email?",
+        name: "email",
+        type: "email",
+        placeholder: "exemplo@email.com"
+    },
+    {
+        label: "Qual é o seu WhatsApp?",
+        name: "telefone",
+        type: "tel",
+        placeholder: "(11) 99999-9999"
+    },
+
+    // 🔥 NOVO (IMPORTANTE)
+    {
+        label: "Qual é o seu negócio / área de atuação?",
+        name: "nicho",
+        type: "text",
+        placeholder: "Ex: Barbearia, Clínica, Loja..."
+    },
+
+    {
+        label: "Que tipo de site você precisa?",
+        name: "tipoSite",
+        type: "select",
+        options: [
+            "Landing Page",
+            "Site Institucional",
+            "Portfólio",
+            "Loja Virtual",
+            "Não sei ainda"
+        ]
+    },
+
+    // 🔥 NOVO (MUITO IMPORTANTE)
+    {
+        label: "Qual o principal objetivo do site?",
+        name: "objetivo",
+        type: "select",
+        options: [
+            "Gerar clientes",
+            "Mostrar meu trabalho",
+            "Vender produtos",
+            "Agendamentos",
+            "Outro"
+        ]
+    },
+
+    // 🔥 NOVO (ESSENCIAL PRA ORÇAMENTO)
+    {
+        label: "Quais funcionalidades você precisa?",
+        name: "funcionalidades",
+        type: "checkbox",
+        options: [
+            "Formulário de contato",
+            "WhatsApp integrado",
+            "Sistema de agendamento",
+            "Área de membros",
+            "Blog",
+            "Pagamento online",
+            "Não sei ainda"
+        ]
+    },
+
+    {
+        label: "Precisa de Identidade Visual?",
+        name: "identidadeVisual",
+        type: "select",
+        options: ["Sim", "Não", "Ainda não sei"]
+    },
+
+    {
+        label: "Quando você pretende começar?",
+        name: "prazo",
+        type: "select",
+        options: [
+            "Urgente (até 7 dias)",
+            "Este mês",
+            "Próximos meses",
+            "Só pesquisando"
+        ]
+    },
+
+    // 🔥 NOVO (OURO PRA FILTRAR CLIENTE)
+    {
+        label: "Qual é o seu orçamento para o projeto?",
+        name: "orcamento",
+        type: "select",
+        options: [
+            "Até R$500",
+            "R$500 - R$1.000",
+            "R$1.000 - R$3.000",
+            "R$3.000 - R$5.000",
+            "R$5.000+",
+            "Prefiro não informar"
+        ]
+    },
+
+    // 🔥 NOVO (REFERÊNCIA AJUDA MUITO)
+    {
+        label: "Você tem algum site de referência?",
+        name: "referencia",
+        type: "textarea",
+        placeholder: "Envie links ou exemplos que você gosta"
+    },
+
+    {
+        label: "Descreva brevemente seu projeto",
+        name: "mensagem",
+        type: "textarea",
+        placeholder: "Explique o que você precisa"
+    }
+];
 
     const mensagensErro = {
         nome: "Por favor, informe seu nome.",
@@ -175,6 +238,16 @@ function Section1() {
             setLoading(false);
         }
     };
+    const handleCheckboxChange = (e) => {
+    const { value, checked } = e.target;
+
+    setFormData((prev) => ({
+        ...prev,
+        funcionalidades: checked
+            ? [...prev.funcionalidades, value]
+            : prev.funcionalidades.filter((item) => item !== value)
+    }));
+};
     return (
         <>
             {/* ✅ POPUP DE SUCESSO */}
@@ -194,89 +267,7 @@ function Section1() {
                 </div>
             )}
 
-
             <section className="contato">
-                <div className="contato-header">
-                    <h1>FAÇA SEU ORÇAMENTO</h1>
-                    <p>
-                        Pronto para levar seu negócio para o próximo nível?
-                        Preenche esse formulário clicando no botão abaixo e faça seu orçamento sem compromisso.
-                    </p>
-                </div>
-
-                <div className="contato-container">
-                    {/* Lado esquerdo */}
-                    <div className="contato-info">
-                        <ul className="info-list">
-                            <li>
-                                <a
-                                    href="https://wa.me/5511915079401"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="info-link btn-wpp"
-                                >
-                                    <FaWhatsapp className="info-icon whatsapp" />
-                                    <div>
-                                        <strong>WhatsApp</strong>
-                                        <span>+55 11 94002-8922</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a
-                                    href="https://www.instagram.com/gustawebsites"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="info-link btn-insta"
-                                >
-                                    <FaInstagram className="info-icon instagram" />
-                                    <div>
-                                        <strong>Instagram</strong>
-                                        <span>@gustawebsites</span>
-                                    </div>
-                                </a>
-                            </li>
-
-                            <li className="info-static btn-normal">
-                                <FaClock className="info-icon" />
-                                <div>
-                                    <strong>Horário</strong>
-                                    <span>Seg à Sex • 08:00 às 20:00</span>
-                                </div>
-                            </li>
-
-                            <li className="info-static">
-                                <FaMapMarkerAlt className="info-icon " />
-                                <div >
-                                    <strong>Atendimento</strong>
-                                    <span>Todo o Brasil</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* botão */}
-
-
-                    <div className="hero-container">
-                        <img src={heroImg} alt="Gustavo" className="hero-img" />
-
-                        <div className="cta-wrapper">
-                            <div className="borda-button-2">
-                                <div className="button-2">
-                                    <button
-                                        className="button2"
-                                        onClick={() => setModal(true)}
-                                    >
-                                        Fale Comigo
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {/* ✅ MODAL */}
                 {modal && (
                     <div className="modal-overlay">
@@ -353,4 +344,4 @@ function Section1() {
 
 }
 
-export default Section1;
+export default SectionOrcamento;
