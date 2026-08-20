@@ -1,0 +1,157 @@
+@import url("../styles/main.css");
+
+/* ================== FAQ ================== */
+
+/* 🔹 BASE — MOBILE (320px) */
+
+.section-faq {
+  color: var(--9);
+  background: var(--1);
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+    transition: transform 0.45s ease, filter 0.45s ease;
+}
+
+/* ---------- HEADER ---------- */
+.faq-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faq-header h1 {
+  font-size: clamp(1.8rem, 6vw, 3.4rem);
+  font-weight: 700;
+  color: var(--6);
+}
+
+.faq-header p {
+  color: var(--9);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-weight: 700;
+}
+
+/* ---------- CONTAINER ---------- */
+.faq-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1.4rem;
+  padding-inline: 4rem;
+}
+.container-perguntas{
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 50%;
+}
+.container-contact{
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 0.6rem;
+  width: 50%;
+  padding-top: 5%;
+}
+.text-and-button{
+  width: 50%;
+}
+.text-and-button span{
+  font-size: clamp(1.8rem, 6vw, 2.8rem);
+  font-weight: 800;
+  color: var(--9);
+}
+.text-and-button p{
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  color: var(--9);
+  line-height: 160%;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
+
+/* ---------- ITEM ---------- */
+.faq-item {
+  background: var(--2);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.35s ease;
+}
+
+/* hover (mobile safe) */
+.faq-item:hover {
+  filter: brightness(1.05);
+}
+
+/* ativo */
+.faq-item.ativo {
+  background: linear-gradient(90deg, var(--2), var(--3));
+}
+
+/* ---------- PERGUNTA (BOTÃO) ---------- */
+.faq-pergunta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.2rem 1.4rem;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.35s ease;
+}
+
+/* hover & foco */
+.faq-pergunta:hover,
+.faq-pergunta:focus-visible {
+  outline: 3px solid var(--accent); /* foco acessível */
+  outline-offset: 3px;
+  filter: brightness(1.05);
+}
+
+/* texto da pergunta */
+.faq-pergunta span:first-child {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--7); /* contraste melhorado */
+  line-height: 140%;
+}
+
+/* ---------- SETA ---------- */
+.seta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--6);
+  transition: transform 0.35s ease;
+}
+
+.faq-item.ativo .seta {
+  transform: rotate(180deg);
+}
+
+/* ---------- RESPOSTA ---------- */
+.faq-resposta {
+  background: var(--8);
+  padding: 1.2rem 1.4rem;
+  animation: abrir 0.35s ease;
+}
+
+.faq-resposta p {
+  color: var(--9);
+  line-height: 160%;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* ---------- ANIMAÇÃO ---------- */
+@keyframes abrir {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,137 @@
+@import url("../styles/main.css");
+
+/* ================= FOOTER ================= */
+.footer {
+  background: var(--9);
+  color: var(--6);
+  padding: 3.5rem 1.25rem 2rem;
+}
+
+/* ================= CONTAINER ================= */
+.footer-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex:1
+}
+
+/* ================= COLUNAS ================= */
+.footer-col {
+  text-align: left;
+}
+
+.footer-col h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+  position: relative;
+}
+
+
+.footer-col p {
+  line-height: 1.7;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+/* ================= LISTA ================= */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+.footer-col ul li:hover{
+  cursor: pointer;
+  color: var(--9);
+  transform: translateY(-5px);
+  transition: 300ms;
+}
+
+/* ================= LINKS (CORRIGIDO) ================= */
+.footer-col ul li a {
+  display: inline-block; /* 🔥 garante um link por linha */
+  color: var(--6);
+  text-decoration: none;
+  opacity: 0.95;
+  position: relative;
+}
+
+/* underline animado */
+.footer-col ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--6);
+  transition: width 0.3s ease;
+}
+.footer-col ul li a:hover{
+  cursor: pointer;
+}
+
+.footer-col ul li a:hover::after {
+  width: 100%;
+}
+
+/* ================= INFO ================= */
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  justify-content: start;
+}
+
+.footer-info span {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.footer-info svg {
+  font-size: 1.1rem;
+}
+
+
+.footer-text-and-button{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  
+}
+
+.footer-text-and-button span{
+  font-size: clamp(1rem, 6vw, 1.8rem);
+  font-weight: 800;
+  color: var(--6);
+  
+}
+
+/* ================= DIVISÃO ================= */
+.footer-divider {
+  max-width: 1200px;
+  margin: 2.5rem auto 1.25rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+/* ================= BOTTOM ================= */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}

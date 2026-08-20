@@ -1,0 +1,579 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+
+}
+
+:root {
+
+  /* Cores Light---------------------- */
+
+  --1: #3B82F6;
+  /* borda de plano recomendavel */
+  --2: #60A5FA;
+  /*  linear comeco*/
+  --3: #1E3A8A;
+  /* linear final */
+  --4: #1D4157;
+  /* cards preto */
+  --5: #475569;
+  /* subtittles */
+  --6: #E2E8F0;
+  /* branco */
+  --7: #D6F0FF;
+  /* fundo */
+  --8: #C4E9FF;
+  /* cards */
+  --9: #0A1922;
+  /* preto */
+
+
+  /* Fonte --------------------------- */
+
+
+  --font-fredoka: 'Fredoka', sans-serif;
+
+
+}
+
+/* =========================
+   DARK MODE MUDAAARRR
+========================= */
+body.dark {
+
+  --1: #3B82F6;
+  /* borda de plano recomendavel */
+  --2: #60A5FA;
+  /*  linear comeco*/
+  --3: #c1c8db;
+  /* linear final */
+  --4: #4393c5;
+  /* cards preto */
+  --5: #8dacd8;
+  /* subtittles */
+  --6: #0A1922;
+  /* branco */
+  --7: #0A1922;
+  /* fundo */
+  --8: #193d53;
+  /* cards */
+  --9: #E2E8F0;
+  /* preto */
+}
+
+/* =========================
+   APLICAÇÃO GLOBAL
+========================= */
+body {
+  transition: background-color 0.31s ease, color 0.3s ease;
+}
+
+.layout {
+  padding-inline: 8vw;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+/* =========================
+   Animação de entrada suave
+========================= */
+
+@keyframes heroReveal {
+  0% {
+    transform: scale(0.75) translateY(40px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.05) translateY(-6px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+
+html,
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+}
+
+
+/* =========================  TITTLES   ========================= */
+.tittle {}
+
+.subtittle {}
+
+/* =========================  BUTTONS   ========================= */
+/* 🔹 BASE — MOBILE (320px) */
+/* ===============================
+   🚀 BUTTON PREMIUM FLUTUANTE
+================================ */
+
+.button1 {
+  position: relative;
+  overflow: hidden;
+
+  padding: 0.6rem 1.5rem !important;
+  border: none;
+  border-radius: 12px;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  color: var(--3);
+
+  background: var(--6);
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(59, 130, 246, 0.25);
+
+  animation: float 1s ease-in-out infinite,
+    glowPulse 2s ease-in-out infinite;
+}
+
+.sem-pulso {
+  animation: float none;
+}
+
+
+/* ===============================
+   💎 GLOW RESPIRANDO
+================================ */
+
+@keyframes glowPulse {
+  0% {
+    transform: translateY(10px) scale(1);
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.25);
+  }
+
+  40% {
+    transform: translateY(-5px) scale(1.015);
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.35),
+      0 0 35px rgba(59, 130, 246, 0.45);
+  }
+
+  100% {
+    transform: translateY(10px) scale(1);
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.25);
+  }
+}
+
+/* ===============================
+   ✨ SHINE CINEMATOGRÁFICO
+================================ */
+
+.button1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(255, 255, 255, 0.7),
+      transparent);
+
+  transform: skewX(-25deg);
+  transition: left 0.9s cubic-bezier(.22, .61, .36, 1);
+}
+
+.button1:hover::before {
+  left: 140%;
+}
+
+/* ===============================
+   🔥 HOVER ELEGANTE
+================================ */
+
+.button1:hover {
+  transform: translateY(-10px) scale(1.03);
+  filter: brightness(1.07);
+  animation: none;
+}
+
+/* ===============================
+   👆 CLICK MICRO INTERAÇÃO
+================================ */
+
+.button1:active {
+  transform: scale(0.96);
+  animation: none;
+}
+
+/* ===============================
+   ♿ ACESSIBILIDADE
+================================ */
+
+.button1:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(255, 255, 255, 0.4),
+    0 0 0 6px rgba(59, 130, 246, 0.6);
+}
+
+
+/* BOTÃO */
+/* ================================
+   BOTÃO — VER PORTFÓLIO
+================================ */
+
+.button-2 {
+  width: fit-content;
+}
+
+
+/* ================================
+   BOTÃO PRINCIPAL
+================================ */
+
+.button2 {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  padding: 0.6rem 1.5rem !important;
+
+  border: 2px solid var(--3);
+  border-radius: 12px;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  color: var(--6);
+
+  /* Interior transparente */
+  background: transparent;
+
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    color 0.35s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(59, 130, 246, 0.25);
+
+  animation:
+    float 3s ease-in-out infinite,
+    glowPulse 2s ease-in-out infinite;
+}
+
+.button2 svg {
+  color: currentColor;
+  fill: currentColor;
+
+  margin-left: 8px;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* ================================
+   PREENCHIMENTO DO HOVER
+================================ */
+
+.button2::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(90deg,
+      #1E3A8A,
+      #3B82F6,
+      #60A5FA);
+
+  /* Começa completamente fora */
+  transform: translateX(-101%);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22,
+      0.61,
+      0.36,
+      1);
+
+  z-index: -1;
+}
+
+
+/* ================================
+   HOVER
+================================ */
+
+.button2:hover::before {
+  transform: translateX(0);
+  
+}
+
+.button2:hover {
+  color: #ffffff;
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 25px rgba(30, 58, 138, 0.35),
+    0 0 25px rgba(59, 130, 246, 0.25);
+    
+}
+
+.button2:hover svg {
+  color: currentColor;
+  transform: translateX(4px);
+}
+
+
+/* ================================
+   CLIQUE
+================================ */
+
+.button2:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+
+/* ================================
+   ANIMAÇÃO FLUTUANTE
+================================ */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+/* ================================
+   GLOW
+================================ */
+
+@keyframes glowPulse {
+  0% {
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25),
+      0 0 25px rgba(59, 130, 246, 0.3);
+  }
+
+  100% {
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.25),
+      0 0 15px rgba(59, 130, 246, 0.15);
+  }
+}
+
+
+/* ================================
+   ACESSIBILIDADE
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .button2 {
+    animation: none;
+    transition: none;
+  }
+
+  .button2::before {
+    transition: none;
+  }
+}
+
+.card-btn {
+  color: var(--3);
+}
+
+
+/* ================================
+   BOTÃO SOBRE
+================================ */
+
+.button-3 {
+  width: fit-content;
+}
+
+.button3 {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 0.6rem 1.5rem !important;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+
+  color: var(--6);
+
+  /* Interior transparente */
+  background: var(--3);
+
+  text-transform: uppercase;
+  cursor: pointer;
+  white-space: nowrap;
+
+  transition:
+    color 0.35s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.25),
+    0 0 20px rgba(59, 130, 246, 0.25);
+
+  animation:
+    float 3s ease-in-out infinite,
+    glowPulse 2s ease-in-out infinite;
+}
+
+.button3 svg {
+  color: currentColor;
+  fill: currentColor;
+
+  margin-left: 8px;
+
+  transition:
+    color 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* ================================
+   PREENCHIMENTO DO HOVER
+================================ */
+
+.button3::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(90deg,
+      #1E3A8A,
+      #3B82F6,
+      #60A5FA);
+
+  /* Começa completamente fora */
+  transform: translateX(-101%);
+
+  transition:
+    transform 0.45s cubic-bezier(0.22,
+      0.61,
+      0.36,
+      1);
+
+  z-index: -1;
+}
+
+
+/* ================================
+   HOVER
+================================ */
+
+.button3:hover::before {
+  transform: translateX(0);
+}
+
+.button3:hover {
+  color: #ffffff;
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 25px rgba(30, 58, 138, 0.35),
+    0 0 25px rgba(59, 130, 246, 0.25);
+}
+
+.button3:hover svg {
+  color: currentColor;
+  transform: translateX(4px);
+}
+
+
+/* ================================
+   CLIQUE
+================================ */
+
+.button3:active {
+  transform: translateY(-1px) scale(0.97);
+}
+
+
+
+a {
+  display: block;
+  /*width: 100%; 🔥 MUITO importante */
+}
+
+@media (min-width: 768px) {
+  .button2 {
+    padding: 0.85rem 1.6rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .button2 {
+    padding: 1rem 2rem;
+    font-size: 1.15rem;
+  }
+}

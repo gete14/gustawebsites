@@ -1,0 +1,555 @@
+/* =====================================================
+   SECTION SOBRE
+===================================================== */
+
+.section-sobre {
+    position: relative;
+
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 700px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   LADO ESQUERDO
+===================================================== */
+
+.container-text {
+    position: relative;
+    z-index: 3;
+    width: 50%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* SOBRE MIM */
+
+.tittle-sobre {
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--5);
+}
+
+
+/* TÍTULO PRINCIPAL */
+
+.Título-principal-sobre {
+    font-size: clamp(3.5rem, 3vw, 3rem);
+    line-height: 1.05;
+    font-weight: 800;
+    color: var(--4);
+}
+
+.Título-principal-sobre .Título-principal {
+    color: var(--1);
+}
+
+
+/* SUBTÍTULO */
+
+.Subtítulos-section1 {
+    display: block;
+    font-size: 1.25rem;
+    line-height: 1.45;
+    font-weight: 600;
+    color: var(--5);
+}
+
+
+/* =====================================================
+   LISTA DE TÓPICOS
+===================================================== */
+
+.list-topicos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item-topico-text {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--5);
+}
+
+.icone-topico {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
+
+.buttons-section1 {
+    margin-top: 1rem;
+}
+
+.button3 svg {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.border-azul {
+    border: 2px solid var(--3) !important;
+}
+
+
+/* =====================================================
+   LADO DIREITO / FOTO
+===================================================== */
+
+.container-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    z-index: 2;
+}
+
+
+/* FOTO */
+
+.container-img>img {
+    position: relative;
+    object-fit: contain;
+    z-index: 1;
+}
+
+
+/* =====================================================
+   CARDS SOCIAIS
+===================================================== */
+
+.card-social {
+    position: absolute;
+    display: flex;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    background: var(--7);
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.2);
+
+    font-family: Inter, sans-serif;
+    z-index: 5;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.card-social:hover {
+    animation-play-state: paused;
+}
+
+.card-social strong {
+    display: block;
+
+    font-size: 1rem;
+
+    color: var(--4);
+}
+
+.card-social span {
+    display: block;
+
+    margin-top: 2px;
+
+    font-size: 0.75rem;
+
+    color: var(--5);
+}
+
+.card-social i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.45rem;
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp {
+    bottom: 51%;
+    left: 12%;
+
+    border: 2px solid rgb(37, 211, 102);
+
+    color: rgb(37, 211, 102);
+
+    animation: flutuante 6s ease-in-out infinite;
+}
+
+.whatsapp i {
+    color: rgb(37, 211, 102);
+}
+
+.whatsapp:hover {
+    transform: translateY(-6px);
+    cursor: pointer;
+    background: rgb(37, 211, 102);
+    color: white;
+    box-shadow:
+        0 0 3px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp:hover i {
+    color: white;
+
+}
+
+.whatsapp:hover span {
+    color: white;
+}
+
+
+/* =====================================================
+   INSTAGRAM
+===================================================== */
+
+.instagram {
+    bottom: 60%;
+    right: 5%;
+
+    border: 2px solid rgb(225, 48, 108);
+
+    color: rgb(225, 48, 108);
+
+    animation: flutuante 3s ease-in-out infinite;
+}
+
+.instagram i {
+    color: rgb(225, 48, 108);
+}
+
+.instagram:hover {
+    transform: translateY(-6px);
+    cursor: pointer;
+    background: rgb(225, 48, 108);
+    color: white;
+    box-shadow:
+        0 0 3px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(225, 48, 108, 0.6);
+}
+
+.instagram:hover i {
+    color: white;
+}
+
+.instagram:hover span {
+    color: white;
+}
+
+
+/* =====================================================
+   TECLAS
+===================================================== */
+
+.list-skills {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.item-skills-text {
+    position: absolute;
+    z-index: 4444444;
+
+    width: 150px;
+    min-height: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 1rem;
+
+    border-radius: 12px;
+
+    background: var(--6);
+
+    color: var(--4);
+
+    box-shadow:
+        0 0 12px rgba(0, 0, 0, 0.20),
+        10px 10px 0px rgba(59, 130, 246, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    cursor: pointer;
+}
+
+.item-skills-text::after {
+    content: "";
+    position: absolute;
+
+    width: 70px;
+    height: 25px;
+
+    right: -10px;
+    bottom: -8px;
+
+    background: rgba(59, 130, 246, 0.45);
+
+    filter: blur(18px);
+
+    border-radius: 50%;
+
+    z-index: -1;
+
+    opacity: 0.8;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.item-skills-text:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 15px rgba(0, 0, 0, 0.25),
+        8px 8px 25px rgba(59, 130, 246, 0.32);
+}
+
+.item-skills-text:hover::after {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+
+.item-skills-text:nth-child(4) {
+    bottom: -400px;
+    right: 20px;
+}
+
+.item-skills-text:nth-child(3) {
+    bottom: -300px;
+    right: 200px;
+}
+
+.item-skills-text:nth-child(2) {
+    bottom: -400px;
+    right: 400px;
+}
+
+.item-skills-text:nth-child(1) {
+    bottom: -300px;
+    right: 600px;
+}
+
+.icone-skills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 4rem;
+    margin-bottom: 5px;
+}
+
+.text-skills {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.subtitulo-skills {
+    font-size: 0.75rem;
+    opacity: 0.75;
+    text-align: center;
+}
+
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes flutuante {
+
+    0% {
+        transform: translate(0 0);
+    }
+
+    25% {
+        transform: translate(20px, -40px);
+    }
+
+    50% {
+        transform: translate(-10px, 30px);
+    }
+
+    75% {
+        transform: translate(-20px, -40px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .section-sobre {
+        flex-direction: column;
+
+        gap: 3rem;
+
+        padding: 5rem 6%;
+    }
+
+    .container-text {
+        width: 100%;
+        max-width: 750px;
+    }
+
+    .container-img {
+        width: 100%;
+        min-height: 550px;
+    }
+
+    .container-img>img {
+        width: min(90%, 550px);
+    }
+
+    .whatsapp {
+        left: 10%;
+    }
+
+    .instagram {
+        right: 10%;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .section-sobre {
+        padding: 4rem 1.5rem;
+
+        gap: 2rem;
+    }
+
+    .tittle-sobre {
+        font-size: 0.95rem;
+
+        margin-bottom: 1.2rem;
+    }
+
+    .Título-principal-sobre {
+        font-size: 2.3rem;
+    }
+
+    .Subtítulos-section1 {
+        font-size: 1rem;
+
+        margin-top: 1rem;
+    }
+
+    .list-topicos {
+        gap: 0.9rem;
+
+        margin-top: 1.5rem;
+    }
+
+    .item-topico-text {
+        font-size: 1rem;
+    }
+
+    .buttons-section1 {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0.8rem;
+    }
+
+    .button-1,
+    .button-2 {
+        width: 100%;
+    }
+
+    .button1,
+    .button2 {
+        width: 100%;
+    }
+
+    .container-img {
+        min-height: 400px;
+    }
+
+    .container-img>img {
+        width: 100%;
+    }
+
+    .card-social {
+        min-width: auto;
+
+        padding: 8px 11px;
+
+        gap: 8px;
+    }
+
+    .card-social strong {
+        font-size: 0.8rem;
+    }
+
+    .card-social span {
+        font-size: 0.65rem;
+    }
+
+    .card-social i {
+        font-size: 1.1rem;
+    }
+
+    .whatsapp {
+        left: 0;
+        bottom: 27%;
+    }
+
+    .instagram {
+        right: 0;
+        bottom: 12%;
+    }
+}

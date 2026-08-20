@@ -1,0 +1,6 @@
+@import url("../styles/main.css");
+
+.home-body {
+    display: flex;
+    flex-direction: row    
+}

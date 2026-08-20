@@ -1,0 +1,122 @@
+@import url("../styles/main.css");
+
+/* ============================= */
+/* 💻 BASE — DESKTOP (1024px+)  */
+/* ============================= */
+
+.container-processo {
+    padding-inline: 8rem;
+    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+    transition: transform 0.45s ease, filter 0.45s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2%;
+}
+
+/* TÍTULO */
+
+.tittle-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+    padding-top: 2rem;
+}
+
+.tittle-section h1 {
+    font-size: clamp(2rem, 2vw, 2.8rem);
+    color: var(--9);
+    text-transform: uppercase;
+}
+.tittle {
+    font-size: clamp(2rem, 1.4vw, 2.8rem)!important;
+    color: var(--2)!important;
+}
+
+.tittle-section p {
+    max-width: 600px;
+    color: var(--4);
+    line-height: 160%;
+    padding-bottom: 30px;
+}
+
+/* CONTAINER */
+
+.container-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    width: 100%;
+    padding: 2rem 0px;
+}
+
+/* CARD */
+
+.card-processo {
+    color: var(--9);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    flex: 1 1 300px;
+    border-right: 2px solid var(--9);
+}
+.card-processo:last-child {
+    border-right: none;
+}
+
+.card-processo:hover {
+    transform: translateY(-6px);
+}
+.card-icone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    text-align: center;
+    position: relative;
+}
+.card-icone svg{
+    width: 4rem;
+    height: 4rem;
+    color: var(--2);
+}
+
+.processo-titulo-card {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--5);
+    text-transform: uppercase;
+}
+
+.processo-descricao-card {
+    font-size: 0.9rem;
+    color: var(--4);
+    line-height: 160%;
+    max-width: 200px;
+    text-align: center;
+}
+
+
+.processo-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--5);
+    position: absolute;
+    left: 1rem;
+    font-family: var(--font-fredoka);
+}
+
+
+.descricao-card {
+    max-height: none;
+    overflow: visible;
+    margin-top: 10px;
+    font-size: 0.7rem;
+}
+
