@@ -46,7 +46,7 @@ function SectionProcesso() {
 
     return (
         <>
-            <section className='container-processo'>
+            <section className='container-processo' id='section-processo'>
                 <div className="tittle-section" id='processo'>
                     <h1 className="tittle">NOSSO PROCESSO</h1>
                     <h1>

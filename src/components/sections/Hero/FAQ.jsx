@@ -64,7 +64,7 @@ function Section1() {
     }
 
     return (
-        <section className="section-faq">
+        <section className="section-faq" id='section-faq'>
             <div className="faq-header">
                 <h1>FAQ</h1>
                 <p>

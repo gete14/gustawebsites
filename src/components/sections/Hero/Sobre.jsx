@@ -55,7 +55,7 @@ function SobreMim({ setModal }) {
     ]
     return (
         <>
-            <div className="section-sobre">
+            <div className="section-sobre" id='section-sobre'>
                 <div className="container-text">
                     <div className="text">
                         <h1 className="tittle-sobre">Sobre mim</h1>

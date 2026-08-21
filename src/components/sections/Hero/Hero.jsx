@@ -14,7 +14,7 @@ function Section1({ setModal }) {
     const [ativo, setAtivo] = useState(false);
     return (
         <>
-            <div className="section1">
+            <div className="section1" id='section-hero'>
                 <div className="container-text">
                     <div className="text">
                         <h1 className='Título-principal-section1'>

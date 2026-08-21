@@ -9,6 +9,21 @@ import LogoBranca from '../../assets/logos/LOGO_BRANCA.svg'
 function Footer() {
   const location = useLocation()
 
+  const scrollToSection = (e, id) => {
+    e.preventDefault()
+
+    const section = document.getElementById(id)
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+
+    closeMenu()
+  }
+
   const isActive = (path) => location.pathname === path
   return (
     <footer className="footer">
@@ -30,29 +45,45 @@ function Footer() {
           <h4>Navegação</h4>
           <ul>
             <li>
-              <Link to="/" className={isActive('/') ? 'active' : ''}>
+              <a href="#section-hero" className={isActive('/') ? 'active' : ''} onClick={(e) => scrollToSection(e, 'section-hero')}>
                 Início
-              </Link>
+              </a>
             </li>
+
             <li>
-              <Link to="/sobre" className={isActive('/sobre') ? 'active' : ''}>
+              <a
+                href="#section-sobre"
+                onClick={(e) => scrollToSection(e, 'section-sobre')}
+              >
                 Sobre
-              </Link>
+              </a>
             </li>
+
             <li>
-              <Link to="/portfolio" className={isActive('/portfolio') ? 'active' : ''}>
+              <a
+                href="#section-portfolio"
+                onClick={(e) => scrollToSection(e, 'section-portfolio')}
+              >
                 Portfólio
-              </Link>
+              </a>
             </li>
+
             <li>
-              <Link to="/processo" className={isActive('/processo') ? 'active' : ''}>
+              <a
+                href="#section-processo"
+                onClick={(e) => scrollToSection(e, 'section-processo')}
+              >
                 Processo
-              </Link>
+              </a>
             </li>
+
             <li>
-              <Link to="/faq" className={isActive('/faq') ? 'active' : ''}>
+              <a
+                href="#section-faq"
+                onClick={(e) => scrollToSection(e, 'section-faq')}
+              >
                 FAQ
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
@@ -74,7 +105,7 @@ function Footer() {
               +55 11 91507-9401
             </span>
             <span className={isActive('/') ? 'active' : ''}>
-              <FaInstagram/>
+              <FaInstagram />
               @gustawebsites
             </span>
           </div>
@@ -95,7 +126,7 @@ function Footer() {
       <div className="footer-divider" />
 
       <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} – Gustavo Robson S. Silva. Todos os direitos reservados.</p>
+        <p>© {new Date().getFullYear()} – Gustavo Robson - Todos os direitos reservados.</p>
       </div>
     </footer>
   )
