@@ -159,17 +159,19 @@ Gostaria de saber mais sobre os projetos e como funciona o processo.`
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} – Gustavo Robson - Todos os direitos reservados.</p>
         </div>
-      </footer>
-      {/* =========================
+
+        {/* =========================
              MODAL ORÇAMENTO
       ======================== */}
 
-      <section>
-        <SectionOrcamento
-          modal={modal}
-          setModal={setModal}
-        />
-      </section>
+        <section>
+          <SectionOrcamento
+            modal={modal}
+            setModal={setModal}
+          />
+        </section>
+      </footer>
+
     </>
   )
 }

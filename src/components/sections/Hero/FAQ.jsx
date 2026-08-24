@@ -126,17 +126,19 @@ function Section1() {
                     </div>
                 </div>
 
-            </section>
-            {/* =========================
+                {/* =========================
                     MODAL ORÇAMENTO
                 ======================== */}
 
-            <section>
-                <SectionOrcamento
-                    modal={modal}
-                    setModal={setModal}
-                />
+                <section>
+                    <SectionOrcamento
+                        modal={modal}
+                        setModal={setModal}
+                    />
+                </section>
+
             </section>
+
         </>
     )
 }
