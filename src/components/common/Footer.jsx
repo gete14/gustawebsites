@@ -3,7 +3,7 @@ import { FiClock, FiMapPin } from 'react-icons/fi'
 import { Link, useLocation } from 'react-router-dom'
 import { MdWhatsapp } from "react-icons/md";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
-import LogoBranca from '../../assets/logos/LOGO_BRANCA.svg'
+import LogoBranca from '../../assets/logos/LOGO_BRANCA.png'
 
 
 function Footer() {
@@ -23,6 +23,15 @@ function Footer() {
 
     closeMenu()
   }
+
+  const mensagemWhatsApp = encodeURIComponent(
+    `Olá, Gustavo! 
+
+Encontrei a Gusta Websites pelo site e gostaria de solicitar um orçamento para criar um site profissional para minha empresa.
+
+Gostaria de saber mais sobre os projetos e como funciona o processo.`
+  )
+
 
   const isActive = (path) => location.pathname === path
   return (
@@ -100,14 +109,25 @@ function Footer() {
               <FiMapPin />
               Atendimento para todo o Brasil
             </span>
-            <span className={isActive('/') ? 'active' : ''}>
+            <a
+              href={`https://wa.me/5511915079401?text=${mensagemWhatsApp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-whatsapp"
+            >
               <FaWhatsapp />
               +55 11 91507-9401
-            </span>
-            <span className={isActive('/') ? 'active' : ''}>
+            </a>
+
+            <a
+              href="https://www.instagram.com/gustawebsites/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-instagram"
+            >
               <FaInstagram />
               @gustawebsites
-            </span>
+            </a>
           </div>
         </div>
 

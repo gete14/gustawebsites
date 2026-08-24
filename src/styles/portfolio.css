@@ -1,261 +1,869 @@
 @import url("../styles/main.css");
 
-/* ================== PORTFOLIO ================== */
 
-/* 🔹 BASE — DESKTOP FIRST */
+/* =====================================================
+   PORTFÓLIO
+===================================================== */
 
 .portfolio {
-    padding: 4rem 8%;
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     color: var(--9);
+
+    padding-top: clamp(9rem, 8vw, 19rem);
+    padding-left: clamp(1rem, 6vw, 8rem);
+    padding-right: clamp(1rem, 6vw, 8rem);
+    padding-bottom: clamp(3rem, 6vw, 6rem);
+
+    gap: clamp(1.5rem, 3vw, 3rem);
+
     animation: heroReveal 1s ease forwards;
-    transition: transform 0.45s ease, filter 0.45s ease;
-    padding-top: 9rem;
 }
 
-/* ---------- HEADER ---------- */
+
+/* =====================================================
+   HEADER DO PORTFÓLIO
+===================================================== */
+
 .portfolio-header {
+    width: 100%;
+    max-width: 1500px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+
+/* =====================================================
+   TÍTULO
+===================================================== */
+
+.tittle-section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: clamp(0.5rem,
+            1.5vw,
+            1rem);
+
     text-align: center;
 }
 
 .tittle-section h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-}
+    margin: 0;
 
-.tittle-section span {
-    display: block;
-    width: 60px;
-    height: 3px;
-    margin: 1rem auto;
-    background: linear-gradient(90deg, var(--2), var(--3));
+    font-size: clamp(1.7rem,
+            2.5vw,
+            2.8rem);
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: var(--9);
 }
 
 .tittle-section p {
-    max-width: 600px;
-    margin: 0 auto;
+    width: min(100%, 700px);
+
+    margin: 0;
+
+    font-size: clamp(0.85rem,
+            1.2vw,
+            1.1rem);
+
+    line-height: 1.6;
+
     color: var(--5);
-    line-height: 160%;
 }
 
-/* ---------- FILTROS ---------- */
+
+/* =====================================================
+   FILTROS
+===================================================== */
+
 .portfolio-filtros {
-    margin-top: 2rem;
+    width: 100%;
+
     display: flex;
     justify-content: center;
+    align-items: center;
+
     flex-wrap: wrap;
-    gap: 1rem;
+
+    gap: clamp(0.5rem,
+            1vw,
+            1rem);
 }
 
 .portfolio-filtros button {
-    padding: 0.6rem 1.4rem;
-    border-radius: 999px;
-    background: transparent;
-    border: 1px solid var(--1);
-    color: var(--9);
+    border: none;
+    outline: none;
+
     cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+
+    padding:
+        clamp(0.5rem, 0.8vw, 0.7rem) clamp(0.8rem, 1.5vw, 1.4rem);
+
+    border-radius: 999px;
+
+    background: var(--6);
+
+    color: var(--9);
+
+    font-family: inherit;
+
+    font-size: clamp(0.7rem,
+            0.9vw,
+            0.9rem);
+
+    font-weight: 600;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
 .portfolio-filtros button:hover {
-    background: var(--2);
-    color: var(--6);
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 .portfolio-filtros button.ativo {
-    background: linear-gradient(45deg, var(--2), var(--3));
-    color: var(--6);
-    transform: scale(1.05);
-    box-shadow: 0 0 16px rgba(96, 165, 250, 0.4);
+    background: var(--2);
+
+    color: white;
+
+    box-shadow:
+        0 5px 15px rgba(59, 130, 246, 0.25);
 }
 
-/* ---------- GRID ---------- */
+
+/* =====================================================
+   CARDS
+===================================================== */
+
 .portfolio-cards {
-    margin-top: 3rem;
+    width: 100%;
+    max-width: 1500px;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    animation: fadeUp 0.5s ease;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: clamp(1rem,
+            2.5vw,
+            2.5rem);
+
+    padding-top: clamp(0.5rem,
+            1vw,
+            1rem);
 }
 
-/* ---------- CARD ---------- */
+
+/* =====================================================
+   CARD
+===================================================== */
+
 .portfolio-card {
     position: relative;
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    text-align: center;
+
+    width: 100%;
+    min-width: 0;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
     overflow: hidden;
+
+    border-radius: clamp(12px,
+            1.5vw,
+            20px);
+
+    border: 2px solid var(--2);
+
+    background: linear-gradient(178.93deg,
+            var(--2) 39%,
+            transparent 83%,
+            var(--2) 115%);
+
     cursor: pointer;
-    transition: all 0.4s ease;
-    background: linear-gradient(178.93deg, var(--2) 39%, transparent 83%, var(--2) 115%);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        filter 0.4s ease;
 }
 
 
-/* ---------- CONTEÚDO ---------- */
+/* =====================================================
+   TÍTULO DO CARD
+===================================================== */
+
 .portfolio-card h2 {
-    font-size: 1.6rem;
-    margin-bottom: 1.5rem;
-    z-index: 2;
-    position: relative;
+    margin: 0;
+
+    padding:
+        clamp(0.9rem, 1.5vw, 1.4rem) clamp(0.8rem, 1.5vw, 1.4rem) clamp(0.6rem, 1vw, 0.9rem);
+
+    font-size: clamp(0.9rem,
+            1.3vw,
+            1.2rem);
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: var(--9);
+
+    text-align: center;
 }
+
+
+/* =====================================================
+   IMAGEM DO CARD
+===================================================== */
 
 .portfolio-card img {
-    width: 100%;
-    max-width: 260px;
-    margin: 0 auto;
     display: block;
-    transition: transform 0.4s ease;
-    z-index: 2;
-    position: relative;
+
+    width: 100%;
+    max-height: 220px;
+    height: auto;
+
+    object-fit: cover;
+
+    object-position: top;
+
+    transition:
+        transform 0.4s ease;
 }
 
-/* ---------- BOTÃO ---------- */
-.portfolio-card button {
-    margin-top: 2rem;
-    padding: 0.6rem 1.8rem;
-    border-radius: 999px;
-    border: none;
-    background: linear-gradient(90deg, var(--2), var(--3));
-    color: var(--6);
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    z-index: 2;
-    position: relative;
-}
 
-/* ---------- HOVER (desktop) ---------- */
+/* =====================================================
+   EFEITO HOVER
+===================================================== */
+
 .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    transform: translateY(clamp(-4px, -0.5vw, -8px));
+
+    box-shadow:
+        0 clamp(10px, 2vw, 25px) clamp(20px, 4vw, 50px) rgba(0, 0, 0, 0.3);
 }
 
 .portfolio-card:hover img {
     transform: scale(1.05);
 }
 
+
+/* =====================================================
+   BRILHO DO CARD
+===================================================== */
+
 .portfolio-card::after {
-    content: '';
+    content: "";
+
     position: absolute;
+
     inset: 0;
-    background: rgba(255, 255, 255, 0.25);
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
     opacity: 0;
-    transition: 0.4s;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease;
 }
 
 .portfolio-card:hover::after {
     opacity: 1;
 }
 
-/* ================= MODAL ================= */
+
+/* =====================================================
+   BOTÃO
+===================================================== */
+
+.btn-portfolio {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.btn-portfolio button {
+    color: var(--9);
+}
+
+
+
+/* =====================================================
+   BADGE "EM BREVE"
+===================================================== */
+
+.badge-dev {
+    position: absolute;
+
+    z-index: 5;
+
+    top: clamp(0.6rem, 1vw, 1rem);
+    right: clamp(0.6rem, 1vw, 1rem);
+
+    padding:
+        clamp(0.3rem, 0.5vw, 0.45rem) clamp(0.5rem, 0.8vw, 0.8rem);
+
+    border-radius: 999px;
+
+    background: var(--9);
+
+    color: white;
+
+    font-size: clamp(0.6rem,
+            0.8vw,
+            0.8rem);
+
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =====================================================
+   MODAL OVERLAY
+===================================================== */
 
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.65);
+
+    z-index: 9999;
+
+    width: 100%;
+    height: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+
+    box-sizing: border-box;
+
+    padding: clamp(1rem, 3vw, 3rem);
+
+    background: rgba(0, 0, 0, 0.7);
+
+    backdrop-filter: blur(8px);
+
+    animation: modalOverlay 0.3s ease forwards;
+
+    /* evita scroll do próprio overlay */
+    overflow: hidden;
 }
+
+
+/* =====================================================
+   MODAL
+===================================================== */
 
 .modal {
-    background: #fff;
-    padding: 2rem;
-    max-width: 900px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    border-radius: 10px;
     position: relative;
-    text-align: center;
+
+    width: 100%;
+    max-width: 900px;
+
+    max-height: 90vh;
+
+    box-sizing: border-box;
+
+    padding: clamp(1.5rem, 3vw, 3rem);
+
+    border-radius: clamp(14px, 2vw, 24px);
+
+    background: var(--7);
+
+    color: var(--9);
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.35);
+
+    animation: modalOpen 0.35s ease forwards;
+
+    /* SOMENTE O MODAL PODE ROLAR */
+    overflow-y: auto;
+
+    /* evita que o clique dentro feche */
+    cursor: default;
+
+    /* melhora o scroll no celular */
+    overscroll-behavior: contain;
 }
 
-/* 🔥 CORREÇÃO GRID */
+/* =====================================================
+   BLOQUEIO DA PÁGINA QUANDO MODAL ESTÁ ABERTO
+===================================================== */
+
+html:has(.modal-overlay),
+body:has(.modal-overlay) {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+
+
+/* =====================================================
+   FECHAR MODAL
+===================================================== */
+
+.modal-close {
+    position: absolute;
+
+    top: clamp(0.8rem, 1.5vw, 1.2rem);
+    right: clamp(0.8rem, 1.5vw, 1.2rem);
+
+    width: clamp(32px, 3vw, 42px);
+    height: clamp(32px, 3vw, 42px);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    background: var(--9);
+
+    color: white;
+
+    font-size: clamp(0.8rem,
+            1.2vw,
+            1.1rem);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg);
+
+    background: var(--3);
+}
+
+
+/* =====================================================
+   TÍTULO DO MODAL
+===================================================== */
+
+.modal h2 {
+    margin:
+        0 3rem clamp(0.5rem, 1vw, 1rem) 0;
+
+    font-size: clamp(1.3rem,
+            2.5vw,
+            2.2rem);
+
+    line-height: 1.2;
+
+    text-align: center;
+
+    color: var(--9);
+}
+
+
+/* =====================================================
+   DESCRIÇÃO DO MODAL
+===================================================== */
+
+.modal p {
+    margin:
+        0 auto clamp(1rem, 2vw, 2rem);
+
+    max-width: 700px;
+
+    font-size: clamp(0.8rem,
+            1.1vw,
+            1rem);
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    color: var(--5);
+}
+
+
+/* =====================================================
+   IMAGENS DO MODAL
+===================================================== */
+
 .modal-images {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(0.8rem,
+            1.5vw,
+            1.5rem);
 }
 
 .modal-images img {
+    display: block;
+
     width: 100%;
-    border-radius: 8px;
+    height: auto;
+
+    border-radius:
+        clamp(8px, 1vw, 14px);
+
+    object-fit: contain;
 }
 
-.modal h2 {
-    margin-bottom: 0.5rem;
+
+/* =====================================================
+   PROJETO EM DESENVOLVIMENTO
+===================================================== */
+
+.em-dev {
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.8rem;
+
+    padding: 2rem;
+
+    border-radius: 15px;
+
+    background:
+        rgba(59, 130, 246, 0.08);
+
+    color: var(--9);
+
+    text-align: center;
+
+    font-size: clamp(0.9rem,
+            1.3vw,
+            1.1rem);
+
+    font-weight: 600;
 }
 
-.modal p {
-    margin-top: 1rem;
-    line-height: 1.5;
-    padding-bottom: 1rem;
+.em-dev span {
+    display: block;
 }
 
-.modal-close {
-    position: sticky;
-    top: 0;
-    margin-left: auto;
-    z-index: 10;
-    background: rgba(0, 0, 0, 0.6);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-}
 
-/* ================= RESPONSIVO ================= */
+/* =====================================================
+   TABLET
+===================================================== */
 
-/* 📱 Tablet */
-@media (max-width: 1024px) {
-    .portfolio-cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+@media (max-width: 1000px) {
 
-/* 📱 Mobile */
-@media (max-width: 768px) {
     .portfolio {
-        padding: 2rem 1.5rem;
-        padding-top: 10rem;
+        padding-left:
+            clamp(1.5rem, 5vw, 4rem);
+
+        padding-right:
+            clamp(1.5rem, 5vw, 4rem);
     }
+
+
+    .portfolio-cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .portfolio {
+
+        padding-top:
+            clamp(8rem, 8vw, 10rem);
+
+        padding-left:
+            clamp(1rem, 5vw, 2rem);
+
+        padding-right:
+            clamp(1rem, 5vw, 2rem);
+
+        padding-bottom:
+            clamp(2.5rem, 7vw, 4rem);
+
+        gap:
+            clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+
+    /* TÍTULO */
 
     .tittle-section h1 {
-        font-size: 2rem;
+
+        font-size:
+            clamp(1.5rem, 6vw, 2rem);
     }
 
-    .portfolio-cards {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+
+    .tittle-section p {
+
+        font-size:
+            clamp(0.8rem, 3.5vw, 1rem);
+
+        line-height: 1.5;
     }
+
+
+    /* FILTROS */
+
+    .portfolio-filtros {
+
+        justify-content: flex-start;
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        width: 100%;
+
+        padding-bottom: 0.3rem;
+
+        scrollbar-width: none;
+    }
+
+    .portfolio-filtros::-webkit-scrollbar {
+        display: none;
+    }
+
+    .portfolio-filtros button {
+        flex-shrink: 0;
+    }
+
+
+    /* CARDS */
+
+    .portfolio-cards {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            clamp(1rem, 4vw, 2rem);
+    }
+
 
     .portfolio-card {
-        padding: 2rem 1.5rem;
+
+        width: 100%;
     }
 
-    .portfolio-card img {
-        max-width: 200px;
+
+    .portfolio-card h2 {
+
+        font-size:
+            clamp(0.9rem, 4vw, 1.1rem);
     }
+
+
+    .portfolio-card .button1 {
+
+        font-size:
+            clamp(0.65rem, 3vw, 0.8rem);
+    }
+
+
+    /* MODAL */
+
+    .modal-overlay {
+
+        padding:
+            clamp(0.8rem, 4vw, 1.5rem);
+    }
+
+
+    .modal {
+
+        max-height: 88vh;
+
+        padding:
+            clamp(1.2rem, 5vw, 2rem);
+    }
+
+
+    .modal h2 {
+
+        font-size:
+            clamp(1.2rem, 6vw, 1.7rem);
+
+        margin-top: 1rem;
+    }
+
 }
 
-/* 📺 Telas grandes */
-@media (min-width: 1600px) {
+
+/* =====================================================
+   CELULAR PEQUENO
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .portfolio {
+
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+
+    .portfolio-card {
+
+        border-radius: 14px;
+    }
+
+
+    .portfolio-card h2 {
+
+        padding-top: 1rem;
+        padding-bottom: 0.7rem;
+    }
+
+
+    .portfolio-card .button1 {
+
+        width: calc(100% - 2rem);
+
+        margin:
+            0 1rem 1rem;
+
+        padding:
+            0.65rem 1rem;
+    }
+
+
+    .badge-dev {
+
+        top: 0.6rem;
+        right: 0.6rem;
+    }
+
+
+    .modal-close {
+
+        top: 0.7rem;
+        right: 0.7rem;
+    }
+
+
+    .em-dev {
+
+        min-height: 140px;
+
+        padding: 1rem;
+    }
+
+}
+
+
+/* =====================================================
+   TELAS GRANDES
+===================================================== */
+
+@media (min-width: 1400px) {
+
     .portfolio-cards {
-        grid-template-columns: repeat(4, 1fr);
+
+        max-width: 1500px;
+
+        gap:
+            clamp(2rem, 2.5vw, 3rem);
     }
+
 }
 
-/* ---------- ANIMAÇÃO ---------- */
-@keyframes fadeUp {
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
+
+@keyframes modalOpen {
+
     from {
         opacity: 0;
-        transform: translateY(20px);
+
+        transform:
+            translateY(20px) scale(0.96);
     }
+
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0) scale(1);
     }
+
+}
+
+
+@keyframes modalOverlay {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
 }

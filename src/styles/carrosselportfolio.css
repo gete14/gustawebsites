@@ -57,6 +57,7 @@
 
 .card-servico {
     color: var(--9);
+    background: var(--2);
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -64,7 +65,7 @@
     cursor: pointer;
     transition: transform 0.3s ease;
     flex: 1 1 300px;
-    border: 2px solid var(--9);
+    border: 2px solid var(--4);
 }
 
 .card-servico:hover {
@@ -83,6 +84,8 @@
 .card-image img{
     width: 100%;
     height: 100%;
+    max-height: 220px;
+    object-position: top;
     object-fit: cover;
     transition: transform 0.3s ease;
     border-radius: 18px 18px 0px 0px;
@@ -102,13 +105,286 @@
 .info-text-card{
     padding: 0 1rem;
 }
-.titulo-card{
+.card-btn{
+    background: var(--6)!important;
 
 }
 .descricao-card {
     max-height: none;
     overflow: visible;
     margin-top: 10px;
-    font-size: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
+/* =========================================
+   MODAL PORTFÓLIO
+========================================= */
+
+.portfolio-modal-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(10, 25, 34, 0.75);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+
+    z-index: 9999;
+
+    animation: modalOverlay 0.3s ease;
+}
+
+
+.portfolio-modal {
+    position: relative;
+
+    width: min(100%, 1000px);
+    max-height: 90vh;
+
+    background: white;
+
+    border-radius: 22px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
+
+    animation: modalEntrada 0.35s ease;
+}
+
+
+/* =========================================
+   BOTÃO FECHAR
+========================================= */
+
+.portfolio-modal-close {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    color: var(--9);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    font-size: 1rem;
+
+    transition: 0.3s ease;
+}
+
+.portfolio-modal-close:hover {
+    transform: rotate(90deg);
+    background-color: rgb(255, 149, 149);
+}
+
+
+/* =========================================
+   IMAGEM
+========================================= */
+
+.portfolio-modal-image {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.portfolio-modal-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.portfolio-modal-content {
+    padding: 3rem 2.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.portfolio-modal-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: var(--2);
+
+    margin-bottom: 0.7rem;
+}
+
+
+.portfolio-modal-content h2 {
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+
+    color: var(--9);
+
+    margin-bottom: 1rem;
+}
+
+
+.portfolio-modal-description {
+    color: var(--5);
+
+    line-height: 1.7;
+
+    margin-bottom: 1.5rem;
+}
+
+
+/* =========================================
+   CARACTERÍSTICAS
+========================================= */
+
+.portfolio-modal-features {
+    display: flex;
+    flex-direction: column;
+
+    gap: 0.7rem;
+
+    margin-bottom: 2rem;
+}
+
+
+.portfolio-modal-features span {
+    font-size: 0.9rem;
+
+    color: var(--9);
+}
+
+
+/* =========================================
+   BOTÃO VISITAR
+========================================= */
+
+.portfolio-modal-link {
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    padding: 0.9rem 1.4rem;
+
+    border-radius: 10px;
+
+    background: var(--9);
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.3s ease;
+}
+
+
+.portfolio-modal-link:hover {
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   ANIMAÇÕES
+========================================= */
+
+@keyframes modalOverlay {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes modalEntrada {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVO
+========================================= */
+
+@media (max-width: 768px) {
+
+    .portfolio-modal-overlay {
+        padding: 1rem;
+    }
+
+    .portfolio-modal {
+
+        grid-template-columns: 1fr;
+
+        max-height: 92vh;
+
+    }
+
+
+    .portfolio-modal-image {
+
+        height: 280px;
+        min-height: 280px;
+
+    }
+
+
+    .portfolio-modal-content {
+
+        padding: 2rem 1.5rem;
+
+    }
+
+
+    .portfolio-modal-content h2 {
+
+        font-size: 1.8rem;
+
+    }
+
+}

@@ -1,122 +1,603 @@
 @import url("../styles/main.css");
 
-/* ============================= */
-/* 💻 BASE — DESKTOP (1024px+)  */
-/* ============================= */
+/* =====================================================
+   SECTION PROCESSO
+===================================================== */
 
 .container-processo {
-    padding-inline: 8rem;
-    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
-    transition: transform 0.45s ease, filter 0.45s ease;
+    width: 100%;
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    padding-bottom: 2%;
+
+    gap: clamp(1.5rem, 3vw, 3rem);
+
+    padding-top: clamp(2rem, 4vw, 4rem);
+    padding-left: clamp(1rem, 8vw, 8rem);
+    padding-right: clamp(1rem, 8vw, 8rem);
+    padding-bottom: clamp(2rem, 5vw, 5rem);
+
+    animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
 }
 
-/* TÍTULO */
+
+/* =====================================================
+   TÍTULO
+===================================================== */
 
 .tittle-section {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+
     text-align: center;
-    padding-top: 2rem;
+
+    padding-top: clamp(1rem, 2vw, 2rem);
 }
 
 .tittle-section h1 {
-    font-size: clamp(2rem, 2vw, 2.8rem);
+    margin: 0;
+
+    font-size: clamp(1.7rem,
+            2.5vw,
+            2.8rem);
+
+    line-height: 1.2;
+
     color: var(--9);
+
     text-transform: uppercase;
 }
+
 .tittle {
-    font-size: clamp(2rem, 1.4vw, 2.8rem)!important;
-    color: var(--2)!important;
+    margin: 0;
+
+    font-size: clamp(1.4rem,
+            1.8vw,
+            2.2rem) !important;
+
+    color: var(--2) !important;
 }
 
-.tittle-section p {
-    max-width: 600px;
-    color: var(--4);
-    line-height: 160%;
-    padding-bottom: 30px;
-}
 
-/* CONTAINER */
+/* =====================================================
+   CARDS CONTAINER
+===================================================== */
 
 .container-cards {
+    width: 100%;
+
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 4rem;
-    width: 100%;
-    padding: 2rem 0px;
+    align-items: stretch;
+
+    gap: clamp(1rem,
+            3vw,
+            4rem);
+
+    padding-top: clamp(1rem,
+            2vw,
+            2rem);
+
+    padding-bottom: clamp(1rem,
+            2vw,
+            2rem);
 }
 
-/* CARD */
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card-processo {
+    position: relative;
+
     color: var(--9);
+
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+
+    flex: 1 1 0;
+
+    min-width: 0;
+
+    padding:
+        clamp(1rem, 2vw, 2rem) clamp(0.8rem, 1.5vw, 1.5rem);
+
     cursor: pointer;
-    transition: transform 0.3s ease;
-    flex: 1 1 300px;
+
     border-right: 2px solid var(--9);
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
+
 .card-processo:last-child {
     border-right: none;
 }
 
 .card-processo:hover {
-    transform: translateY(-6px);
+    transform: translateY(clamp(-3px, -0.5vw, -6px));
 }
+
+
+/* =====================================================
+   CONTEÚDO DO CARD
+===================================================== */
+
 .card-icone {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
+
+    gap: clamp(0.4rem,
+            0.8vw,
+            0.7rem);
+
     text-align: center;
-    position: relative;
-}
-.card-icone svg{
-    width: 4rem;
-    height: 4rem;
-    color: var(--2);
+
+    height: 100%;
 }
 
+
+/* =====================================================
+   ÍCONE
+===================================================== */
+
+.card-icone svg {
+    width: clamp(2.5rem,
+            4vw,
+            4rem);
+
+    height: clamp(2.5rem,
+            4vw,
+            4rem);
+
+    color: var(--2);
+
+    flex-shrink: 0;
+}
+
+
+/* =====================================================
+   TÍTULO DO CARD
+===================================================== */
+
 .processo-titulo-card {
-    font-size: 1.2rem;
+    margin: 0;
+
+    font-size: clamp(0.9rem,
+            1.3vw,
+            1.2rem);
+
+    line-height: 1.3;
+
     font-weight: 700;
+
     color: var(--5);
+
     text-transform: uppercase;
 }
 
+
+/* =====================================================
+   DESCRIÇÃO
+===================================================== */
+
 .processo-descricao-card {
-    font-size: 0.9rem;
+    margin: 0;
+
+    width: 100%;
+
+    max-width: clamp(160px,
+            15vw,
+            220px);
+
+    font-size: clamp(0.75rem,
+            1vw,
+            0.9rem);
+
+    line-height: 1.6;
+
     color: var(--4);
-    line-height: 160%;
-    max-width: 200px;
+
     text-align: center;
 }
 
 
+/* =====================================================
+   NÚMERO
+===================================================== */
+
 .processo-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--5);
     position: absolute;
-    left: 1rem;
+
+    left: clamp(0rem,
+            1vw,
+            1rem);
+
+    top: clamp(0rem,
+            0.5vw,
+            0.5rem);
+
+    font-size: clamp(2rem,
+            3.5vw,
+            3rem);
+
+    line-height: 1;
+
+    font-weight: 700;
+
+    color: var(--5);
+
     font-family: var(--font-fredoka);
 }
 
 
+/* =====================================================
+   DESCRIÇÃO EXTRA
+===================================================== */
+
 .descricao-card {
     max-height: none;
+
     overflow: visible;
-    margin-top: 10px;
-    font-size: 0.7rem;
+
+    margin-top: clamp(0.5rem,
+            1vw,
+            0.8rem);
+
+    font-size: clamp(0.65rem,
+            0.8vw,
+            0.7rem);
 }
 
+/* =====================================================
+   CONTAINER-BUTTONS-PROCESSO
+===================================================== */
+.container-btns-processo {
+    display: flex;
+    gap: 4rem;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+/* OVERLAY */
+
+.overlay-popup {
+    position: fixed;
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 999999;
+
+    animation: aparecerPopup 0.25s ease;
+}
+
+
+/* POPUP */
+
+.popup-processo {
+    position: relative;
+
+    width: 100%;
+    max-width: 650px;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 40px;
+
+    background: var(--6);
+    border-radius: 16px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.popup-processo h2 {
+    margin: 0 0 30px;
+
+    color: var(--2);
+    text-transform: uppercase;
+
+    font-size: 28px;
+}
+
+
+/* BOTÃO FECHAR */
+
+.popup-fechar {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--2);
+
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* ITENS */
+
+.lista-incluso {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.item-incluso {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.item-incluso>svg {
+    flex-shrink: 0;
+
+    margin-top: 4px;
+
+    color: var(--2);
+    font-size: 18px;
+}
+
+.item-incluso h3 {
+    margin: 0 0 5px;
+
+    color: var(--9);
+
+    font-size: 17px;
+}
+
+.item-incluso p {
+    margin: 0;
+
+    color: var(--9);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* ANIMAÇÃO */
+
+@keyframes aparecerPopup {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+
+    .popup-processo {
+        padding: 30px 22px;
+        max-height: 90vh;
+    }
+
+    .popup-processo h2 {
+        font-size: 23px;
+        margin-bottom: 25px;
+    }
+
+    .item-incluso h3 {
+        font-size: 15px;
+    }
+
+    .item-incluso p {
+        font-size: 13px;
+    }
+
+    .botao1-processo {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+
+
+
+
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .container-processo {
+        padding-left: clamp(1.5rem,
+                5vw,
+                4rem);
+
+        padding-right: clamp(1.5rem,
+                5vw,
+                4rem);
+    }
+
+    .container-cards {
+        gap: clamp(1rem,
+                2vw,
+                2rem);
+    }
+
+    .card-processo {
+        padding:
+            1rem 0.8rem;
+    }
+
+    .processo-number {
+        left: 0;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .container-processo {
+        padding-left: clamp(1rem,
+                5vw,
+                2rem);
+
+        padding-right: clamp(1rem,
+                5vw,
+                2rem);
+
+        gap: 1.5rem;
+    }
+
+    .tittle-section {
+        gap: 0.5rem;
+    }
+
+    .tittle-section h1 {
+        font-size: clamp(1.5rem,
+                6vw,
+                2rem);
+    }
+
+    .tittle {
+        font-size: clamp(1.1rem,
+                4.5vw,
+                1.5rem) !important;
+    }
+
+    .container-cards {
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: clamp(1rem,
+                4vw,
+                1.5rem);
+    }
+
+    .card-processo {
+        width: 100%;
+
+        flex: none;
+
+        padding:
+            clamp(1.2rem, 4vw, 1.5rem) 1rem;
+
+        border-right: none;
+
+        border-bottom: 2px solid var(--9);
+    }
+
+    .card-processo:last-child {
+        border-bottom: none;
+    }
+
+    .card-icone {
+        gap: 0.5rem;
+    }
+
+    .card-icone svg {
+        width: clamp(2.5rem,
+                10vw,
+                3.5rem);
+
+        height: clamp(2.5rem,
+                10vw,
+                3.5rem);
+    }
+
+    .processo-titulo-card {
+        font-size: clamp(0.9rem,
+                4vw,
+                1.1rem);
+    }
+
+    .processo-descricao-card {
+        max-width: 280px;
+
+        font-size: clamp(0.75rem,
+                3vw,
+                0.9rem);
+    }
+
+    .processo-number {
+        left: 0;
+        top: 0;
+
+        font-size: clamp(1.8rem,
+                8vw,
+                2.5rem);
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .container-processo {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .container-cards {
+        gap: 0.5rem;
+    }
+
+    .container-btns-processo {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .card-processo {
+        padding:
+            1.2rem 0.5rem;
+    }
+
+    .processo-descricao-card {
+        max-width: 250px;
+    }
+}

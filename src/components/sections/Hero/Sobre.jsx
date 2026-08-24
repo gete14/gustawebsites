@@ -3,6 +3,7 @@ import eu from '../../../assets/images/eu-v8.png'
 import coroa from '../../../assets/logos/LOGO_COROA.svg'
 
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 import { MdWhatsapp } from "react-icons/md";
 import { IoIosRocket } from "react-icons/io";
@@ -53,14 +54,68 @@ function SobreMim({ setModal }) {
             subtext: "Personalizados"
         }
     ]
+
+    const textoAnimado = "GUSTAVO ROBSON";
+    const [textoDigitado, setTextoDigitado] = useState("");
+    const [apagando, setApagando] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+
+        if (!apagando && textoDigitado.length < textoAnimado.length) {
+            // Digitando
+            timeout = setTimeout(() => {
+                setTextoDigitado(
+                    textoAnimado.slice(0, textoDigitado.length + 1)
+                );
+            }, 100);
+        }
+        else if (!apagando && textoDigitado.length === textoAnimado.length) {
+            // Espera quando termina de digitar
+            timeout = setTimeout(() => {
+                setApagando(true);
+            }, 1800);
+        }
+        else if (apagando && textoDigitado.length > 0) {
+            // Apagando
+            timeout = setTimeout(() => {
+                setTextoDigitado(
+                    textoAnimado.slice(0, textoDigitado.length - 1)
+                );
+            }, 50);
+        }
+        else if (apagando && textoDigitado.length === 0) {
+            // Começa novamente
+            timeout = setTimeout(() => {
+                setApagando(false);
+            }, 500);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [textoDigitado, apagando]);
+
+
+    const mensagemWhatsApp = encodeURIComponent(
+        `Olá, Gustavo! 
+
+Encontrei a Gusta Websites pelo site e gostaria de solicitar um orçamento para criar um site profissional para minha empresa.
+
+Gostaria de saber mais sobre os projetos e como funciona o processo.`
+    )
+
     return (
         <>
             <div className="section-sobre" id='section-sobre'>
                 <div className="container-text">
                     <div className="text">
                         <h1 className="tittle-sobre">Sobre mim</h1>
-                        <h1 className='Título-principal-sobre'>
-                            Prazer, sou <br /><span className='Título-principal sobre'>Gustavo Robson </span>
+                        <h1 className="Título-principal-sobre">
+                            Prazer, sou <br />
+
+                            <span className="Título-principal negocio">
+                                {textoDigitado}
+                                <span className="cursor">|</span>
+                            </span>
                         </h1>
                         <span className='Subtítulos-section1'>
                             Desenvolvedor web especializado em criar sites que unem design, performance e estratégia.
@@ -103,7 +158,10 @@ function SobreMim({ setModal }) {
                     {/* CARD WHATSAPP */}
                     <div
                         className="card-social whatsapp"
-                        onClick={() => window.open("https://wa.me/5511915079401", "_blank")}
+                        onClick={() =>  window.open(
+            `https://wa.me/5511915079401?text=${mensagemWhatsApp}`,
+            "_blank"
+        )}
                     >
                         <i className="fab fa-whatsapp">
                             <FaWhatsapp />

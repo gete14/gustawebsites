@@ -1,3 +1,5 @@
+@import url("../styles/main.css");
+
 /* =====================================================
    SECTION SOBRE
 ===================================================== */
@@ -6,13 +8,19 @@
     position: relative;
 
     display: flex;
-    align-items: start;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
 
     width: 100%;
-    min-height: 700px;
+    min-height: clamp(600px, 75vh, 850px);
+
+    padding:
+        clamp(4rem, 7vw, 7rem)
+        clamp(1rem, 6vw, 7rem);
 
     overflow: hidden;
+
+    box-sizing: border-box;
 }
 
 
@@ -23,33 +31,75 @@
 .container-text {
     position: relative;
     z-index: 3;
-    width: 50%;
+
+    width: clamp(
+        45%,
+        48vw,
+        650px
+    );
+
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(
+        1.2rem,
+        2vw,
+        2rem
+    );
 }
 
 .text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    gap: clamp(
+        0.6rem,
+        1vw,
+        1rem
+    );
 }
 
 
-/* SOBRE MIM */
+/* =====================================================
+   SOBRE MIM
+===================================================== */
 
 .tittle-sobre {
-    font-size: 1.15rem;
+    margin: 0;
+
+    font-size: clamp(
+        0.9rem,
+        1.3vw,
+        1.15rem
+    );
+
     font-weight: 800;
+
     text-transform: uppercase;
     letter-spacing: 0.04em;
+
     color: var(--5);
 }
 
 
-/* TÍTULO PRINCIPAL */
+/* =====================================================
+   TÍTULO PRINCIPAL
+===================================================== */
 
 .Título-principal-sobre {
-    font-size: clamp(3.5rem, 3vw, 3rem);
+    margin: 0;
+
+    font-size: clamp(
+        2.5rem,
+        4vw,
+        4rem
+    );
+
     line-height: 1.05;
+
     font-weight: 800;
+
     color: var(--4);
 }
 
@@ -58,13 +108,27 @@
 }
 
 
-/* SUBTÍTULO */
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
 
 .Subtítulos-section1 {
     display: block;
-    font-size: 1.25rem;
-    line-height: 1.45;
+
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: clamp(
+        0.95rem,
+        1.4vw,
+        1.25rem
+    );
+
+    line-height: 1.5;
+
     font-weight: 600;
+
     color: var(--5);
 }
 
@@ -76,23 +140,52 @@
 .list-topicos {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+
+    gap: clamp(
+        0.6rem,
+        1vw,
+        1rem
+    );
 }
 
 .item-topico-text {
     display: flex;
     align-items: center;
-    gap: 12px;
 
-    font-size: 1.15rem;
+    gap: clamp(
+        0.5rem,
+        0.8vw,
+        0.75rem
+    );
+
+    font-size: clamp(
+        0.85rem,
+        1.2vw,
+        1.15rem
+    );
+
+    line-height: 1.3;
+
     font-weight: 700;
+
     color: var(--5);
 }
 
 .icone-topico {
-    width: 24px;
-    height: 24px;
+    width: clamp(
+        18px,
+        2vw,
+        24px
+    );
+
+    height: clamp(
+        18px,
+        2vw,
+        24px
+    );
+
     object-fit: contain;
+
     flex-shrink: 0;
 }
 
@@ -102,7 +195,20 @@
 ===================================================== */
 
 .buttons-section1 {
-    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+
+    gap: clamp(
+        0.6rem,
+        1.2vw,
+        1rem
+    );
+
+    margin-top: clamp(
+        0.5rem,
+        1vw,
+        1rem
+    );
 }
 
 .button3 svg {
@@ -121,19 +227,45 @@
 
 .container-img {
     position: relative;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50%;
+
+    width: clamp(
+        45%,
+        48vw,
+        700px
+    );
+
+    min-height: clamp(
+        500px,
+        55vw,
+        700px
+    );
+
     z-index: 2;
 }
 
 
-/* FOTO */
+/* =====================================================
+   FOTO
+===================================================== */
 
-.container-img>img {
+.container-img > img {
     position: relative;
+
+    width: clamp(
+        350px,
+        38vw,
+        600px
+    );
+
+    max-width: 100%;
+    height: auto;
+
     object-fit: contain;
+
     z-index: 1;
 }
 
@@ -144,17 +276,37 @@
 
 .card-social {
     position: absolute;
+
     display: flex;
-    gap: 12px;
-    padding: 10px 16px;
-    border-radius: 12px;
+    align-items: center;
+
+    gap: clamp(
+        0.5rem,
+        0.8vw,
+        0.75rem
+    );
+
+    padding:
+        clamp(0.5rem, 0.8vw, 0.7rem)
+        clamp(0.7rem, 1.2vw, 1rem);
+
+    border-radius: clamp(
+        8px,
+        1vw,
+        12px
+    );
+
     backdrop-filter: blur(15px);
+
     background: var(--7);
+
     box-shadow:
         0 10px 25px rgba(0, 0, 0, 0.2);
 
     font-family: Inter, sans-serif;
+
     z-index: 5;
+
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -167,7 +319,11 @@
 .card-social strong {
     display: block;
 
-    font-size: 1rem;
+    font-size: clamp(
+        0.75rem,
+        1vw,
+        1rem
+    );
 
     color: var(--4);
 }
@@ -177,7 +333,11 @@
 
     margin-top: 2px;
 
-    font-size: 0.75rem;
+    font-size: clamp(
+        0.6rem,
+        0.75vw,
+        0.75rem
+    );
 
     color: var(--5);
 }
@@ -187,7 +347,11 @@
     align-items: center;
     justify-content: center;
 
-    font-size: 1.45rem;
+    font-size: clamp(
+        1.1rem,
+        1.8vw,
+        1.45rem
+    );
 }
 
 
@@ -196,8 +360,12 @@
 ===================================================== */
 
 .whatsapp {
-    bottom: 51%;
-    left: 12%;
+    bottom: 42%;
+    left: clamp(
+        0%,
+        4vw,
+        12%
+    );
 
     border: 2px solid rgb(37, 211, 102);
 
@@ -212,19 +380,19 @@
 
 .whatsapp:hover {
     transform: translateY(-6px);
+
     cursor: pointer;
+
     background: rgb(37, 211, 102);
+
     color: white;
+
     box-shadow:
         0 0 3px rgba(255, 255, 255, 0.4),
         0 0 60px rgba(37, 211, 102, 0.6);
 }
 
-.whatsapp:hover i {
-    color: white;
-
-}
-
+.whatsapp:hover i,
 .whatsapp:hover span {
     color: white;
 }
@@ -235,8 +403,13 @@
 ===================================================== */
 
 .instagram {
-    bottom: 60%;
-    right: 5%;
+    bottom: 52%;
+
+    right: clamp(
+        0%,
+        2vw,
+        5%
+    );
 
     border: 2px solid rgb(225, 48, 108);
 
@@ -251,48 +424,76 @@
 
 .instagram:hover {
     transform: translateY(-6px);
+
     cursor: pointer;
+
     background: rgb(225, 48, 108);
+
     color: white;
+
     box-shadow:
         0 0 3px rgba(255, 255, 255, 0.4),
         0 0 60px rgba(225, 48, 108, 0.6);
 }
 
-.instagram:hover i {
-    color: white;
-}
-
+.instagram:hover i,
 .instagram:hover span {
     color: white;
 }
 
 
 /* =====================================================
-   TECLAS
+   TECLAS / SKILLS
 ===================================================== */
 
 .list-skills {
-    position: relative;
+    position: absolute;
+
     width: 100%;
-    height: 250px;
+
+    height: 100%;
+
+    inset: 0;
+
+    pointer-events: none;
 }
 
 .item-skills-text {
     position: absolute;
-    z-index: 4444444;
 
-    width: 150px;
-    min-height: 90px;
+    z-index: 4;
+
+    width: clamp(
+        110px,
+        9vw,
+        150px
+    );
+
+    min-height: clamp(
+        70px,
+        7vw,
+        90px
+    );
 
     display: flex;
     flex-direction: column;
+
     align-items: center;
     justify-content: center;
 
-    padding: 1rem;
+    padding: clamp(
+        0.5rem,
+        1vw,
+        1rem
+    );
 
-    border-radius: 12px;
+    box-sizing: border-box;
+
+    border-radius: clamp(
+        8px,
+        1vw,
+        12px
+    );
 
     background: var(--6);
 
@@ -300,21 +501,33 @@
 
     box-shadow:
         0 0 12px rgba(0, 0, 0, 0.20),
-        10px 10px 0px rgba(59, 130, 246, 0.22);
+        10px 10px 0 rgba(59, 130, 246, 0.22);
 
     transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
 
     cursor: pointer;
+
+    pointer-events: auto;
 }
 
 .item-skills-text::after {
     content: "";
+
     position: absolute;
 
-    width: 70px;
-    height: 25px;
+    width: clamp(
+        50px,
+        5vw,
+        70px
+    );
+
+    height: clamp(
+        18px,
+        2vw,
+        25px
+    );
 
     right: -10px;
     bottom: -8px;
@@ -348,75 +561,113 @@
 }
 
 
-.item-skills-text:nth-child(4) {
-    bottom: -400px;
-    right: 20px;
-}
+/* =====================================================
+   POSIÇÃO DAS TECLAS — DESKTOP
+===================================================== */
 
-.item-skills-text:nth-child(3) {
-    bottom: -300px;
-    right: 200px;
+.item-skills-text:nth-child(1) {
+    bottom: 5%;
+    right: 60%;
 }
 
 .item-skills-text:nth-child(2) {
-    bottom: -400px;
-    right: 400px;
+    bottom: 1%;
+    right: 40%;
 }
 
-.item-skills-text:nth-child(1) {
-    bottom: -300px;
-    right: 600px;
+.item-skills-text:nth-child(3) {
+    bottom: 5%;
+    right: 20%;
 }
+
+.item-skills-text:nth-child(4) {
+    bottom: 1%;
+    right: 0;
+}
+
+
+/* =====================================================
+   ÍCONES DAS SKILLS
+===================================================== */
 
 .icone-skills {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    font-size: 4rem;
-    margin-bottom: 5px;
+    font-size: clamp(
+        2rem,
+        3.5vw,
+        4rem
+    );
+
+    margin-bottom: clamp(
+        2px,
+        0.5vw,
+        5px
+    );
 }
 
 .text-skills {
-    font-size: 1rem;
+    font-size: clamp(
+        0.75rem,
+        1vw,
+        1rem
+    );
+
     font-weight: 700;
+
+    text-align: center;
 }
 
 .subtitulo-skills {
-    font-size: 0.75rem;
+    font-size: clamp(
+        0.6rem,
+        0.75vw,
+        0.75rem
+    );
+
     opacity: 0.75;
+
     text-align: center;
 }
 
 
-
 /* =====================================================
-   ANIMAÇÕES
+   ANIMAÇÃO
 ===================================================== */
 
 @keyframes flutuante {
 
     0% {
-        transform: translate(0 0);
+        transform: translate(0, 0);
     }
 
     25% {
-        transform: translate(20px, -40px);
+        transform: translate(
+            clamp(5px, 1vw, 20px),
+            clamp(-40px, -2vw, -15px)
+        );
     }
 
     50% {
-        transform: translate(-10px, 30px);
+        transform: translate(
+            clamp(-10px, -1vw, -5px),
+            clamp(10px, 1.5vw, 30px)
+        );
     }
 
     75% {
-        transform: translate(-20px, -40px);
+        transform: translate(
+            clamp(-20px, -1vw, -10px),
+            clamp(-40px, -2vw, -15px)
+        );
     }
 
     100% {
         transform: translate(0, 0);
     }
 }
-
 
 
 /* =====================================================
@@ -428,9 +679,19 @@
     .section-sobre {
         flex-direction: column;
 
-        gap: 3rem;
+        align-items: center;
 
-        padding: 5rem 6%;
+        min-height: auto;
+
+        gap: clamp(
+            2rem,
+            5vw,
+            4rem
+        );
+
+        padding:
+            clamp(4rem, 8vw, 6rem)
+            clamp(1.5rem, 6vw, 4rem);
     }
 
     .container-text {
@@ -440,59 +701,98 @@
 
     .container-img {
         width: 100%;
-        min-height: 550px;
+
+        min-height: clamp(
+            500px,
+            65vw,
+            650px
+        );
+
+        max-width: 700px;
     }
 
-    .container-img>img {
-        width: min(90%, 550px);
+    .container-img > img {
+        width: clamp(
+            350px,
+            55vw,
+            550px
+        );
     }
 
     .whatsapp {
-        left: 10%;
+        left: 5%;
     }
 
     .instagram {
-        right: 10%;
+        right: 5%;
+    }
+
+    .item-skills-text:nth-child(1) {
+        right: 65%;
+    }
+
+    .item-skills-text:nth-child(2) {
+        right: 43%;
+    }
+
+    .item-skills-text:nth-child(3) {
+        right: 21%;
+    }
+
+    .item-skills-text:nth-child(4) {
+        right: 0;
     }
 }
 
 
 /* =====================================================
-   CELULAR
+   MOBILE
 ===================================================== */
 
 @media (max-width: 600px) {
 
     .section-sobre {
-        padding: 4rem 1.5rem;
+        padding:
+            clamp(3rem, 10vw, 4rem)
+            clamp(1rem, 5vw, 1.5rem);
 
         gap: 2rem;
     }
 
     .tittle-sobre {
-        font-size: 0.95rem;
-
-        margin-bottom: 1.2rem;
+        font-size: clamp(
+            0.8rem,
+            3.5vw,
+            0.95rem
+        );
     }
 
     .Título-principal-sobre {
-        font-size: 2.3rem;
+        font-size: clamp(
+            2rem,
+            9vw,
+            2.6rem
+        );
     }
 
     .Subtítulos-section1 {
-        font-size: 1rem;
-
-        margin-top: 1rem;
+        font-size: clamp(
+            0.85rem,
+            3.8vw,
+            1rem
+        );
     }
 
     .list-topicos {
-        gap: 0.9rem;
-
-        margin-top: 1.5rem;
+        gap: 0.8rem;
     }
 
     .item-topico-text {
-        font-size: 1rem;
+        font-size: clamp(
+            0.8rem,
+            3.5vw,
+            1rem
+        );
     }
 
     .buttons-section1 {
@@ -506,50 +806,195 @@
     }
 
     .button-1,
-    .button-2 {
+    .button-2,
+    .button-3 {
         width: 100%;
     }
 
     .button1,
-    .button2 {
+    .button2,
+    .button3 {
         width: 100%;
     }
+
+    /* FOTO */
+
+    .container-img {
+        width: 100%;
+
+        min-height: clamp(
+            430px,
+            110vw,
+            550px
+        );
+    }
+
+    .container-img > img {
+        width: clamp(
+            280px,
+            75vw,
+            360px
+        );
+
+        align-self: flex-start;
+    }
+
+    /* CARDS SOCIAIS */
+
+    .card-social {
+        padding:
+            0.5rem
+            0.7rem;
+
+        gap: 0.5rem;
+    }
+
+    .card-social strong {
+        font-size: clamp(
+            0.7rem,
+            3vw,
+            0.85rem
+        );
+    }
+
+    .card-social span {
+        font-size: clamp(
+            0.55rem,
+            2.5vw,
+            0.65rem
+        );
+    }
+
+    .card-social i {
+        font-size: clamp(
+            1rem,
+            5vw,
+            1.3rem
+        );
+    }
+
+    .whatsapp {
+        left: 0;
+        bottom: 30%;
+    }
+
+    .instagram {
+        right: 0;
+        bottom: 15%;
+    }
+
+    /* SKILLS */
+
+    .list-skills {
+        position: absolute;
+
+        height: 100%;
+    }
+
+    .item-skills-text {
+        width: clamp(
+            85px,
+            23vw,
+            110px
+        );
+
+        min-height: clamp(
+            65px,
+            20vw,
+            80px
+        );
+
+        padding: 0.5rem;
+
+        box-shadow:
+            0 0 10px rgba(0, 0, 0, 0.2),
+            6px 6px 0 rgba(59, 130, 246, 0.22);
+    }
+
+    .item-skills-text:nth-child(1) {
+        left: 0;
+        right: auto;
+        bottom: 3%;
+    }
+
+    .item-skills-text:nth-child(2) {
+        left: 26%;
+        right: auto;
+        bottom: 0;
+    }
+
+    .item-skills-text:nth-child(3) {
+        left: 52%;
+        right: auto;
+        bottom: 3%;
+    }
+
+    .item-skills-text:nth-child(4) {
+        left: 78%;
+        right: auto;
+        bottom: 0;
+    }
+
+    .icone-skills {
+        font-size: clamp(
+            1.5rem,
+            7vw,
+            2.2rem
+        );
+    }
+
+    .text-skills {
+        font-size: clamp(
+            0.6rem,
+            2.8vw,
+            0.8rem
+        );
+    }
+
+    .subtitulo-skills {
+        font-size: clamp(
+            0.5rem,
+            2.2vw,
+            0.65rem
+        );
+    }
+}
+
+
+/* =====================================================
+   CELULAR MUITO PEQUENO
+===================================================== */
+
+@media (max-width: 380px) {
 
     .container-img {
         min-height: 400px;
     }
 
-    .container-img>img {
-        width: 100%;
+    .container-img > img {
+        width: 280px;
     }
 
-    .card-social {
-        min-width: auto;
+    .item-skills-text {
+        width: 72px;
+        min-height: 62px;
 
-        padding: 8px 11px;
-
-        gap: 8px;
+        padding: 0.3rem;
     }
 
-    .card-social strong {
-        font-size: 0.8rem;
-    }
-
-    .card-social span {
-        font-size: 0.65rem;
-    }
-
-    .card-social i {
-        font-size: 1.1rem;
-    }
-
-    .whatsapp {
+    .item-skills-text:nth-child(1) {
         left: 0;
-        bottom: 27%;
     }
 
-    .instagram {
-        right: 0;
-        bottom: 12%;
+    .item-skills-text:nth-child(2) {
+        left: 25%;
+    }
+
+    .item-skills-text:nth-child(3) {
+        left: 50%;
+    }
+
+    .item-skills-text:nth-child(4) {
+        left: 75%;
     }
 }

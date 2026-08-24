@@ -1,24 +1,43 @@
 @import url("../styles/main.css");
 
+/* =====================================================
+   HERO
+===================================================== */
+
 .section1 {
     position: relative;
+
     display: flex;
     flex-direction: row;
     align-items: start;
     justify-content: space-between;
+
     width: 100%;
-    height: 85vh;
-    padding-top: 9rem;
+    height: auto;
+
+    min-height: clamp(850px, 55vh, 600px);
+
+    padding:
+        clamp(5rem, 8vh, 7rem) clamp(1rem, 5vw, 5rem) clamp(3rem, 5vh, 5rem);
+
     overflow: hidden;
+
     animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
-    transition: transform 0.45s ease, filter 0.45s ease;
-    
+
+    transition:
+        transform 0.45s ease,
+        filter 0.45s ease;
+
     background-image: url('../assets/images/hero.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
+
+/* =====================================================
+   OVERLAY
+===================================================== */
 
 .section1::before {
     content: "";
@@ -32,22 +51,31 @@
     z-index: 1;
 }
 
-/* ================= TEXTO ================= */
+
+/* =====================================================
+   TEXTO
+===================================================== */
 
 .container-text {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    padding: 20px 5% 0px 5%;
-    max-width: 50%;
+
+    gap: clamp(1.2rem, 2.5vw, 2rem);
+
+    width: min(100%, 700px);
+
+    padding-top: clamp(4rem, 2vw, 1.5rem);
+
     text-align: left;
 }
 
 .text {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start
+
+    gap: clamp(0.7rem, 1.5vw, 1rem);
+
+    align-items: flex-start;
 }
 
 .text h1 {
@@ -55,9 +83,16 @@
 }
 
 .Título-principal-section1 {
+    margin: 0;
+
     font-weight: 700;
-    font-size: clamp(2rem, 3vw, 2.8rem);
-    line-height: 120%;
+
+    font-size: clamp(1.8rem,
+            3.2vw,
+            2.8rem);
+
+    line-height: 1.2;
+
     color: var(--6);
 }
 
@@ -66,85 +101,198 @@
 }
 
 .Subtítulos-section1 {
+    max-width: 650px;
+
     font-family: "Inter", sans-serif;
+
     font-weight: 600;
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    line-height: 160%;
+
+    font-size: clamp(0.95rem,
+            1.4vw,
+            1.2rem);
+
+    line-height: 1.6;
+
     color: var(--6);
 }
 
-/* ================= ÍCONES ================= */
-.container-icons-hero{
+
+/* =====================================================
+   ÍCONES
+===================================================== */
+
+.container-icons-hero {
     display: flex;
     flex-direction: row;
-    gap: 5rem;
+
     align-items: center;
-}
-.icon-hero-up{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    color: var(--2);
-    font-size: 1.5rem;
-}
-.text-icon-hero{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    color: var(--6);
-    white-space: nowrap;
-}
-.tittle-icon{
-    font-weight: 700;
-    font-size: 1.1rem;
+
+    gap: clamp(1rem,
+            2.5vw,
+            2rem);
+
+    flex-wrap: wrap;
 }
 
-/* ================= BOTÕES ================= */
+.card-icon-hero {
+    display: flex;
+    align-items: center;
+
+    gap: clamp(0.5rem,
+            1vw,
+            0.8rem);
+}
+
+.icon-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-hero-up {
+    width: clamp(2.5rem,
+            4.5vw,
+            4rem);
+
+    height: clamp(2.5rem,
+            4.5vw,
+            4rem);
+
+    color: var(--2);
+
+    font-size: clamp(1.8rem,
+            3.5vw,
+            3rem);
+}
+
+.text-icon-hero {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: clamp(0.2rem,
+            0.5vw,
+            0.5rem);
+
+    font-size: clamp(0.65rem,
+            0.9vw,
+            0.8rem);
+
+    color: var(--6);
+
+    white-space: nowrap;
+}
+
+.tittle-icon {
+    font-weight: 700;
+
+    font-size: clamp(0.8rem,
+            1.2vw,
+            1.1rem);
+}
+
+
+/* =====================================================
+   BOTÕES
+===================================================== */
 
 .buttons-section1 {
     display: flex;
     flex-direction: row;
-    gap: 1rem;
+
     align-items: center;
+
+    gap: clamp(0.7rem,
+            1.5vw,
+            1rem);
 }
 
-/* ================= IMAGEM ================= */
+.button2 {
+    display: flex;
+    align-items: center;
+
+    gap: clamp(0.5rem,
+            1vw,
+            0.9rem);
+}
+
+.button-2 svg {
+    font-size: clamp(1.2rem,
+            2vw,
+            1.8rem);
+
+    color: #1E3A8A;
+}
+
+
+/* =====================================================
+   IMAGEM
+===================================================== */
 
 .container-img {
     position: relative;
-    max-width: 650px;
-    padding-bottom: 22rem;
+
+    width: clamp(600px,
+            68vw,
+            700px);
+
+    height: 100%;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    flex-shrink: 0;
 }
 
 .container-img img {
-    width: 100%;
+    display: block;
+
+    width: clamp(580px,
+            55vw,
+            660px);
+
+    max-height: 115%;
+
     height: auto;
-    object-fit: cover;
+
+    object-fit: contain;
+
     position: relative;
     z-index: 2;
+
     animation: floatTech 6s ease-in-out infinite;
 }
 
-/* ================= ELEMENTOS EXTRAS ================= */
+
+/* =====================================================
+   ELEMENTOS EXTRAS
+===================================================== */
 
 .btn-sobre {
     position: absolute;
-    bottom: 15px;
+
+    bottom: clamp(10px,
+            2vw,
+            15px);
+
     left: 20%;
+
     transform: translateX(-50%);
+
     cursor: pointer;
+
     display: flex;
     align-items: center;
-    gap: 6px;
+
+    gap: clamp(4px,
+            0.5vw,
+            6px);
+
     transition: 0.3s;
+
     z-index: 2;
 }
 
@@ -152,32 +300,38 @@
     filter: brightness(1.1);
 }
 
-.button2 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
 
-.button-2 svg {
-    font-size: xx-large;
-    color: #1E3A8A;
-}
-
-/* ================= OVERLAY ================= */
+/* =====================================================
+   OVERLAY
+===================================================== */
 
 .info-overlay {
     position: absolute;
+
     inset: 0;
+
     background: rgba(0, 0, 0, 0.92);
+
     color: white;
-    padding: 10px;
+
+    padding: clamp(0.5rem,
+            2vw,
+            1rem);
+
     display: flex;
     flex-direction: column;
+
     justify-content: center;
+
     text-align: center;
+
     transform: translateY(100%);
+
     transition: transform 0.5s ease;
-    border-radius: 20px;
+
+    border-radius: clamp(12px,
+            2vw,
+            20px);
 }
 
 .img-wrapper.ativo .info-overlay {
@@ -185,32 +339,153 @@
     bottom: 60px;
 }
 
-/* ================= ANIMAÇÕES ================= */
+.cursor {
+    display: inline-block;
+    margin-left: 3px;
+    animation: piscar 0.7s infinite;
+}
+
+@keyframes piscar {
+    0%, 50% {
+        opacity: 1;
+    }
+
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+   ANIMAÇÕES
+===================================================== */
 
 @keyframes floatTech {
     0% {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 
     50% {
-        transform: translateY(-12px);
+        transform: translateY(clamp(-12px, -1.5vw, -6px));
     }
 
     100% {
-        transform: translateY(0px);
+        transform: translateY(0);
     }
 }
 
 
-/* =============RESPONSIVIDADE MOBILE============== */
-@media (max-width: 480px) {
+/* =====================================================
+   Large Screens
+===================================================== */
 
+@media (min-width: 1200px) {
+    .section1 {
+        height: clamp(450px, 55vh, 580px);
+    }
+
+    .container-img img {
+        width: clamp(500px, 40vw, 800px);
+        max-height: 115%;
+    }
 }
-/* =============RESPONSIVIDADE TABLETS============== */
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+    .section1 {
+
+        min-height: clamp(150px, 55vh, 500px);
+
+    }
+
+    .container-text {
+        width: 55%;
+    }
+
+    .container-img {
+        width: 45%;
+        height: 100%;
+    }
+
+    .container-img img {
+        width: clamp(540px,
+                38vw,
+                380px);
+
+        max-height: 100%;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
 @media (max-width: 768px) {
+    .section1 {
+        height: auto;
+        min-height: 0;
 
+        flex-direction: column;
+
+        padding-top: 6rem;
+        padding-bottom: 3rem;
+
+        gap: 2rem;
+
+        overflow: hidden;
+    }
+
+    .container-text {
+        width: 100%;
+        max-width: 100%;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .text {
+        align-items: center;
+    }
+
+    .container-img {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .container-img img {
+        width: clamp(220px,
+                65vw,
+                350px);
+
+        max-height: none;
+    }
 }
-/* =============RESPONSIVIDADE LARGE SCREENS============== */
-@media (min-width: 1025px) {
 
+/* =====================================================
+   CELULARES PEQUENOS
+===================================================== */
+
+@media (max-width: 480px) {
+    .section1 {
+        padding-top: 5rem;
+        padding-bottom: 2rem;
+
+        gap: 1.5rem;
+    }
+
+    .container-img img {
+        width: clamp(200px,
+                65vw,
+                300px);
+    }
 }

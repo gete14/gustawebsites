@@ -1,4 +1,5 @@
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Componentes
 import Footer from "./components/common/Footer";
@@ -10,6 +11,8 @@ import WhatsAppButton from "./components/common/WhatsAppButton";
 import Portfolio from "./pages/Portfolio/Portfolio";
 import LinkBridge from "./pages/LinkBridge/LinkBridge";
 import Home from "./pages/Home/Home";
+
+import '../src/styles/404.css'
 
 
 
@@ -27,7 +30,27 @@ function AppContent() {
         <Route path="/link-bridge" element={<LinkBridge />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/" element={<Home />} />
-        <Route path="*" element={<h1>Página não encontrada</h1>} />
+        <Route
+          path="*"
+          element={
+            <div className="pagina-404">
+              <div className="erro-404">
+                <span>404</span>
+
+                <h1>Página não encontrada</h1>
+
+                <p>
+                  Ops! A página que você está procurando não existe
+                  ou foi removida.
+                </p>
+
+                <Link to="/" className="botao-404">
+                  Voltar para o início
+                </Link>
+              </div>
+            </div>
+          }
+        />
       </Routes>
 
       {!esconderWhats && <WhatsAppButton />}

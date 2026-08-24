@@ -2,7 +2,7 @@ import '../../../styles/hero.css'
 
 import eu from '../../../assets/images/eu-v9.png'
 import { Link } from 'react-router-dom'
-import { useState } from "react";
+import { useEffect, useState } from 'react'
 import { FiChevronUp, FiChevronDown } from "react-icons/fi";
 import { IoShieldCheckmarkSharp } from "react-icons/io5";
 import { AiOutlineThunderbolt } from "react-icons/ai";
@@ -12,14 +12,59 @@ import { FaArrowRight } from "react-icons/fa6";
 
 function Section1({ setModal }) {
     const [ativo, setAtivo] = useState(false);
+
+    const textoAnimado = "VISITANTES EM CLIENTES";
+    const [textoDigitado, setTextoDigitado] = useState("");
+    const [apagando, setApagando] = useState(false);
+
+    useEffect(() => {
+        let timeout;
+
+        if (!apagando && textoDigitado.length < textoAnimado.length) {
+            // Digitando
+            timeout = setTimeout(() => {
+                setTextoDigitado(
+                    textoAnimado.slice(0, textoDigitado.length + 1)
+                );
+            }, 100);
+        }
+        else if (!apagando && textoDigitado.length === textoAnimado.length) {
+            // Espera quando termina de digitar
+            timeout = setTimeout(() => {
+                setApagando(true);
+            }, 1800);
+        }
+        else if (apagando && textoDigitado.length > 0) {
+            // Apagando
+            timeout = setTimeout(() => {
+                setTextoDigitado(
+                    textoAnimado.slice(0, textoDigitado.length - 1)
+                );
+            }, 50);
+        }
+        else if (apagando && textoDigitado.length === 0) {
+            // Começa novamente
+            timeout = setTimeout(() => {
+                setApagando(false);
+            }, 500);
+        }
+
+        return () => clearTimeout(timeout);
+    }, [textoDigitado, apagando]);
+
     return (
         <>
             <div className="section1" id='section-hero'>
                 <div className="container-text">
                     <div className="text">
-                        <h1 className='Título-principal-section1'>
+                        <h1 className="Título-principal-section1">
                             sites profissionais
-                            que TRANSFORMAM  <br /><span className='Título-principal negocio'>VISITANTES EM CLIENTES</span>
+                            que TRANSFORMAM <br />
+
+                            <span className="Título-principal negocio">
+                                {textoDigitado}
+                                <span className="cursor">|</span>
+                            </span>
                         </h1>
                         <span className='Subtítulos-section1'>Crio sites modernos, rápidos e estratégicos para você se destacar, gerar mais confiança e vender mais no digital.</span>
                     </div>
@@ -61,7 +106,7 @@ function Section1({ setModal }) {
                             <button className='button1'
                                 onClick={() => {
                                     setModal(true);
-                                }}>Solicitar Orçamento</button>
+                                }}>QUERO CRIAR MEU SITE</button>
                         </div>
 
                         <div className="button-2">

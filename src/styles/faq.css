@@ -1,157 +1,691 @@
 @import url("../styles/main.css");
 
-/* ================== FAQ ================== */
-
-/* 🔹 BASE — MOBILE (320px) */
+/* =====================================================
+   FAQ
+===================================================== */
 
 .section-faq {
+  width: 100%;
   color: var(--9);
   background: var(--1);
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+
+  padding-block:
+    clamp(2.5rem, 5vw, 5rem)
+    clamp(2.5rem, 5vw, 5rem);
+
   animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
-    transition: transform 0.45s ease, filter 0.45s ease;
+
+  transition:
+    transform 0.45s ease,
+    filter 0.45s ease;
+
+  overflow: hidden;
 }
 
-/* ---------- HEADER ---------- */
+
+/* =====================================================
+   HEADER
+===================================================== */
+
 .faq-header {
+  width: min(100% - clamp(2rem, 8vw, 10rem), 1400px);
+
+  margin-inline: auto;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .faq-header h1 {
-  font-size: clamp(1.8rem, 6vw, 3.4rem);
+  margin: 0;
+
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
   font-weight: 700;
+
   color: var(--6);
 }
 
 .faq-header p {
+  margin-top: clamp(0.4rem, 1vw, 0.8rem);
+  margin-bottom: 0;
+
   color: var(--9);
-  font-size: clamp(1rem, 3vw, 1.3rem);
+
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  line-height: 1.4;
   font-weight: 700;
 }
 
-/* ---------- CONTAINER ---------- */
+
+/* =====================================================
+   CONTAINER PRINCIPAL
+===================================================== */
+
 .faq-container {
-  display: flex;
-  flex-direction: row;
-  gap: 1.4rem;
-  padding-inline: 4rem;
+  width: min(100% - clamp(2rem, 8vw, 10rem), 1400px);
+
+  margin-inline: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(320px, 0.85fr);
+
+  align-items: start;
+
+  gap: clamp(2rem, 5vw, 5rem);
 }
-.container-perguntas{
+
+
+/* =====================================================
+   PERGUNTAS
+===================================================== */
+
+.container-perguntas {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  width: 50%;
-}
-.container-contact{
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 0.6rem;
-  width: 50%;
-  padding-top: 5%;
-}
-.text-and-button{
-  width: 50%;
-}
-.text-and-button span{
-  font-size: clamp(1.8rem, 6vw, 2.8rem);
-  font-weight: 800;
-  color: var(--9);
-}
-.text-and-button p{
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  color: var(--9);
-  line-height: 160%;
-  font-weight: 700;
-  padding-bottom: 1rem;
+
+  gap: clamp(0.6rem, 1vw, 0.8rem);
 }
 
-/* ---------- ITEM ---------- */
+
+/* =====================================================
+   ITEM FAQ
+===================================================== */
+
 .faq-item {
+  width: 100%;
+
   background: var(--2);
-  border-radius: 16px;
+
+  border-radius: clamp(10px, 1.5vw, 16px);
+
   overflow: hidden;
-  transition: all 0.35s ease;
+
+  transition:
+    background 0.35s ease,
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
-/* hover (mobile safe) */
 .faq-item:hover {
   filter: brightness(1.05);
 }
 
-/* ativo */
 .faq-item.ativo {
-  background: linear-gradient(90deg, var(--2), var(--3));
+  background: linear-gradient(
+    90deg,
+    var(--2),
+    var(--3)
+  );
 }
 
-/* ---------- PERGUNTA (BOTÃO) ---------- */
+
+/* =====================================================
+   PERGUNTA
+===================================================== */
+
 .faq-pergunta {
+  width: 100%;
+  min-height: 64px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 1.2rem 1.4rem;
+
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+
+  padding:
+    clamp(0.9rem, 2vw, 1.2rem)
+    clamp(1rem, 2.5vw, 1.5rem);
+
   background: transparent;
+
   border: none;
-  width: 100%;
+
   text-align: left;
+
   cursor: pointer;
-  transition: background 0.35s ease;
+
+  transition:
+    background 0.35s ease,
+    filter 0.35s ease;
 }
 
-/* hover & foco */
-.faq-pergunta:hover,
-.faq-pergunta:focus-visible {
-  outline: 3px solid var(--accent); /* foco acessível */
-  outline-offset: 3px;
+.faq-pergunta:hover {
   filter: brightness(1.05);
 }
 
-/* texto da pergunta */
-.faq-pergunta span:first-child {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--7); /* contraste melhorado */
-  line-height: 140%;
+.faq-pergunta:focus-visible {
+  outline: 3px solid var(--6);
+  outline-offset: 3px;
 }
 
-/* ---------- SETA ---------- */
+
+/* =====================================================
+   TEXTO DA PERGUNTA
+===================================================== */
+
+.faq-pergunta span:first-child {
+  min-width: 0;
+
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  line-height: 1.45;
+
+  font-weight: 600;
+
+  color: var(--7);
+}
+
+
+/* =====================================================
+   SETA
+===================================================== */
+
 .seta {
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
   color: var(--6);
-  transition: transform 0.35s ease;
+
+  border-radius: 50%;
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease;
+}
+
+.seta svg {
+  width: clamp(1rem, 2vw, 1.4rem);
+  height: clamp(1rem, 2vw, 1.4rem);
 }
 
 .faq-item.ativo .seta {
   transform: rotate(180deg);
 }
 
-/* ---------- RESPOSTA ---------- */
+
+/* =====================================================
+   RESPOSTA
+===================================================== */
+
 .faq-resposta {
+  padding:
+    clamp(0.9rem, 2vw, 1.2rem)
+    clamp(1rem, 2.5vw, 1.5rem);
+
   background: var(--8);
-  padding: 1.2rem 1.4rem;
+
   animation: abrir 0.35s ease;
 }
 
 .faq-resposta p {
+  margin: 0;
+
   color: var(--9);
-  line-height: 160%;
+
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  line-height: 1.6;
+
   font-weight: 500;
-  font-size: 0.95rem;
 }
 
-/* ---------- ANIMAÇÃO ---------- */
+
+/* =====================================================
+   ÁREA DE CONTATO
+===================================================== */
+
+.container-contact {
+  width: 100%;
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: clamp(1rem, 2vw, 1.5rem);
+
+  padding-top: clamp(1rem, 4vw, 3rem);
+}
+
+.container-contact > svg {
+  flex-shrink: 0;
+
+  width: clamp(4.5rem, 9vw, 9rem);
+  height: clamp(4.5rem, 9vw, 9rem);
+
+  color: var(--6);
+}
+
+
+/* =====================================================
+   TEXTO + BOTÃO
+===================================================== */
+
+.text-and-button {
+  width: min(100%, 500px);
+}
+
+.text-and-button span {
+  display: block;
+
+  font-size: clamp(1.5rem, 3vw, 2.8rem);
+  line-height: 1.15;
+
+  font-weight: 800;
+
+  color: var(--9);
+}
+
+.text-and-button p {
+  margin-block:
+    clamp(0.8rem, 2vw, 1.2rem)
+    clamp(0.8rem, 2vw, 1.5rem);
+
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  line-height: 1.6;
+
+  font-weight: 700;
+
+  color: var(--9);
+}
+
+
+/* =====================================================
+   ANIMAÇÃO
+===================================================== */
+
 @keyframes abrir {
   from {
     opacity: 0;
     transform: translateY(-6px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+
+/* =====================================================
+   TABLET GRANDE
+   901px - 1000px
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .faq-container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 0.8fr);
+
+    gap: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .container-contact {
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding-top: 1rem;
+  }
+
+  .container-contact > svg {
+    width: clamp(5rem, 10vw, 7rem);
+    height: clamp(5rem, 10vw, 7rem);
+  }
+
+  .text-and-button {
+    width: 100%;
+  }
+
+  .text-and-button span {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .text-and-button p {
+    font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  }
+}
+
+
+/* =====================================================
+   TABLET
+   701px - 900px
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .faq-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .faq-container {
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  .faq-pergunta {
+    min-height: 60px;
+
+    padding:
+      0.9rem
+      1rem;
+  }
+
+  .faq-pergunta span:first-child {
+    font-size: 0.95rem;
+  }
+
+  .faq-resposta {
+    padding:
+      0.9rem
+      1rem;
+  }
+
+  .faq-resposta p {
+    font-size: 0.9rem;
+  }
+
+  .container-contact > svg {
+    width: clamp(4.5rem, 9vw, 6rem);
+    height: clamp(4.5rem, 9vw, 6rem);
+  }
+
+  .text-and-button span {
+    font-size: clamp(1.35rem, 3vw, 1.8rem);
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+   Até 700px
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .section-faq {
+    padding-block:
+      3rem
+      3rem;
+  }
+
+
+  /* =========================
+     HEADER
+  ========================= */
+
+  .faq-header {
+    width: calc(100% - 2rem);
+
+    margin-bottom: 2rem;
+  }
+
+  .faq-header h1 {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+  }
+
+  .faq-header p {
+    font-size: 1rem;
+  }
+
+
+  /* =========================
+     CONTAINER
+  ========================= */
+
+  .faq-container {
+    width: calc(100% - 2rem);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: clamp(2.5rem, 10vw, 4rem);
+  }
+
+
+  /* =========================
+     PERGUNTAS
+  ========================= */
+
+  .container-perguntas {
+    width: 100%;
+
+    gap: 0.6rem;
+  }
+
+
+  /* =========================
+     ITEM
+  ========================= */
+
+  .faq-item {
+    border-radius: 12px;
+  }
+
+
+  /* =========================
+     BOTÃO
+  ========================= */
+
+  .faq-pergunta {
+    min-height: 60px;
+
+    padding:
+      1rem;
+
+    gap: 0.7rem;
+  }
+
+  .faq-pergunta span:first-child {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+
+  /* =========================
+     SETA
+  ========================= */
+
+  .seta {
+    width: 28px;
+    height: 28px;
+  }
+
+  .seta svg {
+    width: 20px;
+    height: 20px;
+  }
+
+
+  /* =========================
+     RESPOSTA
+  ========================= */
+
+  .faq-resposta {
+    padding:
+      1rem;
+  }
+
+  .faq-resposta p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+
+  /* =========================
+     CONTATO
+  ========================= */
+
+  .container-contact {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 0;
+
+    text-align: center;
+  }
+
+  .container-contact > svg {
+    width: clamp(4.5rem, 20vw, 7rem);
+    height: clamp(4.5rem, 20vw, 7rem);
+  }
+
+
+  /* =========================
+     TEXTO
+  ========================= */
+
+  .text-and-button {
+    width: 100%;
+  }
+
+  .text-and-button span {
+    font-size: clamp(1.5rem, 7vw, 2.2rem);
+    line-height: 1.15;
+  }
+
+  .text-and-button p {
+    margin-block:
+      1rem
+      1.3rem;
+
+    font-size: clamp(0.9rem, 3.5vw, 1.05rem);
+    line-height: 1.55;
+  }
+}
+
+
+/* =====================================================
+   MOBILE PEQUENO
+   Até 400px
+===================================================== */
+
+@media (max-width: 400px) {
+
+  .section-faq {
+    padding-block:
+      2.5rem
+      2.5rem;
+  }
+
+
+  .faq-header {
+    width: calc(100% - 1.5rem);
+  }
+
+  .faq-header h1 {
+    font-size: clamp(1.8rem, 9vw, 2.2rem);
+  }
+
+  .faq-header p {
+    font-size: 0.9rem;
+  }
+
+
+  .faq-container {
+    width: calc(100% - 1.5rem);
+
+    gap: 2.5rem;
+  }
+
+
+  .faq-pergunta {
+    min-height: 58px;
+
+    padding:
+      0.85rem;
+  }
+
+  .faq-pergunta span:first-child {
+    font-size: 0.85rem;
+  }
+
+
+  .seta {
+    width: 26px;
+    height: 26px;
+  }
+
+  .seta svg {
+    width: 18px;
+    height: 18px;
+  }
+
+
+  .faq-resposta {
+    padding:
+      0.85rem;
+  }
+
+  .faq-resposta p {
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+
+  .container-contact > svg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+
+  .text-and-button span {
+    font-size: 1.5rem;
+  }
+
+  .text-and-button p {
+    font-size: 0.88rem;
+  }
+}
+
+
+/* =====================================================
+   TELAS MUITO PEQUENAS
+   Até 350px
+===================================================== */
+
+@media (max-width: 350px) {
+
+  .faq-container,
+  .faq-header {
+    width: calc(100% - 1rem);
+  }
+
+  .faq-pergunta {
+    padding: 0.75rem;
+  }
+
+  .faq-pergunta span:first-child {
+    font-size: 0.8rem;
+  }
+
+  .faq-resposta {
+    padding: 0.75rem;
+  }
+
+  .faq-resposta p {
+    font-size: 0.78rem;
+  }
+
+  .text-and-button span {
+    font-size: 1.4rem;
   }
 }

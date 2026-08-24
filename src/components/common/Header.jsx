@@ -1,190 +1,387 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import '../../styles/navbar.css'
 import logo from '../../assets/logos/LOGO.svg'
 import { HiOutlineMenu, HiX } from 'react-icons/hi'
-import ThemeToggle from './ThemeToggle'
-import { Link, useLocation } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import SectionOrcamento from '../sections/Orcamento/Orcamento.jsx'
+import { useLocation } from 'react-router-dom';
 
 function Header() {
-  const [modal, setModal] = useState(false);
+  const [modal, setModal] = useState(false)
   const [showHeader, setShowHeader] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [scrolled, setScrolled] = useState(false)
 
+  // Indica quando o scroll foi iniciado pela navbar
+  const isNavigating = useRef(false)
+
+  // =========================
+  // CONTROLE DO SCROLL
+  // =========================
+
   const handleScroll = useCallback(() => {
     const currentScroll = window.scrollY
 
-    // Ativa o fundo depois de rolar 50px
     setScrolled(currentScroll > 50)
 
-    // Esconde a navbar ao descer
+    // Se o scroll foi iniciado por um clique
+    // na navbar, não executa a lógica normal
+    if (isNavigating.current) {
+      return
+    }
+
+    // Descendo
     if (currentScroll > lastScrollY && currentScroll > 80) {
       setShowHeader(false)
-    } else {
+    }
+
+    // Subindo
+    else {
       setShowHeader(true)
     }
 
     setLastScrollY(currentScroll)
   }, [lastScrollY])
 
-
-
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [handleScroll])
 
-  const toggleMenu = () => setMenuOpen(prev => !prev)
-  const closeMenu = () => setMenuOpen(false)
+  // =========================
+  // MENU
+  // =========================
 
+  const toggleMenu = () => {
+    setMenuOpen(prev => !prev)
+  }
 
-  const isActive = (path) => location.pathname === path
+  const closeMenu = () => {
+    setMenuOpen(false)
+  }
 
+  // =========================
+  // SCROLL PARA SEÇÃO
+  // =========================
 
-  const scrollToSection = (e, id) => {
-    e.preventDefault()
-
+  const scrollToSection = (id) => {
     const section = document.getElementById(id)
 
-    if (section) {
-      section.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
+    if (!section) return
+
+    // Informa que o scroll foi iniciado
+    // através da navbar
+    isNavigating.current = true
+
+    // Mantém a navbar visível durante o movimento
+    setShowHeader(true)
+
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+
+    // Aguarda chegar na seção
+    const checkScroll = () => {
+      const distance = Math.abs(
+        section.getBoundingClientRect().top
+      )
+
+      if (distance <= 3) {
+
+        // Terminou a navegação
+        isNavigating.current = false
+
+        // Esconde a navbar ao chegar
+        setShowHeader(false)
+
+        // Atualiza a posição
+        setLastScrollY(window.scrollY)
+
+        return
+      }
+
+      requestAnimationFrame(checkScroll)
     }
+
+    requestAnimationFrame(checkScroll)
 
     closeMenu()
   }
 
+  // =========================
+  // ABRIR ORÇAMENTO
+  // =========================
+
+  const openOrcamento = () => {
+    setModal(true)
+    closeMenu()
+  }
+
+
+  const location = useLocation();
+
+  const navbarComBackground = location.pathname === '/portfolio';
+
+
   return (
     <>
       <header
-        className={`header ${showHeader ? 'show' : 'hide'} ${scrolled ? 'scrolled' : ''
-          }`}
+        className={`header 
+    ${showHeader ? 'show' : 'hide'}
+    ${scrolled ? 'scrolled' : ''}
+    ${navbarComBackground ? 'page-background' : ''}
+  `}
       >
-        <div className="header-container">
-          <Link to="/">
-            <div className="logo">
-              <img src={logo} alt="Gusta Websites" />
 
+        <div className="header-container">
+
+          {/* LOGO */}
+
+          <Link to="/">
+            <div className="logo"
+              onClick={() =>
+                scrollToSection('section-hero')
+              }>
+              <img
+                src={logo}
+                alt="Gusta Websites"
+              />
             </div>
           </Link>
-          {/* <div className="container-theme">
-            <ThemeToggle />
-          </div> */}
 
 
+          {/* =========================
+              MENU DESKTOP
+          ========================= */}
 
-          {/* ✅ MENU DESKTOP */}
           <nav className="nav-desktop">
-            <ul>
-              <ul>
-                <li>
-                  <a href="#section-hero" className={isActive('/') ? 'active' : '' } onClick={(e) => scrollToSection(e, 'section-hero')}>
-                    Início
-                  </a>
-                </li>
 
+            <ul>
+
+              {/* INÍCIO */}
+
+              <Link to="/">
                 <li>
-                  <a
-                    href="#section-sobre"
-                    onClick={(e) => scrollToSection(e, 'section-sobre')}
+                  <button
+                    className="nav-link"
+                    onClick={() =>
+                      scrollToSection('section-hero')
+                    }
+                  >
+                    Início
+                  </button>
+                </li>
+              </Link>
+
+
+              {/* SOBRE */}
+              <Link to="/">
+                <li>
+                  <button
+                    className="nav-link"
+                    onClick={() =>
+                      scrollToSection('section-sobre')
+                    }
                   >
                     Sobre
-                  </a>
+                  </button>
                 </li>
+              </Link>
 
+              {/* PORTFÓLIO */}
+              <Link to="/">
                 <li>
-                  <a
-                    href="#section-portfolio"
-                    onClick={(e) => scrollToSection(e, 'section-portfolio')}
+                  <button
+                    className="nav-link"
+                    onClick={() =>
+                      scrollToSection('section-portfolio')
+                    }
                   >
                     Portfólio
-                  </a>
+                  </button>
                 </li>
+              </Link>
 
+              {/* PROCESSO */}
+              <Link to="/">
                 <li>
-                  <a
-                    href="#section-processo"
-                    onClick={(e) => scrollToSection(e, 'section-processo')}
+                  <button
+                    className="nav-link"
+                    onClick={() =>
+                      scrollToSection('section-processo')
+                    }
                   >
                     Processo
-                  </a>
+                  </button>
                 </li>
+              </Link>
 
+              {/* FAQ */}
+              <Link to="/">
                 <li>
-                  <a
-                    href="#section-faq"
-                    onClick={(e) => scrollToSection(e, 'section-faq')}
+                  <button
+                    className="nav-link"
+                    onClick={() =>
+                      scrollToSection('section-faq')
+                    }
                   >
                     FAQ
-                  </a>
-                </li>
-              </ul>
-              <li>
-                <div className="button-1">
-
-                  <button className='button1' onClick={() => setModal(true)}>
-                    Solicitar Orçamento
                   </button>
+                </li>
+              </Link>
 
-                </div>
+              {/* ORÇAMENTO */}
+
+              <li>
+
+                <button
+                  className="button1"
+                  onClick={openOrcamento}
+                >
+                  Solicitar Orçamento
+                </button>
+
               </li>
+
             </ul>
+
           </nav>
 
-          {/* MENU MOBILE ICON */}
-          <div className="menu-icon" onClick={toggleMenu}>
-            {menuOpen ? <HiX /> : <HiOutlineMenu />}
+
+          {/* =========================
+              MENU MOBILE ICON
+          ========================= */}
+
+          <div
+            className="menu-icon"
+            onClick={toggleMenu}
+          >
+            {menuOpen
+              ? <HiX />
+              : <HiOutlineMenu />
+            }
           </div>
+
         </div>
 
-        {/* ✅ MENU MOBILE */}
-        <nav className={`nav-mobile ${menuOpen ? 'open' : ''}`}>
+
+        {/* =========================
+            MENU MOBILE
+        ========================= */}
+
+        <nav
+          className={`nav-mobile ${menuOpen ? 'open' : ''
+            }`}
+        >
+
           <ul>
+
+            {/* INÍCIO */}
+
             <li>
-              <Link to="/" className={isActive('/') ? 'active' : ''}>
+              <button
+                className="nav-link"
+                onClick={() =>
+                  scrollToSection('section-hero')
+                }
+              >
                 Início
-              </Link>
+              </button>
             </li>
+
+
+            {/* SOBRE */}
+
             <li>
-              <Link to="/sobre" className={isActive('/sobre') ? 'active' : ''}>
+              <button
+                className="nav-link"
+                onClick={() =>
+                  scrollToSection('section-sobre')
+                }
+              >
                 Sobre
-              </Link>
+              </button>
             </li>
+
+
+            {/* PORTFÓLIO */}
+
             <li>
-              <Link to="/portfolio" className={isActive('/portfolio') ? 'active' : ''}>
+              <button
+                className="nav-link"
+                onClick={() =>
+                  scrollToSection('section-portfolio')
+                }
+              >
                 Portfólio
-              </Link>
+              </button>
             </li>
+
+
+            {/* PROCESSO */}
+
             <li>
-              <Link to="/processo" className={isActive('/processo') ? 'active' : ''}>
+              <button
+                className="nav-link"
+                onClick={() =>
+                  scrollToSection('section-processo')
+                }
+              >
                 Processo
-              </Link>
+              </button>
             </li>
+
+
+            {/* FAQ */}
+
             <li>
-              <Link to="/faq" className={isActive('/faq') ? 'active' : ''}>
+              <button
+                className="nav-link"
+                onClick={() =>
+                  scrollToSection('section-faq')
+                }
+              >
                 FAQ
-              </Link>
+              </button>
             </li>
+
+
+            {/* ORÇAMENTO */}
+
             <li>
-              <Link
-                to="orcamento"
+
+              <button
                 className="button1"
-                onClick={closeMenu}
+                onClick={openOrcamento}
               >
                 Solicitar Orçamento
-              </Link>
+              </button>
+
             </li>
+
           </ul>
+
         </nav>
 
       </header>
+
+
+      {/* =========================
+          MODAL ORÇAMENTO
+      ========================= */}
+
       <section>
-        <SectionOrcamento modal={modal} setModal={setModal} />
+        <SectionOrcamento
+          modal={modal}
+          setModal={setModal}
+        />
       </section>
+
     </>
   )
 }
