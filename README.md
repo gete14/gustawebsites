@@ -1,16 +1,135 @@
-# React + Vite
+# 🌐 GustaWebsites
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Site profissional desenvolvido para apresentar meus projetos, serviços e experiência como desenvolvedor web.
 
-Currently, two official plugins are available:
+O projeto foi criado com foco em **design moderno, responsividade, performance e experiência do usuário**, funcionando como meu portfólio e também como uma vitrine para serviços de desenvolvimento de sites.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias utilizadas
 
-## React Compiler
+* **React.js** — construção da interface
+* **Vite** — ambiente de desenvolvimento e build
+* **JavaScript** — lógica e interações
+* **HTML5** — estrutura semântica
+* **CSS3** — estilização e responsividade
+* **React Icons** — ícones da interface
+* **Git & GitHub** — versionamento
+* **Netlify** — deploy e hospedagem
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+* 🎨 Interface moderna e responsiva
+* 📱 Layout adaptado para desktop, tablet e mobile
+* 💼 Apresentação de projetos desenvolvidos
+* 🛠️ Apresentação dos serviços oferecidos
+* 📋 Seção de processo de desenvolvimento
+* ❓ FAQ com perguntas frequentes
+* 📩 Formulário/orçamento para contato
+* 🔗 Navegação entre as diferentes seções do site
+* 🖼️ Galeria e visualização de projetos
+* ⚡ Animações e interações para melhorar a experiência
+* 🌐 Otimização para diferentes tamanhos de tela
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Estrutura do projeto
+
+```text
+src/
+├── assets/
+│   ├── images/
+│   └── ...
+│
+├── components/
+│   ├── Header/
+│   ├── Footer/
+│   ├── Hero/
+│   ├── Portfolio/
+│   ├── Processo/
+│   ├── FAQ/
+│   └── ...
+│
+├── pages/
+│   ├── Home/
+│   ├── Portfolio/
+│   ├── Servicos/
+│   ├── Faq/
+│   └── ...
+│
+├── styles/
+│   ├── global.css
+│   ├── header.css
+│   ├── portfolio.css
+│   ├── processo.css
+│   └── ...
+│
+├── App.jsx
+└── main.jsx
+```
+
+## 🖥️ Executando o projeto
+
+### 1. Clone o repositório
+
+```bash
+git clone SEU_LINK_DO_REPOSITORIO
+```
+
+### 2. Entre na pasta
+
+```bash
+cd nome-do-projeto
+```
+
+### 3. Instale as dependências
+
+```bash
+npm install
+```
+
+### 4. Execute o projeto
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível no endereço indicado pelo Vite, normalmente:
+
+```text
+http://localhost:5173
+```
+
+## 📦 Build para produção
+
+Para gerar a versão otimizada para produção:
+
+```bash
+npm run build
+```
+
+Para visualizar o build localmente:
+
+```bash
+npm run preview
+```
+
+## 🎯 Objetivo do projeto
+
+O projeto tem como objetivo funcionar como uma **presença digital profissional**, apresentando meus trabalhos e serviços de desenvolvimento web de forma clara e visualmente atrativa.
+
+Além de ser um portfólio, o site também serve como um projeto prático para aplicar conhecimentos de **React, JavaScript, CSS, responsividade, UI/UX e desenvolvimento de interfaces modernas**.
+
+## 👨‍💻 Desenvolvedor
+
+**Gustavo Robson**
+
+Desenvolvedor Web e estudante de **Desenvolvimento de Software Multiplataforma**.
+
+Tenho foco no desenvolvimento de interfaces modernas e responsivas utilizando principalmente **JavaScript, React e tecnologias web**.
+
+### 📫 Contato
+
+* 💼 LinkedIn: https://www.linkedin.com/in/gustavo-rss/
+* 🐙 GitHub: https://github.com/GustavoRobs-11
+* 🌐 Portfólio: https://gustawebsites.com.br
+
+---
+
+⭐ Se você gostou do projeto, considere deixar uma estrela no repositório!
