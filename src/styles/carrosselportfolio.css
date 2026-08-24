@@ -1,28 +1,41 @@
 @import url("../styles/main.css");
 
 /* ============================= */
-/* 💻 BASE — DESKTOP (1024px+)  */
+/* 💻 BASE — DESKTOP             */
 /* ============================= */
 
 .servicos {
-    padding-inline: 8rem;
+    width: 100%;
+    box-sizing: border-box;
+
+    padding-inline: clamp(1.5rem, 8vw, 8rem);
+    padding-bottom: 2rem;
+
     animation: heroReveal 3.3s cubic-bezier(.22, .61, .36, 1) forwards;
     transition: transform 0.45s ease, filter 0.45s ease;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 2rem;
-    padding-bottom: 2%;
 }
 
-/* TÍTULO */
+
+/* ============================= */
+/* TÍTULO                        */
+/* ============================= */
 
 .tittle-section {
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
+
     gap: 1rem;
     text-align: center;
+
     padding-top: 2rem;
 }
 
@@ -31,41 +44,71 @@
     color: var(--9);
     text-transform: uppercase;
 }
+
 .tittle {
-    font-size: clamp(2rem, 1.4vw, 2.8rem)!important;
-    color: var(--2)!important;
+    font-size: clamp(2rem, 1.4vw, 2.8rem) !important;
+    color: var(--2) !important;
 }
 
 .tittle-section p {
+    width: 100%;
     max-width: 600px;
+
     color: var(--4);
     line-height: 160%;
+
     padding-bottom: 30px;
 }
 
-/* CONTAINER */
+
+/* ============================= */
+/* CONTAINER DOS CARDS           */
+/* ============================= */
 
 .container-cards {
+    width: 100%;
+
     display: flex;
     justify-content: center;
+
     flex-wrap: wrap;
-    gap: 4rem;
-    width: 100%;
+
+    gap: clamp(1.5rem, 3vw, 4rem);
 }
 
-/* CARD */
+
+/* ============================= */
+/* CARD                          */
+/* ============================= */
 
 .card-servico {
+    min-width: 0;
+
     color: var(--9);
     background: var(--2);
+
     display: flex;
     flex-direction: column;
+
     gap: 1.2rem;
+
     border-radius: 18px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    flex: 1 1 300px;
     border: 2px solid var(--4);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    /*
+       Permite os cards se ajustarem
+       melhor ao tamanho da tela.
+    */
+    flex: 1 1 280px;
+    max-width: 420px;
+
+    overflow: hidden;
 }
 
 .card-servico:hover {
@@ -73,49 +116,75 @@
 }
 
 
-/* IMAGE CARDS */
+/* ============================= */
+/* IMAGEM DOS CARDS              */
+/* ============================= */
 
 .card-image {
-    border-radius: 10px;
+    width: 100%;
     overflow: hidden;
-    
 }
 
-.card-image img{
+.card-image img {
     width: 100%;
-    height: 100%;
-    max-height: 220px;
+    height: 220px;
+
+    display: block;
+
     object-position: top;
     object-fit: cover;
+
+    border-radius: 16px 16px 0 0;
+
     transition: transform 0.3s ease;
-    border-radius: 18px 18px 0px 0px;
+}
+
+.card-servico:hover .card-image img {
+    transform: scale(1.03);
 }
 
 
-/* CONTAINER BOTOOM */
+/* ============================= */
+/* CONTAINER BOTTOM              */
+/* ============================= */
 
-.container-bottom{
+.container-bottom {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 0rem 1rem 1rem 0rem;
+
+    gap: 1rem;
+
+    padding: 0 1rem 1rem 0;
 }
 
-/* TEXTOS CARDS */
 
-.info-text-card{
+/* ============================= */
+/* TEXTOS DOS CARDS              */
+/* ============================= */
+
+.info-text-card {
     padding: 0 1rem;
-}
-.card-btn{
-    background: var(--6)!important;
 
+    min-width: 0;
 }
+
+.card-btn {
+    background: var(--6) !important;
+}
+
 .descricao-card {
     max-height: none;
     overflow: visible;
+
     margin-top: 10px;
+
     font-size: 1rem;
     font-weight: 600;
+
+    line-height: 1.5;
 }
+
 
 /* =========================================
    MODAL PORTFÓLIO
@@ -124,6 +193,11 @@
 .portfolio-modal-overlay {
     position: fixed;
     inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    box-sizing: border-box;
 
     background: rgba(10, 25, 34, 0.75);
     backdrop-filter: blur(8px);
@@ -137,13 +211,20 @@
     z-index: 9999;
 
     animation: modalOverlay 0.3s ease;
+
+    overflow-y: auto;
 }
 
+
+/* ============================= */
+/* MODAL                         */
+/* ============================= */
 
 .portfolio-modal {
     position: relative;
 
     width: min(100%, 1000px);
+
     max-height: 90vh;
 
     background: white;
@@ -151,6 +232,7 @@
     border-radius: 22px;
 
     overflow-y: auto;
+    overflow-x: hidden;
 
     display: flex;
     flex-direction: column;
@@ -187,7 +269,7 @@
 
     cursor: pointer;
 
-    z-index: 2;
+    z-index: 10;
 
     font-size: 1rem;
 
@@ -201,27 +283,33 @@
 
 
 /* =========================================
-   IMAGEM
+   IMAGEM DO MODAL
 ========================================= */
 
 .portfolio-modal-image {
     width: 100%;
+
     overflow: hidden;
+
     display: flex;
     align-items: flex-start;
     justify-content: center;
+
+    flex-shrink: 0;
 }
 
 .portfolio-modal-image img {
     width: 100%;
     height: auto;
+
     display: block;
+
     object-fit: contain;
 }
 
 
 /* =========================================
-   CONTEÚDO
+   CONTEÚDO DO MODAL
 ========================================= */
 
 .portfolio-modal-content {
@@ -230,8 +318,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
 
+    box-sizing: border-box;
+}
 
 .portfolio-modal-label {
     font-size: 0.75rem;
@@ -244,7 +333,6 @@
     margin-bottom: 0.7rem;
 }
 
-
 .portfolio-modal-content h2 {
     font-size: clamp(1.8rem, 3vw, 2.7rem);
 
@@ -252,7 +340,6 @@
 
     margin-bottom: 1rem;
 }
-
 
 .portfolio-modal-description {
     color: var(--5);
@@ -276,11 +363,12 @@
     margin-bottom: 2rem;
 }
 
-
 .portfolio-modal-features span {
     font-size: 0.9rem;
 
     color: var(--9);
+
+    line-height: 1.5;
 }
 
 
@@ -290,9 +378,12 @@
 
 .portfolio-modal-link {
     width: fit-content;
+    max-width: 100%;
 
     display: flex;
     align-items: center;
+    justify-content: center;
+
     gap: 0.7rem;
 
     padding: 0.9rem 1.4rem;
@@ -309,7 +400,6 @@
     transition: 0.3s ease;
 }
 
-
 .portfolio-modal-link:hover {
     transform: translateY(-3px);
 }
@@ -320,7 +410,6 @@
 ========================================= */
 
 @keyframes modalOverlay {
-
     from {
         opacity: 0;
     }
@@ -328,12 +417,9 @@
     to {
         opacity: 1;
     }
-
 }
 
-
 @keyframes modalEntrada {
-
     from {
         opacity: 0;
         transform: translateY(30px) scale(0.96);
@@ -343,48 +429,300 @@
         opacity: 1;
         transform: translateY(0) scale(1);
     }
-
 }
 
 
 /* =========================================
-   RESPONSIVO
+   📱 TABLET
+   769px — 1024px
+========================================= */
+
+@media (max-width: 1024px) {
+
+    .servicos {
+        padding-inline: 3rem;
+    }
+
+    .container-cards {
+        gap: 2rem;
+    }
+
+    .card-servico {
+        flex: 1 1 300px;
+        max-width: 380px;
+    }
+
+    .card-image img {
+        height: 200px;
+    }
+
+    .portfolio-modal {
+        width: min(100%, 850px);
+    }
+
+    .portfolio-modal-content {
+        padding: 2.5rem 2rem;
+    }
+}
+
+
+/* =========================================
+   📱 CELULAR / TABLET PEQUENO
+   Até 768px
 ========================================= */
 
 @media (max-width: 768px) {
+
+    .servicos {
+        padding-inline: 1.5rem;
+        padding-bottom: 1.5rem;
+
+        gap: 1.5rem;
+    }
+
+
+    /* TÍTULO */
+
+    .tittle-section {
+        padding-top: 1rem;
+        gap: 0.7rem;
+    }
+
+    .tittle-section h1,
+    .tittle {
+        font-size: clamp(1.7rem, 6vw, 2.2rem) !important;
+    }
+
+    .tittle-section p {
+        max-width: 500px;
+
+        font-size: 0.95rem;
+
+        padding-bottom: 15px;
+    }
+
+
+    /* CARDS */
+
+    .container-cards {
+        width: 100%;
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: 1.5rem;
+    }
+
+    .card-servico {
+        width: 100%;
+        max-width: 500px;
+
+        flex: none;
+    }
+
+    .card-image img {
+        height: 230px;
+    }
+
+
+    /* MODAL */
 
     .portfolio-modal-overlay {
         padding: 1rem;
     }
 
     .portfolio-modal {
-
-        grid-template-columns: 1fr;
-
+        width: 100%;
         max-height: 92vh;
 
+        border-radius: 18px;
     }
-
 
     .portfolio-modal-image {
-
-        height: 280px;
-        min-height: 280px;
-
+        height: auto;
+        min-height: 0;
     }
 
+    .portfolio-modal-image img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
 
     .portfolio-modal-content {
-
         padding: 2rem 1.5rem;
-
     }
-
 
     .portfolio-modal-content h2 {
-
         font-size: 1.8rem;
-
     }
 
+    .portfolio-modal-description {
+        font-size: 0.95rem;
+    }
+
+    .portfolio-modal-close {
+        top: 10px;
+        right: 10px;
+
+        width: 36px;
+        height: 36px;
+    }
+}
+
+
+/* =========================================
+   📱 CELULAR PEQUENO
+   Até 480px
+========================================= */
+
+@media (max-width: 480px) {
+
+    .servicos {
+        padding-inline: 1rem;
+        padding-bottom: 1rem;
+    }
+
+
+    /* TÍTULO */
+
+    .tittle-section {
+        padding-top: 0.5rem;
+    }
+
+    .tittle-section h1,
+    .tittle {
+        font-size: 1.6rem !important;
+    }
+
+    .tittle-section p {
+        font-size: 0.9rem;
+
+        line-height: 1.5;
+
+        padding-bottom: 10px;
+    }
+
+
+    /* CARD */
+
+    .container-cards {
+        gap: 1.2rem;
+    }
+
+    .card-servico {
+        width: 100%;
+
+        border-radius: 14px;
+    }
+
+    .card-image img {
+        height: 190px;
+
+        border-radius: 12px 12px 0 0;
+    }
+
+    .descricao-card {
+        font-size: 0.9rem;
+    }
+
+
+    /* BOTTOM */
+
+    .container-bottom {
+        padding: 0 0.8rem 0.8rem 0;
+
+        gap: 0.5rem;
+    }
+
+
+    /* MODAL */
+
+    .portfolio-modal-overlay {
+        padding: 0.5rem;
+    }
+
+    .portfolio-modal {
+        max-height: 95vh;
+
+        border-radius: 15px;
+    }
+
+    .portfolio-modal-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .portfolio-modal-content h2 {
+        font-size: 1.5rem;
+
+        margin-bottom: 0.8rem;
+    }
+
+    .portfolio-modal-description {
+        font-size: 0.9rem;
+
+        line-height: 1.6;
+    }
+
+    .portfolio-modal-features {
+        gap: 0.5rem;
+
+        margin-bottom: 1.5rem;
+    }
+
+    .portfolio-modal-features span {
+        font-size: 0.85rem;
+    }
+
+    .portfolio-modal-link {
+        width: 100%;
+
+        padding: 0.8rem 1rem;
+
+        font-size: 0.9rem;
+    }
+
+    .portfolio-modal-close {
+        width: 34px;
+        height: 34px;
+
+        top: 8px;
+        right: 8px;
+    }
+}
+
+
+/* =========================================
+   📱 CELULAR MUITO PEQUENO
+   Até 360px
+========================================= */
+
+@media (max-width: 360px) {
+
+    .servicos {
+        padding-inline: 0.7rem;
+    }
+
+    .tittle-section h1,
+    .tittle {
+        font-size: 1.45rem !important;
+    }
+
+    .tittle-section p {
+        font-size: 0.85rem;
+    }
+
+    .card-image img {
+        height: 170px;
+    }
+
+    .portfolio-modal-content {
+        padding: 1.3rem 0.9rem;
+    }
+
+    .portfolio-modal-content h2 {
+        font-size: 1.35rem;
+    }
 }
